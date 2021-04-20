@@ -1,0 +1,16 @@
+text:I'm a little nervous but we can start the interview now.	labels:Are you considering any other jobs?
+text:Yes, I have applied to several other positions and I'm considering them as well. We may not be able to let you know about this position until next week.	labels:Are you still interested?
+text:Yes, I'm still very interested.	labels:Okay, we'll be in touch by next week.	episode_done:True
+text: 	labels:Do you want to ask anything else?
+text:And can I also asked, please, what's frustrated you about people who've held this position in the past?	labels:Yeah, that's an excellent question. So as a company, we look for people that have a willingness to learn and a drive to move forward. As Andy mentioned, we're expanding our operations at the moment. And so having that drive and willingness to learn is really important to us. Unfortunately, previous employees in the role have lacked that ambition and drive to move forward. So that's what we're looking for in the ideal candidate for this role.
+text:And I know I would say this, but I'm very enthusiastic and ambitious. So I believe that I can bridge that gap for sure. Just one final question. If I am successful, what would you need me to concentrate on within the first 30 days of starting in the position?	labels:Yeah, it's important for us that you get into a position where you can really help us achieve those goals as quick as you can, we really do to get up to speed as quick as possible. As Andy said, we've got those really massive goals that we're aiming for. So we need you to get in a position where you'll be comfortable, and you can help us drive towards those goals.	episode_done:True
+text:Thanks for having me!	labels:I see you're applying for a new project manager.  Can you tell me a little bit about yourself, Kelsey.
+text:Well, I'm a recent graduate of Penn State University. I went to Western High School. I've been in the Scranton area my entire life. I currently do live with my parents. They're loving cooperative people. So I don't mind.	labels:I'm actually a Penn State graduate as well. Um, can you tell me what your greatest strength is Kelsey?	episode_done:True
+text:I'm a little nervous but we can start the interview now.	labels:What makes you fit well as a chasier?
+text:I am friendly, I like to help people and I am quick at making simple calculations.	labels:Is there anything related to being a chasier that you are not so good at?episode_done:True
+text: 	labels:What did your last employer like most about you?
+text:They liked that I was very organized in my work, positive, and reliable.	labels:Do you take pride in being organized in your work?episode_done:True
+text:I'm excited about this interview.	labels:What makes you a good fit?
+text:I am also a mother. I know what new moms would like to buy in our store.	labels:How many children do you have?episode_done:True
+text: 	labels:Is there anything you want to ask about this job?
+text:I wonder what the pay is?	labels:We pay 25.000 SEK each month. If you work overtime, you will get compensated for that as well.episode_done:True

@@ -1,0 +1,149 @@
+text:I'm a little nervous but we can start the interview now.	labels:What is your best experience from your previous jobs?
+text:Their trucks are always in good condition and undergo regular maintenance.	labels:What brand manufacturer of trucks had you driven before?episode_done:True
+text:Thanks for having me!	labels:Do you have any questions for me?
+text:Yeah, actually. So how does this process work? I've never worked with a recruiter before.	labels:Great. So basically, you know, I think it's a little bit confusing, depending on what clients that you know, you're interviewing for what recruiting agency you're working with, but specifically on our clients come to us, and we go out directly sourcing for them. I do think that, you know, what we can do is awesome new job descriptions as we get them and you need to go ahead and produce things that it's something that you're interested in. If so, then we can hop on a call and just kind of go through all the different bullets, and what they're specifically looking for that way I can give them concrete examples on what you've already come, you know, done.	episode_done:True
+text: 	labels:What is your best experience from your previous jobs?
+text:Talking to new clients.	labels:Where were your clients from?episode_done:True
+text:Thanks for having me!	labels:What makes you a good fit?
+text:I'm good at what I do, since I've had a lot of practice.	labels:So you have experience! Can you tell me a little about your earlier practice?
+text:Yes! I've worked on both cars and motorcycles, as well as trucks, but I'm mainly a car mechanic.	labels:Do you have experience with the newer versions of electric cars?	episode_done:True
+text: 	labels:You have applied for the job as baker. What do you think is interesting about this work?
+text:I think it is interesting to learn locally baked French pastries.	labels:What pastries have you baked in the past?episode_done:True
+text:I'm a little nervous but we can start the interview now.	labels:What makes you a good fit?
+text:I have a lot of experience driving big and small trucks.	labels:What is your favourite truck to drive?
+text:It is a big Volvo truck, because they are the fastest.	labels:That sounds a bit dangerous. Are you a safe driver?	episode_done:True
+text:Thanks for having me!	labels:Do you have any questions about the job?
+text:Not really, I am very interested to get started!	labels:Great, we will get in touch once we have interviewed all the applicants.episode_done:True
+text:I'm a little nervous but we can start the interview now.	labels:If you are going to work in the healthcare industry, it is good if you have experience from working with others. Can you tell me a little if you have such experience?
+text:When I worked as a medical receptionist, I had a team of colleagues and we had a great collaboration.	labels:What did you collaborate about with your colleagues?episode_done:True
+text:Thanks for having me!	labels:You have applied for the job as a healthcare worker. What do you think is interesting about this work?
+text:There are several things that are interesting with the healthcare industry. I think that the money that can be made is what is most appealing to me.	labels:What do you think about helping other people?
+text:That is important too.	labels:But you care more about making money than helping people?	episode_done:True
+text:Thanks for having me!	labels:Can you tell me something about yourself?episode_done:True
+text:I'm excited about this interview.	labels:Is there anything you want to ask about this job?
+text:Am I gonna be required to use different types of machinery?	labels:I don't think I understand the question. Can you word it differently?
+text:I mean am I gonna have to use equipment, maybe for lifting?	labels:Do you mean equipments such as forklifts, cranes and pallet jacks?	episode_done:True
+text:I'm a little nervous but we can start the interview now.	labels:Okay, and can you tell me what you feel your greatest strength is?
+text:my greatest strength would probably have to be my attention to detail. I'm really like a big perfectionist, every little thing matters.	labels:Okay. And what's your greatest weakness?	episode_done:True
+text:Thanks for having me!	labels:Okay, if you stepped in, if I offered you the job, and you stepped into the job, nine o'clock next morning, next Monday morning. I said, sit down. Juliana, what five questions do you have for me about this bank, this bank? What would your questions be for me? I am your manager?
+text:I might show you what you expect from me, in terms in the training time, why do you expect from me and the last one? You if I will be if you will be able to provide me if I can grow in that company.	labels:Excellent. Good questions. Very good. So now that you have the answers for all that, you got to tell me, what do you do in case of emergency. And we're still mercial, because I can't sit here learning a trade, but I have to go through it. We're going to change roles. Okay, you're going to be B? And I want you to answer this question. Why would I choose you? versus the reason why?	episode_done:True
+text: 	labels:You have applied for the job as a healthcare worker. What do you think is interesting about this work?
+text:I like caring for people. I had done volunteer works before in remote locations that lacked healthcare providers.	labels:What is your job position while doing volunteer works?episode_done:True
+text:I'm a little nervous but we can start the interview now.	labels:What made you apply to this particular job?
+text:I always liked to work with sales as I consider myself good at dealing with people.	labels:Great. Tell me more about your experience of working with sales and people relations.
+text:I worked for 5 years at an Office Supply company with internal and external sales.	labels:What were your responsibilites at this company?episode_done:True
+text:I'm a little nervous but we can start the interview now.	labels:Are you able to work different shifts?
+text:Yes, I do not mind working different shifts on different days.	labels:Do you have any experience from working different shifts?episode_done:True
+text: 	labels:You have applied for the job as a retail worker. What do you think is interesting about this job?
+text:I like to sell stuff. It makes me happy.	labels:What type of stuff do you like to sell?
+text:Anything that you can imagine. Clothes, food, design stuff. I like it all.	labels:Do you have any previous experience selling all that stuff?	episode_done:True
+text:I'm a little nervous but we can start the interview now.	labels:Is there anything you want to ask about this job?
+text:When can I start?	labels:We are going through candidates but we hope that that the person we choose can start at the beginning of next month.episode_done:True
+text:I'm excited about this interview.	labels:Alright, last thing I want us to describe your describe your work style. Tell me the type of work You're what I can expect if you're hired for this job, how I expect your work ethic and how you interact with other employees and supervisors,
+text:our thick I work pretty well with others at a fast pace. And what was the other question?	labels:Just tell me why you would interact with supervisors.
+text:I mean, I think I'd get along with everybody fine and work pretty well.	labels:What you do if you don't agree with something they asked you to do?	episode_done:True
+text:I'm a little nervous but we can start the interview now.	labels:What makes you a good fit?
+text:Cars are my passion, and I like to do physical work. I am also eager to learn more about cars.	labels:How long have you worked with cars?episode_done:True
+text:I'm a little nervous but we can start the interview now.	labels:You have applied for the job as a truck driver. What do you think is interesting about this job?
+text:I like to drive trucks. I like the solitude.	labels:Okay and for how long ahve you had your truck license?
+text:Fifteen years now.	labels:Why are you looking for new work?	episode_done:True
+text:I'm excited about this interview.	labels:You have applied for the job as a truck driver. What do you think is interesting about this job?
+text:Driving big trucks.	labels:Our trucks are quite small, what do you think about that?
+text:I would like to drive big trucks, but small trucks are fine as well.	labels:What is the biggest truck that you have driven before?	episode_done:True
+text:Thanks for having me!	labels:If you are going to work in our shop, it is good if you have experience from working with others. Can you tell me a little if you have such experience?
+text:Yes. In my past job, our store manager encourages us to cooperate. In that way, our customers can have a smoother transaction.	labels:How do you cooperate?episode_done:True
+text:I'm a little nervous but we can start the interview now.	labels:Is there anything you want to ask about this job?
+text:Do you have insurance for your workers in case we get hurt while working?	labels:We have great insurance coverage but we also have a lot of training so that our workers won't get hurt. Do you have any previous safety training?
+text:Yes. I have taken several courses in terms of safety training.	labels:At this company, we offer courses in safety training every year. Does that sound good to you?	episode_done:True
+text:I'm a little nervous but we can start the interview now.	labels:Okay, so that's getting the word of you didn't you didn't answer the question as to how you would set up everything. Where would you do it? What's the location?
+text:department? store.gov? That's the best thing.	labels:But where? Any particular place?
+text:No, our store?	labels:Yeah, you said your store. But we're in the perfume department. special area,episode_done:True
+text: 	labels:Can you tell me about your past work history please?
+text:Yes. When I was studying at university, I volunteered at my local hospital. After I graduated, I worked at St Andrew's hospital for about three years as a nurse. After that, I worked in hospital administration with the Red Cross. And I've been there until now.	labels:Have you ever been promoted?	episode_done:True
+text:I'm excited about this interview.	labels:So what did you find challenging about the job.
+text:Customer service is always a challenging route, especially in retail. I've done it for since I got out of high school almost 10 years now. So I have a very thick skin for unreasonable customers and things like That you're going to run into it. So probably just everyday challenges, having to mediate different conflicts with people when they get upset, just things like that. Other than that, this industry is a pretty good fit for me, it flows pretty well, for the most part. Okay. So just day to day things.	labels:Yeah, definitely. I'm, I can totally relate. I've been there, you know, Ben at the point where you have to deal with some of those customers. Yes, exactly. So what ways that have you collaborated in your job or during your time and older with like your co workers or managers to work together more efficiently?	episode_done:True
+text:I'm excited about this interview.	labels:And where did you see this job posted?
+text:I actually saw it in the work in Texas database, I've matched up to it in my profile.	labels:Great. That's very exciting. Well, thank you for being here today. Tell me if you would a little bit about your human resource background.	episode_done:True
+text:I'm excited about this interview.	labels:If you are going to work in our warehouse, it is good if you have experience from working with others. Can you tell me a little if you have such experience?
+text:Yes. I am a part of a warehouse team.	labels:What is your duty as part of your team?episode_done:True
+text:I'm a little nervous but we can start the interview now.	labels:Is there anything you want to ask about this job?
+text:When can I start if I get the job?	labels:You can start in one month if you get the job. Anything else?
+text:Do you like working here?	labels:Yes I like working here. I started last year and I like the company. Anything else?	episode_done:True
+text: 	labels:What makes you a good fit?
+text:I have previously worked in healthcare and also helped out my mother who was home sick for 3 years.	labels:For how many years did you work in healthcare?
+text:I worked in healthcare for 2 years.	labels:What did you work with in the healthcare sector?	episode_done:True
+text:I'm excited about this interview.	labels:What is your best experience from your previous jobs?
+text:I once had the oppurtunity to work as a pizza baker. I learned a lot about different types of ovens.	labels:What makes it your favorite experience other than that you learned about ovens?
+text:It was one of the first times I got to encounter such positive costumers.	labels:Did you ever have to handle situations where the costumers weren't very nice? Rude even?	episode_done:True
+text:I'm a little nervous but we can start the interview now.	labels:tell me a little bit about yourself?
+text:I actually just recently graduated from Penn State this past spring. I have a bachelor's in English and fashion merchandise.	labels:Oh, that's, that's wonderful. Okay, and can you tell me what you feel your greatest strength is?	episode_done:True
+text:I'm a little nervous but we can start the interview now.	labels:Why do you think that our company should hire you specifically amongst our pool of candidates that are interviewing for this position?
+text:I think one skill set that I have involves my background and education teachers are among the highest stress professionals in the workplace. And Rei offers a number of products that help alleviate stress by getting people outdoors. And teachers also have a lot of downtime in the summers. My thinking is that once I learned the ropes and advanced within the company, I'll be able to market the services and products that Rei offers, specifically to the teaching profession.	labels:I have to ask this question, given that you are making a career change here, especially with finishing a master's degree in education. If a position becomes available in your current field down here in the Jacksonville area, how do you approach being offered this job versus being offered a position in your field? And I'm asking that in the now and in the future?
+text:That's a great question. I'm not pursuing further educational opportunities within that profession. I feel like this customer service opportunity, the chance to work in a field that I enjoy as much as teaching is a place that I could grow into long term. So what I get out of teaching is working with people, and helping people become a little bit better than they were when I first met them. And that skill translates very well into our eyes mission. And so I don't anticipate leaving a successful career for something I've already done. I feel like this is a natural confluence of my two interests.	labels:Chris, what would you identify as your greatest professional strengths?	episode_done:True
+text:I'm a little nervous but we can start the interview now.	labels:Is there anything you want to ask about this job?
+text:Am I going to work on a contract basis?	labels:Yes. You will sign-up for at least one year of the work contract agreement.episode_done:True
+text:I'm a little nervous but we can start the interview now.	labels:How do you handle stressful situations?
+text:I handle them professionally and patiently. I have had experience with stressful situations at work. Always try to prepare myself before the stressful situations happen. Then if they happen, I can handle them without any trouble.	labels:Can you give me an example?	episode_done:True
+text:I'm a little nervous but we can start the interview now.	labels:If you are going to work in our warehouse, it is good if you have experience from working with others. Can you tell me a little if you have such experience?
+text:I do, I like to workout with my friends.	labels:But that is not really work is it. Do you have any experience working with other employees?
+text:Yes, I was once employeed at a local gym. And I have several colleagues.	labels:I see, what did you do at the gym?	episode_done:True
+text: 	labels:So as an assistant bank manager, give me an example of how you would deal with a customer who's very angry. You can give me You can tell me more details if you want, why are they angry? And what would you say to them? How would you deal with them?
+text:Actually, I have no example. Then when I was working on Main troubles there for a month or two months, I don't remember exactly. I was new. So one day, I had our customer, he came to me yelling, really angry, because I'm hoping that he had his account. And at that time, because because alcohol was in his account, and that time, I didn't know if I should call my manager of Should I handle that situation myself. And I decided to handle that situation by myself. And I started shoes, my communication skill, talking really slow, how I tried to calm down a client to make sure him that everything was going to be fine. I was going to solve his problem. And in the end, I could solve his problem. And he left the bank. I have not really have a purse because he was angry, but I could solve his problem.	labels:Tell me about a time when you show that you fit well into a team. It's worked well with other people and got good results because you worked well with them.	episode_done:True
+text:I'm excited about this interview.	labels:Do you work well under pressure?
+text:Usually, I don't panic and manage to maintain self control. There were many tight deadlines and stressful situations at my previous jobs. I always put in extra hours and did my best in meeting the needs of the clients. I've always delivered high quality work and respected my deadlines.	labels:Interesting. Can you tell me about a recent accomplishment or success you had?
+text:I was part of the team that built the Lewis kitchen app. With this app, it's easy to order your favorites even when you're on the go. I love creating something that people can interact with and enjoy.	labels:That's quite impressive, I must admit.	episode_done:True
+text:I'm excited about this interview.	labels:What is your best experience from your previous jobs?
+text:I had a great job when I lived in Stockholm temporarily. It was an organizational project where I got to reorganise an entire store and change the interior design.	labels:How long did you work there?
+text:It was only a six month project employment. I moved there with my partner because she had a temporary project there as well.	labels:And when did you move back here?	episode_done:True
+text: 	labels:Is there anything you want to ask about this job?
+text:How long are the work days?	labels:You start at eight in the morning and finish at half past four in the afternoon. Would you like to ask anything else?episode_done:True
+text:Thanks for having me!	labels:You have applied for the job as a healthcare worker. What do you think is interesting about this work?
+text:As a person I see myself as a care-giver and I have a genuine interest in sharing compassion to people in the world.	labels:Could you give an example of situations in your life where you are acting as a care-giver today?
+text:My mother in law is sick and I am helping her several days a week by helping her with her personal hygiene and provide her with medicine.	labels:Do you have any education in terms of medicine?	episode_done:True
+text:I'm a little nervous but we can start the interview now.	labels:Is there anything you want to ask about this job?
+text:Yes! What are the work hours?	labels:You are expected to work eight hours each day between Monday and Friday.
+text:Can I choose when I show up to work?	labels:No you cannot. You need to be here at the lastest at eight in the morning.	episode_done:True
+text: 	labels:You have applied for the job as baker. What do you think is interesting about this work?
+text:Baking is my passion.	labels:That sounds good. Could you expand on that?
+text:Sure! I like to bake and I do it every week. I like to experiment with different recipes.	labels:How do you come up with a new recipy for baking?	episode_done:True
+text:Thanks for having me!	labels:So how do you see yourself I guess is what I want to know, using what you learn in communication, which I can already see it being applicable. How would you see yourself using what you learned in this field?
+text:Yeah, I'm a huge people person, I can talk to anyone. I'm not shy, I have no problem making friends. I'm definitely one of those people that can talk to anybody. So everything I've learned there, my communication major has applied to all of my retail jobs, all of my customer service jobs, just makes it very organic for me to be able to converse with other people on a daily basis. So it really does come in handy.	labels:Okay, yeah, that will definitely be useful here. And you're constantly dealing with clients and trying to build rapport with customers. So they become return customers and repeat customers. So that's awesome. I'm glad to hear that. And I guess you also put on your resume that you're very excited to put your leadership skills to the test, which I liked. Yeah. And no, I just want you to maybe elaborate a little bit on what your leadership skills are like what you've done in the past like to lead people.	episode_done:True
+text:Thanks for having me!	labels:What is your best experience from your previous jobs?
+text:In my previous jobs I found it very rewarding to work close to the customer.	labels:Would you be interested in working close to the customer in this job?
+text:Yes. I feel I can help in sales as well.	labels:It is always interesting in improving our sales. Do you have any experience in terms of sales as well?	episode_done:True
+text:I'm a little nervous but we can start the interview now.	labels:What makes you a good fit?
+text:As I mentioned earlier I really enjoy taking care of others and I have been since I was young. I have this very strong, nurturing side of me, and have always had that.	labels:I see, can you tell me about how this nurturing side displays itself in you or your actions?
+text:Of course. I often bend over backwards to make my patients feel at home and I really enjoy going the extra mile. For example, I once bought a child patient a teddy bear, so that she would feel more comfortable.	labels:That was very sweet of you, how did the child react?	episode_done:True
+text: 	labels:What makes you a good fit?
+text:I have worked as a car mechanic for 10 years. Me and my girlfriend want to move in together and I need a new job in the city.	labels:I understand! Do you enjoy working with cars?
+text:Yes, I own 3 cars which I usually work on in my spare time.	labels:Do you have taken any official tests to become a car mechanic?	episode_done:True
+text:I'm excited about this interview.	labels:And what about your greatest weakness?
+text:This could be my experience. I've only worked full time for two years now. I think I need more experience.	labels:What's your greatest strength?
+text:I think my greatest strength is my creativity. Sometimes my boss would ask my advice on a project because of my creativity.	labels:Can you give me an example?	episode_done:True
+text:Thanks for having me!	labels:You have applied for the job as car mechanic. What do you think is interesting about this work?
+text:I'm passionate about cars. It's interesting to know that I can help people to save their cars.	labels:What are you most experienced in cars, the electric-powered or gasoline-powered?episode_done:True
+text: 	labels:How did you hear about the position open with our company here at Rei?
+text:Well, when I thought about the opportunity of changing locations, and moving from one physical location to another, I thought about making a career move as well. And I was starting with my main interests and passions, and I love being outside, I love doing outdoor activities. And I love working with people. And I thought if I could use my experience as a teacher, helping people and my interest in the outdoors together, that would be a good place to start a new career. And when I was looking online, I found Rei is website and that there were positions available in the Jacksonville area. So I thought I would apply.	labels:Great, well, you say you have an interest in outdoor activity activities. So this would be a great company for you to work at. That being said, what else do you know about our company?	episode_done:True
+text:I'm a little nervous but we can start the interview now.	labels:You have applied for the job as a retail worker. What do you think is interesting about this job?
+text:There's a lot of oppurtunities to interact with people.	labels:It sounds like you're a people person. Would you agree with that statement?
+text:Absolutely, I've always loved helping others.	labels:Have you had any other jobs where you got to interact with costumers?	episode_done:True
+text:I'm excited about this interview.	labels:What makes you a good fit?
+text:I have both an education and relevant experience working in the health care industry.	labels:What is the relevant experience or education for working in the healthcare industry that you have?episode_done:True
+text: 	labels:Is there anything you want to ask about this job?
+text:When can I start?	labels:We are looking to employ a new baker by the end of the month! Does this work for you?
+text:Yeah, thats fine.	labels:We'll get in touch when we have made a decision!	episode_done:True
+text:Thanks for having me!	labels:What is your best experience from your previous jobs?
+text:I loved working as a dog walker when I was younger.	labels:Why was that one of your favorite experiences?
+text:I simply adore dogs. They're my favorite animal and working with them was a dream come true.	labels:Do you own a dog yourself?	episode_done:True
+text:Thanks for having me!	labels:Wonderful, wonderful. Um, is there any particular area of the law that you really want to stay away from?
+text:I used to say, criminal law, but then I started doing expungements. And I realized that it's this mesh of civil and criminal and so, you know, I ended up doing it anyway, I actually avoided taking a criminal law class. I, but here I am. So I don't think that there's really any area of law that I would say I want to stay away from, but I do understand the need to specialize my skills and and so I become an expert in a certain area, or at least a few, you know, maybe a few areas. So that's what I would like to do is find a few niche areas of law that I can really dig in and become a valuable asset to the team.	labels:Excellent. And if we called a previous employer, how do you think they would describe you?
+text:I would say, a very loyal, reliable and positive, I never left a mess for anyone to clean up. Whenever I went from one job to another one, I've always given full notice. And, you know, communicated with my employers that my reasons for wanting to change jobs and, you know, helps to transition in any way possible, you know, helping to even recommend replacements for my position. So I think that they would say great things about me as an employee.	labels:Okay, excellent. Now, I always ask a, kind of a two part question. So and you kind of answered this already, but I'll just ask it. Um, you know, that most time people come seeking legal advice when they don't, it's wrong in their life. I mean, there's very, very few areas, a lot of the people just stopped by to say, hi. And with that being said, sometimes that, you know, stress can be high, how would you handle a situation, if a client came into the office and, you know, right or wrong, you're probably the first person they're going to see their main contact, and say, they're rude to you.	episode_done:True
+text: 	labels:What makes you a good fit?
+text:I've had my liscense for over 20 year and I'm a good driver.	labels:Have you gotten any tickets for speeding, or just tickets in general in these 20 years as a driver?
+text:I think I got like one speeding ticket when I was younger.	labels:How old were you when you got the ticket?	episode_done:True
+text:I'm excited about this interview.	labels:Okay, so tell me a little bit about yourself, Juliana.
+text:So, my name is Juliana. I graduated in 2009. My major is in Business Administration. I have experience working as a financial assistant, and also in a banking industry. I'm really organized it. Especially in the workplace, I like to keep things organized. So if I had to find something really quickly, it's easier. Also, I like to work with people helping people I like to work with numbers. And I really like to work in groups or in teams so I can share and learn new things.	labels:Your English pronunciation is excellent.episode_done:True
+text:I'm a little nervous but we can start the interview now.	labels:So we'll just jump right in. Thanks for bringing a copy of your resume. I actually had a chance to review it. So I want to ask you a couple questions, if you don't mind. So first thing is it looks like you were in a temporary role with YouTube, correct?
+text:Yes.	labels:How was your position there? What did what were you doing day to day? What were the things you were pushing?	episode_done:True
+text:Thanks for having me!	labels:You have applied for the job as a Taxi Driver. What makes you interested in working for our company?
+text:I am interested in working for your company because I have heard many great things about it.	labels:Great! What have you heard about our company?episode_done:True
