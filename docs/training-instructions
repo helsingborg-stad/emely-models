@@ -10,4 +10,8 @@ Other options:
 --num-epochs 1000
 
 
+Model predictions on dataset
+parlai display_model --task fromfile:parlaiformat --fromfile-datapath data/SOMEFILE -mf model-runs/SOMEDIR/model --num-examples 20
+
+
 
