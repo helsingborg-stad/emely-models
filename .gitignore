@@ -153,5 +153,9 @@ Thumbs.db
 
 # End of https://www.toptal.com/developers/gitignore/api/python
 
+**/.idea
+# Start of specific repo ignores
+
 model-runs/*
 ParlAI/data/
+huggingface-models/*
