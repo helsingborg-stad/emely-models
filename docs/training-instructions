@@ -1,17 +1,35 @@
-Use this command to train:
+*** Use this command to train the UNFINETUNED small blender 90M:
 
-parlai train_model -t fromfile:parlaiformat --fromfile-datapath data/SOMEFILE -m transformer/generator --init-model zoo:tutorial_transformer_generator/model --dict-file zoo:tutorial_transformer_generator/model.dict --embedding-size 512 --n-layers 8 --ffn-size 2048 --dropout 0.1 --n-heads 16 --learn-positional-embeddings True --n-positions 512 --variant xlm --activation gelu --fp16 True --text-truncate 512 --label-truncate 128 --dict-tokenizer bpe --dict-lower True -lr 1e-06 --optimizer adamax --lr-scheduler reduceonplateau --gradient-clip 0.1 -veps 0.25 --betas 0.9,0.999 --update-freq 1 --attention-dropout 0.0 --relu-dropout 0.0 --skip-generation True -vp 15 -stim 60 -vme 20000 -bs 16 -vmt ppl -vmm min --save-after-valid True --model-file model-runs/SOMEDIR/model --metrics ppl,bleu-4,rouge-L --tensorboard-log True
+parlai train_model -t SOMETASKS -m transformer/generator --init-model zoo:tutorial_transformer_generator/model --dict-file zoo:tutorial_transformer_generator/model.dict --embedding-size 512 --n-layers 8 --ffn-size 2048 --dropout 0.1 --n-heads 16 --learn-positional-embeddings True --n-positions 512 --variant xlm --activation gelu --fp16 True --text-truncate 512 --label-truncate 128 --dict-tokenizer bpe --dict-lower True -lr 1e-06 --optimizer adamax --lr-scheduler reduceonplateau --gradient-clip 0.1 -veps 0.25 --betas 0.9,0.999 --update-freq 1 --attention-dropout 0.0 --relu-dropout 0.0 --skip-generation True -vp 15 -stim 60 -vme 20000 -bs 16 -vmt ppl -vmm min --save-after-valid True --metrics ppl,bleu-4,rouge-L --model-file model-runs/SOMEDIR/model
 
-obviously replace SOMEDIR and SOMEFILE
+- obviously replace SOMEDIR and SOMEFILE
 
 Other options:
 --dynamic-batching full
---fromfile-datatype-extension true
 --num-epochs 1000
+--multitask
+--skip-generation False allows using f1,accuracy as metrics 
+--wandb-log
+--tensorboard-log
+
+To use a plain textfile as dataset(instead of creating a parlai task)
+--task fromfile:parlaiformat --fromfile-datapath path/to/file
+	--fromfile-datatype-extension true (add this if theres a file_train.txt, file_valid.txt, file_test.txt)
 
 
-Model predictions on dataset
-parlai display_model --task fromfile:parlaiformat --fromfile-datapath data/SOMEFILE -mf model-runs/SOMEDIR/model --num-examples 20
+
+
+*** Fine tune a real blender 90_M
+
+parlai train_model -t SOMETASKS -m transformer/generator --init-model zoo:blender/blender_90M/model --dict-file zoo:blender/blender_90M/model.dict --embedding-size 512 --n-layers 8 --ffn-size 2048 --dropout 0.1 --n-heads 16 --learn-positional-embeddings True --n-positions 512 --variant xlm --activation gelu --fp16 True --text-truncate 512 --label-truncate 128 --dict-tokenizer bpe --dict-lower True -lr 1e-06 --optimizer adamax --lr-scheduler reduceonplateau --gradient-clip 0.1 -veps 0.25 --betas 0.9,0.999 --update-freq 1 --attention-dropout 0.0 --relu-dropout 0.0 --skip-generation True -vp 15 -stim 60 -vme 20000 -bs 16 -vmt ppl -vmm min --save-after-valid True --metrics ppl,bleu-4,rouge-L -wblog True --wandb-project EmelyModels --model-file model-runs/SOMEDIR/model
+
+** Fine tune blender 400M 
+parlai train_model -t SOMETASKS -m transformer/generator --init-model zoo:blender/blender_400Mdistill/model --dict-file zoo:blender/blender_400Mdistill/model.dict --dropout 0.1 --variant xlm --learn-positional-embeddings True --activation gelu --fp16 True --text-truncate 512 --label-truncate 128 --dict-tokenizer bpe --dict-lower True -lr 1e-06 --optimizer adamax --lr-scheduler reduceonplateau --gradient-clip 0.1 -veps 0.25 --betas 0.9,0.999 --update-freq 1 --attention-dropout 0.0 --relu-dropout 0.0 --skip-generation True -vp 15 -stim 60 -vme 20000 -bs 16 -vmt ppl -vmm min --save-after-valid True --metrics ppl,bleu-4,rouge-L --model-file model-runs/SOMEDIR/model
+
+
+
+*** Model predictions on dataset
+parlai display_model --task TASK -mf model-runs/SOMEDIR/model
 
 
 
