@@ -1,0 +1,91 @@
+text:What makes you a good fit?
+I have worked as a truck driver for 5 years and love it!	labels:Ok! You have some good experience that will come of use. Do you like the occupation?
+text:Yeah, I was born for this!	labels:have you had any other job besides truck driving?	episode_done:True
+text:Is there anything you want to ask about this job?
+Yes, I'm interested in knowing if you do repairs on vehicles other than cars?	labels:We do in fact to repairs on motorcycles as well as vans and trucks.
+text:That's good to know. I think that's all.	labels:Are you certain you don't have any more questions?	episode_done:True
+text:Do you have any past experience in working as a security guard?
+No, I do not have any past experience.	labels:What have you previously worked as?	episode_done:True
+text:Is there anything you want to ask about this job?
+What are the clinic hours?	labels:We serve people for eight hours 7 AM to 4 PM.	episode_done:True
+text:You have applied for the job as construction worker. What do you think seems fun about this job?
+In general, I like to build things. Being a part of that process really makes me want to perform.	labels:Have you have any other experince in construction?	episode_done:True
+text:Is there anything you want to ask about this job?
+What are the overtime compensations?	labels:Overtime is compensated with 120% of your regular salary. Do you have any other questions?
+text:Is that the standard in the industry?	labels:Yes it is.	episode_done:True
+text:If you are going to work in our car shop, it is good if you have experience from working with others. Can you tell me a little if you have such experience?
+Yes. For one vehicle , we are usually working with a team of two to three people.	labels:How many days does it usually take for one vehicle repair to finish?	episode_done:True
+text:If you are going to work in our warehouse, it is good if you have experience from working with others. Can you tell me a little if you have such experience?
+I do not have any experience like that. I have been self-employed my whole life.	labels:Did you have any other interactions with people when you were self-employed?
+text:I had a lot of customer interaction in that job.	labels:What do you find is the most imoportant in terms of interacting with a customer?	episode_done:True
+text:If you are going to work in the healthcare industry, it is good if you have experience from working with others. Can you tell me a little if you have such experience?
+When I worked as a medical receptionist, I had a team of colleagues and we had a great collaboration.	labels:What did you collaborate about with your colleagues?	episode_done:True
+text:If you are going to work in the healthcare industry, it is good if you have experience from working with others. Can you tell me a little if you have such experience?
+I used to do a lot of group assignments when I went to school. I always favored group assignments to working alone.	labels:Why do you think that is? Why do you prefer working with others instead of alone?
+text:I like being able to consult with my co-workers and help them when it is needed.	labels:You mention consulting with co-workers. How capable are you of decison making without supervision?	episode_done:True
+text:Are you able to work different shifts?
+Yes, I do not mind working different shifts on different days.	labels:Do you have any experience from working different shifts?	episode_done:True
+text:You have applied for the job as car mechanic. What do you think is interesting about this work?
+I love building and picking apart things. Thats why I became a car mechanic in the first place!	labels:So you like working with your hands?
+text:Yes, ever since I was a child I have always enjoyed working with my hands.	labels:What is your favotire car to work with?	episode_done:True
+text:If you are going to work at our cargo company, it is good if you have experience from working with others. Can you tell me a little if you have such experience?
+I usually drive trucks alone but I interact with people who receive the orders.	labels:What does a usual conversation like between you and the people who receive orders?	episode_done:True
+text:Whats your best experience from your previous jobs?
+I worked with a nice manager in my second job. It was great.	labels:What made your manager nice to work with?	episode_done:True
+text:Do you have any questions about this job?
+Yes, how many customers does a taxi driver get per day?	labels:It depends on the day and time of day. But between 15-20 customers per day.	episode_done:True
+text:What is your best experience from your previous jobs?
+When I see my patients recover from their mental illness.	labels:How much time did it take on average for your patients to recover?	episode_done:True
+text:What makes you a good fit?
+I had been a car mechanic for five years and took a course as an electric car technician for two years.	labels:What cars have you handled before?	episode_done:True
+text:What makes you a good fit?
+Well, when I get the routine in, I'm extremely efficient.	labels:Does it take a long time for you to get the routine in?
+text:Not usually, no. I'm a fast learner.	labels:That's a good quality to have. Have you always been a fast learner?	episode_done:True
+text:If you are going to work in our car shop, it is good if you have experience from working with others. Can you tell me a little if you have such experience?
+I often do work with my friends who have a similar interest in repairing cars. We help each other and teach each other new skills.	labels:What kind of skills have you taught to others in those cases?
+text:I am very good at welding so I often help my friends with welding.	labels:Do you have any formal training in terms of welding?	episode_done:True
+text:What makes you a good fit?
+I am great at multi-tasking. I can handle a bunch of different orders at once.	labels:Where did you learn how to multi-task?
+text:I grew up in quite a stressful environment. It was kind of impossible not to learn that particular skill.	labels:Can you tell me more about how you handle yourself in stressful situations?	episode_done:True
+text:You have applied for the job as a healthcare worker. What do you think is interesting about this work?
+I like contributing to our community by being part of the healthcare industry.	labels:How long have you been in the healthcare industry?	episode_done:True
+text:What makes you a good fit?
+I have a past job experience similar to this.	labels:What similarity does this job and your past job have?	episode_done:True
+text:Can you tell me about what type of relations you usually have with your colleagues?
+I like working with them and I often have fun with them as well, but normally only during work time. I don't meet them much on my free time.	labels:I see, having fun at work is very important. Do you have any examples of how you maintain good relations with your colleagues?	episode_done:True
+text:If you are going to work at our cargo company, it is good if you have experience from working with others. Can you tell me a little if you have such experience?
+Yes. I have a codriver working with me where we exchange shifts during more than eight-hour-long drives.	labels:Are you comfortable working with a codriver?	episode_done:True
+text:Is there anything you want to ask about this job?
+Do you like working here?	labels:Yes I do. I've been here for five years now.
+text:Who will be my supervisor in the beginning if I get the job?	labels:I will be your supervisor if you get the job	episode_done:True
+text:Is there anything you want to ask about this job?
+What salary can I expect?	labels:That depends. We work with a provision based salary. You will get a bonus of 10 % for each car that you fix.
+text:Ok, that sounds good. But what is the starting salary?	labels:That is 15000 Sek per month.	episode_done:True
+text:What makes you fit well as a manager?
+I believe that I have a good overview of things and I think that I can get the best out of employees.	labels:Do you have any management skills?	episode_done:True
+text:What makes you a good fit?
+I would say that I'm efficient.	labels:Can you give an example of what makes you efficient
+text:I have ADHD and it makes me energetic which I can use to do work. But I'm not good at sitting down	labels:Okay, do you ever feel like your ADHD it's an impediment?	episode_done:True
+text:You have applied for the job as baker. What do you think is interesting about this work?
+If there is anything I love in this world it's baking.	labels:So you are passionate about baking?
+text:Yes, specifically baking cakes.	labels:Do you bake bread as well?	episode_done:True
+text:What is your best experience from your previous jobs?
+It would probably be the learning experience from working in kindergarden and being surrounded with kids.	labels:What did you learn by being around the children?
+text:Kindergarden taught me how different everyone is. I needed to learn how to adapt to each and every one of the kids.	labels:Do you think you can apply your ability to adapt into a career in healthcare?	episode_done:True
+text:You have applied for the job as receptionist. What makes you a good fit?
+I like to talk to people and I'm always nice and pragmatic.	labels:I see. Can you give an example of a situation where it was difficult to do so?	episode_done:True
+text:Is there anything you want to ask about this job?
+How long are the work shifts?	labels:You will work for 9 hours.
+text:Ok! But I am free on weekends?	labels:Yes, the workdays are between monday and friday.	episode_done:True
+text:You have applied for the job as a warehouse hand. What do you think is interesting about this work?
+I just really enjoy having a steady employment and clearly set tasks each day. I feel the most comfortable when I know what type of tasks I will work with before each day.	labels:Are there any specific tasks that interest you about this job?
+text:I have always worked in warehouses and it is the only thing that I know how to do well, and I really enjoy this store as well. It is always nice and tidy here, which makes me want to work here.	labels:Is there anything in particular that is nice and tidy?	episode_done:True
+text:What makes you a good fit?
+I have worked many years in healthcare. I like to work with people.	labels:Can you describe your previous experience working with people? Especially some difficult situations.
+text:Of course. Sometimes it can be difficult when working with people who don't want help or are rude because of their disease. I have to remind myself that it's not me they are frustrated with but it can be hard at times.	labels:I understand, but it's good that you are aware of this. Without that skill this job will be difficult.	episode_done:True
+text:If you are going to work as a baker, it is good if you have experience from working with others. Can you tell me a little if you have such experience?
+I do from my previous employer. We worked together in creating some of the most beautiful cakes in the city.	labels:I see, do you also bake in your free time?
+text:Yes I do, but it's not good for my health eating so much cake all the time!	labels:No, it is important to keep yourself helthy.	episode_done:True
+text:Is there anything you want to ask about this job?
+Yes! I'd like to know about the work hours.	labels:The work hours are quite flexible, since people need help around the clock.
+text:That's understandable. Does the salary differ depending on if I work the day or the nightshift?	labels:Yes, there is usually a compensation for working the nightshift.	episode_done:True
