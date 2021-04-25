@@ -1,0 +1,10 @@
+text:Welcome to this interview!\nThank you very much.	labels:How was your trip? Was it hard to find your way here?
+text:I had some troubles yes, but I managed to find my way just in time.	labels:Yes I can imagine, it is a rather unknown neighbourhood. Anyhow, would you like a cup of coffee before we start?
+text:No thank you, but I would like a cup of tea. I am actually not a big fan of coffee.	labels:Of course, I will get you a cup of tea.	episode_done:True
+text:What makes you a good fit?\nI would say that I'm efficient.	labels:Can you give an example of what makes you efficient
+text:I have ADHD and it makes me energetic which I can use to do work. But I'm not good at sitting down	labels:Okay, do you ever feel like your ADHD it's an impediment?	episode_done:True
+text:You have applied for the job as a healthcare worker. What do you think is interesting about this work?\nBasically, I think that helping people is very meaningful.	labels:What about it is meaningful?
+text:Helping people makes me feel important and it gives me a purpose in life to feel that I'm doing something good.	labels:Okay I understand.	episode_done:True
+text:What makes you a good fit?\nI have a past job experience similar to this.	labels:What similarity does this job and your past job have?	episode_done:True
+text:Is there anything you want to ask about this job?\nYes, do I get to drive the same truck all the time, or would I change?	labels:You would get you own truck. But we typically change trucks each fifth year.
+text:Hopefully I will not work here for five years.	labels:That does not sounds like the attitude that we are looking for.	episode_done:True
