@@ -1,13 +1,8 @@
 from transformers import BlenderbotForConditionalGeneration, BlenderbotSmallForConditionalGeneration
-from torch.utils.data import DataLoader, TensorDataset, random_split, RandomSampler, Dataset
-import pandas as pd
-import numpy as np
 from pathlib import Path
 
-import torch.nn.functional as F
 import pytorch_lightning as pl
 import torch
-from pytorch_lightning.callbacks import ModelCheckpoint
 
 """ Pytorch lightning model of blenderbot for training with pytorch lightning"""
 

@@ -1,4 +1,4 @@
-from src.models.model import LitBlenderbot
+from model import LitBlenderbot
 from pathlib import Path
 from transformers import BlenderbotTokenizer, BlenderbotSmallTokenizer
 from argparse import Namespace, ArgumentParser

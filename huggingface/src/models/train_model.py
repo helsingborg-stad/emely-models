@@ -3,7 +3,7 @@ from transformers import BlenderbotSmallForConditionalGeneration, BlenderbotSmal
 from torch.utils.data import DataLoader, Dataset
 import pandas as pd
 from pathlib import Path
-from src.models.model import LitBlenderbot, encode_sentences
+from model import LitBlenderbot, encode_sentences
 
 import pytorch_lightning as pl
 from pytorch_lightning.callbacks import ModelCheckpoint, EarlyStopping
