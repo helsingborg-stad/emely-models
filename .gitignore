@@ -73,7 +73,7 @@ instance/
 .scrapy
 
 # Sphinx documentation
-docs/_build/
+parlai-src/docs/_build/
 doc/_build/
 
 # PyBuilder
@@ -160,3 +160,4 @@ model-runs/*
 ParlAI/data/models/
 **/huggingface-models/*/
 src/models/model-runs/*
+**/model-runs/*/

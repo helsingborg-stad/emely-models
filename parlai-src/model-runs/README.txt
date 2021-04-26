@@ -1,0 +1,1 @@
+This is where checkpoint are stored when running parlai trainings
