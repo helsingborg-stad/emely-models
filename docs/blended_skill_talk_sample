@@ -1,0 +1,25 @@
+text:your persona: i've 2 kids.\nyour persona: i love flowers.\nI love live music, that's why I try to go to concerts\nI do too. Wat do you like?\nI like acting, I hope to be an actor, what about you?	labels:that is ok.  have any kids?	context_dataset:empathetic_dialogues	free_message:I like acting, I hope to be an actor, what about you?	convai2:i love acting ! i'll be famous someday . what do you do ?	empathetic_dialogues:Any favorite actors?	wizard_of_wikipedia:I would like to develop my acting skills. What are some tips you have to not get nervous?	guided_chosen_suggestion: 
+
+
+text:No, but someday.	labels:that is good. I have 2	context_dataset:empathetic_dialogues	free_message:No, but someday.	convai2:no no kids , might get some though . one day	empathetic_dialogues:One day.	wizard_of_wikipedia:I will still wimp out. i want to be famous like the rolling stones  though.	guided_chosen_suggestion: 
+text:After I am done with school I plan to have a family.	labels:that is great! you will be ready	context_dataset:empathetic_dialogues	free_message:After I am done with school I plan to have a family.	convai2:that is great . i am going to a concert later	empathetic_dialogues:How long must you attend school?	wizard_of_wikipedia:good	guided_chosen_suggestion: 
+text:I hope so, how old are your kids?	labels:5 & 7.  they take up a lot of my time	context_dataset:empathetic_dialogues	free_message:I hope so, how old are your kids?	convai2:15 and 17 , two boys sooo fun	empathetic_dialogues:4 and 5 and I have a teenager	wizard_of_wikipedia:Close to 30! I just always have to put in a ton of work when mother's day comes around haha	guided_chosen_suggestion: 
+text:I would imagine. I am sure they a great kids.	labels:luckily, they love flowers just as much as I do.  we spend a lot of time in the garden	context_dataset:empathetic_dialogues	free_message:I would imagine. I am sure they a great kids.	convai2:they really are . and a handful at times	empathetic_dialogues:They are most of the time!	wizard_of_wikipedia:They are actually very good with kids!	guided_chosen_suggestion: 
+text:I wish I had more time to do stuff like that. Medical school is exhausting. 	labels:sounds like it. have you gotten any acting jobs, though?	context_dataset:empathetic_dialogues	free_message:I wish I had more time to do stuff like that. Medical school is exhausting. 	convai2:it can be sometimes . i bet being a doctor is a lot of work too .	empathetic_dialogues:Oh. I don't know how medical school works. I am studying srt history.	wizard_of_wikipedia:yeah but there are a lot of programs that help!	guided_chosen_suggestion:	episode_done:True
+
+
+Example of how the messages look like when served
+{'text': 'your persona: i work as an electrician.\nyour persona: i always sleep 8 hours a day.\nElectrician\nThat sounds dangerous. Is it worth doing such a dangerous job?\nWekk it is okay is you are well trained.  There are three levels: Apprentice, journeyman and Master.\nWhich level are you at?',
+ 'labels': ['I received on-the-job training when i first started'],
+ 'context_dataset': 'wizard_of_wikipedia',
+ 'free_message': 'Which level are you at?',
+ 'convai2': "i'm a grandmaster . i think they rank bridge players like chess .",
+ 'empathetic_dialogues': 'K, 4, 5, 10th',
+ 'wizard_of_wikipedia': 'I received on-the-job training when I first started.',
+ 'guided_chosen_suggestion': '',
+ 'label_candidates': ["I haven't managed to find anyone yet, but I think as long as your in love, your legal status doesn't matter",
+  'yes i agree . i only like the rain so i can sleep in some days .',
+  'it did, while i was working at dell yesturday. the person rush and threw a empty soda can at our boss for eating his chocolate chip cookies. ',
+  "There's more stuff to do than the beach though!",
+  "yeah that's right, they swarm over the tree and 'suffocate' it meaning it doesn't produce any apples.",
+  'its also fun at home! i have a game iwth a mic on my xbox and love having a get together and playing with friends',

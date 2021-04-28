@@ -1,0 +1,22 @@
+ideas for teacher
+
+ParlAIDialogTeacher override:
+- next_example: if first example and text == '' actually in fixeddialogteacher
+
+FixedDialogTeacher:
+- next_example: if first example and text == ''
+
+DialogData
+- context!!!
+- what subclasses this?
+- look at tasks with context
+- use display_model on a task with context and debug
+- blended skill talk!!! It seems to generate a conversation history before the model starts predicting so that should work!!!!!!
+
+Blendedskilltalk:
+- there's a lot of information in the data, always a choice between convai, ed, ww and free text(no idea). Sometimes a guided suggestion for what to choose. BUT, all I'm interested in is how it's fed to the model on the first pass, right? Debug away with display model :D
+- How is it converted to a parlai Message?
+
+
+OKAY HERE WE GO:
+SO the way previous lines are separated is by a __literal__ '\\n', as opposed to a '\n'. In text(non literal) this of course appears as a '\n' hence the fucking confusion...

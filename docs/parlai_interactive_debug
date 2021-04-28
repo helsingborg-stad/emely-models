@@ -1,0 +1,14 @@
+Interactive
+
+DialogWorld
+
+agents
+- 0: localhuman
+- 1: transformer
+
+where is the history saved?
+- transformer. During observe()
+- type: parlai.core.torch_agent.History
+
+currently @ eval_Step
+
