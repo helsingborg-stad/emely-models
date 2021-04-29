@@ -13,4 +13,5 @@ ENV LANG=C.UTF-8
 
 ENTRYPOINT ["uvicorn"]
 
+
 CMD ["src.api.fika:app", "--host", "0.0.0.0", "--port", "8000"]
