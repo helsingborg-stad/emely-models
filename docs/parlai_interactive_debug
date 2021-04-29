@@ -30,10 +30,36 @@ As I see it I only need to use observe and act. Observe is a little tricky thoug
 
 HISTORY:
 - At model inference: create a History object and set it to be the models self.history. Then act. Boom
-- Maybe subclass the TransformerGeneratorAgent and implement a function "amnesia" or something that creates the temporary history object
+- Maybe subclass the TransformerGeneratorAgent and implement a function "amnesia" or something that creates the temporary history object and then forgets it
 
 
 AIGHT so after self.self_observe(), the model reply is added to the models history of the conversation AND THEN history.get_history_str() returns 'hey\nhi , how are you today ? i just got back from a long day of work , how about you ?'
 - the \n seems to be a real line break. Confusing...
 
 HISTORY.get_history_vec
+
+What I need to do:
+- Load model with weights
+- Create Messages for observe?
+- Create a history from the context - is this enough? Maybe write a subclass that creates the history based on the entire context sent
+- 
+ 
+ OBSERVE()
+ 1. Make a message from the observation
+ 2. self.observation = observation
+ 3. self.dict.set_tokenization_mode(TokenizationMode.TEST_TIME_TEXT 
+ 
+4.self.history.update_history(
+            observation, temp_history=self.get_temp_history(observation)
+        )  
+        - I think this one is important to get right
+	- get_temp_history returns None: Could be used to append more context?
+	
+	Can I call update history for all the strings in the context?????
+        
+        
+        
+        
+        
+        
+        
