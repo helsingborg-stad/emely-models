@@ -12,8 +12,15 @@ def save_eval(dialog, name, datatype):
     for i in range(len(episodes) - 1):
         text = text + 'NEW EPISODE '+ episodes[i + 1] + '\n\n'
 
-    file_path = project_dir / 'model-runs/{}/display_model_{}.txt'.format(name, datatype)
-    with open(file_path, 'w') as f:
+    # Let's save them in two places
+    file_path1 = project_dir / 'model-runs/{}/display_model_{}.txt'.format(name, datatype)
+    with open(file_path1, 'w') as f:
+        f.write(text)
+
+
+    file_path2 = project_dir / 'model-runs/display-model/{}-{}'.format(name, datatype)
+    file_path2.parent.mkdir(exist_ok=True)
+    with open(file_path2, 'w') as f:
         f.write(text)
 
 
@@ -21,8 +28,9 @@ if __name__ == '__main__':
     project_dir = Path(__file__).resolve().parents[2]
     model_dir = project_dir / 'model-runs'
 
-    eval_cmd = 'parlai display_model -t internal -mf {} --datatype {} --skip-generation False'
+    eval_cmd = 'parlai display_model -mf {} -t fromfile:parlaiformat --fromfile-datapath {}'
     datatypes = ['valid', 'train']
+    internal_path = project_dir / 'ParlAI/data/internal'
 
     for dir in model_dir.iterdir():
         if dir.is_dir():
@@ -31,7 +39,8 @@ if __name__ == '__main__':
                 print('Evaluating: ', dir.name)
 
                 for datatype in datatypes:
-                    cmd = eval_cmd.format(model_file.as_posix(), datatype)
+                    data_file = internal_path.as_posix() + '/' + datatype + '.txt'
+                    cmd = eval_cmd.format(model_file.as_posix(), data_file)
                     cmd_list = cmd.split(' ')
                     eval_dialog = subprocess.check_output(cmd_list)
                     save_eval(eval_dialog, dir.name, datatype)
