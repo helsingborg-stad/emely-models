@@ -1,3 +1,5 @@
 uvicorn
 fastapi
 pydantic
+transformers==4.2.2
+
