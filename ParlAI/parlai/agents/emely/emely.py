@@ -3,6 +3,8 @@ import warnings
 from parlai.agents.transformer.transformer import TransformerGeneratorAgent
 from parlai.core.message import Message
 from parlai.core.worlds import validate
+import logging
+
 
 
 """ Emely extends the TransformerGeneratorAgent"""
@@ -16,6 +18,8 @@ class EmelyAgent(TransformerGeneratorAgent):
         self.build_emely_history(text)
 
         # Emely acts
+        logging.info(msg='Emely has build her history:')
+        logging.info(msg=self.history.get_history_str())
         output = self.act()
         reply = output['text']
 
@@ -33,8 +37,10 @@ class EmelyAgent(TransformerGeneratorAgent):
             self.amnesia()
 
         list_of_text = text.split('\n')
-        assert len(list_of_text) % 2 == 0
-
+        try:
+            assert len(list_of_text) % 2 == 0
+        except AssertionError:
+            list_of_text.pop(0)
 
         # Walk throught the list of text and
         for i, text in enumerate(list_of_text):

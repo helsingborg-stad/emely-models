@@ -49,20 +49,9 @@ def own():
             message['id'] = 'TransformerGenerator'
             agent.self_observe(validate(message)) # HM I won't have beam_texts in my message, is that fine????
 
-    agent.act()
+    reply = agent.act()
+    print('model reply: ', reply['text'])
 
-    for i, text in enumerate(list_of_text):
-        if i != len(list_of_text) -1:
-            message = Message()
-            message['id'] = 'localHuman' if i % 2 == 0 else 'TransformerGenerator'
-            message['episode_done'] = False
-            message['text'] = 'HIHIHIHIHIH hello'
-            agent.history.update_history(message)
-        else:
-            observation = Message()
-            observation['id'] = 'localHuman'
-            observation['episode_done'] = False
-            observation['text'] = text
     # while True:
 
 

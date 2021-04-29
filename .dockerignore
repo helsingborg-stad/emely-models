@@ -1,0 +1,7 @@
+huggingface/
+data/
+data-processing/
+docs/
+.git
+model-runs/
+ParlAI/data/models
