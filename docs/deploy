@@ -1,0 +1,1 @@
+gcloud builds submit --tag gcr.io/EMELY PROJECT ID/fika-model && gcloud run deploy --image gcr.io/PROJECT ID/fika-model --platform managed
