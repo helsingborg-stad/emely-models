@@ -161,4 +161,3 @@ ParlAI/data/models/
 **/huggingface-models/*/
 src/models/model-runs/*
 **/model-runs/*/
-deploy-model/
