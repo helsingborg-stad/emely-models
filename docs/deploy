@@ -1,1 +1,1 @@
-gcloud builds submit --tag gcr.io/emelybrainapi/interview-model && gcloud run deploy --image gcr.io/emelybrainapi/interview-model --platform managed --memory 4Gi --region europe-west1 --allow-unauthenticated --timeout=1200s
+gcloud builds submit --tag gcr.io/emelybrainapi/interview-model --timeout 3000s && gcloud run deploy --image gcr.io/emelybrainapi/interview-model --platform managed --memory 4Gi --region europe-west1 --allow-unauthenticated --timeout 900s

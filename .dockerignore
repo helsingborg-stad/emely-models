@@ -3,5 +3,8 @@ data/
 data-processing/
 docs/
 .git
-model-runs/
+
 ParlAI/data/models
+ParlAI/data/bAbI
+ParlAI/data/blended_skill_talk
+ParlAI/data//OffensiveLanguage

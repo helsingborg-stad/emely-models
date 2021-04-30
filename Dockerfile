@@ -3,7 +3,7 @@ ENV PYTHONUNBUFFERED 1
 
 RUN mkdir model-runs
 COPY ParlAI ./ParlAI
-COPY deploy-model/4-28-blender-90M-internal-otter-bst-3-1-1 ./model-runs/4-28-blender-90M-internal-otter-bst-3-1-1
+COPY model-runs/ ./model-runs/
 COPY parlai-src ./parlai-src
 COPY requirements.txt ./requirements.txt
 
