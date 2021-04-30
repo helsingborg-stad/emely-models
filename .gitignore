@@ -156,8 +156,6 @@ Thumbs.db
 **/.idea
 # Start of specific repo ignores
 
-model-runs/*
+
 ParlAI/data/models/
 **/huggingface-models/*/
-src/models/model-runs/*
-**/model-runs/*/
