@@ -1,15 +1,15 @@
-FROM python:stretch
+FROM python:3.7-stretch
 ENV PYTHONUNBUFFERED 1
 
-RUN mkdir model-runs
 COPY ParlAI ./ParlAI
-COPY model-runs/ ./model-runs/
+COPY deploy-model ./deploy-model
 COPY parlai-src ./parlai-src
 COPY requirements.txt ./requirements.txt
 
 RUN pip install --upgrade pip
 WORKDIR /ParlAI
-RUN python setup.py install
+#RUN python setup.py install
+RUN pip install .
 
 WORKDIR ../
 RUN pip install -r requirements.txt
