@@ -17,6 +17,8 @@ RUN pip install -r requirements.txt
 ENV LC_ALL=C.UTF-8
 ENV LANG=C.UTF-8
 
+WORKDIR /parlai-src/api
+
 ENTRYPOINT ["uvicorn"]
 
-CMD ["parlai-src.api.interview:app", "--host", "0.0.0.0", "--port", "5000"]
+CMD ["interview:app", "--host", "0.0.0.0", "--port", "8080"]
