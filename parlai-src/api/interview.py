@@ -18,7 +18,7 @@ app = FastAPI()
 logging.basicConfig(level=logging.NOTSET)
 
 # Opts for model loading
-model_path = Path(__file__).resolve().parents[2] / 'model-runs/4-28-blender-90M-internal-otter-bst-3-1-1'
+model_path = Path(__file__).resolve().parents[2] / 'deploy-model'
 opt_path = model_path / 'model.opt'
 opt = Opt.load(opt_path.as_posix())
 opt['task'] = 'internal'
@@ -40,10 +40,9 @@ async def startup_event():
 
 @app.post("/inference")
 async def inference(msg: ApiMessage):
-    loop = asyncio.get_event_loop()
 
     # Async model throughput
-    reply = await loop.run_in_executor(None, model.observe_and_act, msg.text)
+    reply = model.observe_and_act(msg.text)
 
     return ApiMessage(text=reply)
 

@@ -42,21 +42,21 @@ class EmelyAgent(TransformerGeneratorAgent):
         except AssertionError:
             list_of_text.pop(0)
 
+        # The underlying TransformerGeneratorAgent assumes that it the user starts all conversations so we have to add a dummy message
+        # TODO: Change EmelyAgent to change this
+        dummy_message = Message()
+        dummy_message['id'] = 'localHuman'
+        dummy_message['text'] = 'Hi'
+        dummy_message['episode_done'] = False
+        dummy_message['label_candidates'] = None
+        self.observe(dummy_message)
+
         # Walk throught the list of text and
         for i, text in enumerate(list_of_text):
             message = Message()
             message['text'] = text
             message['episode_done'] = False
             message['label_candidates'] = None
-
-            # The underlying TransformerGeneratorAgent assumes that it the user starts all conversations so we have to add a dummy message
-            # TODO: Change EmelyAgent to change this
-            dummy_message = Message()
-            dummy_message['id'] = 'localHuman'
-            dummy_message['text'] = 'Hi'
-            dummy_message['episode_done'] = False
-            dummy_message['label_candidates'] = None
-            self.observe(dummy_message)
 
             # Emely always starts the conversations so we can use i % 2 to know whose message it is
             if i % 2 == 1:
