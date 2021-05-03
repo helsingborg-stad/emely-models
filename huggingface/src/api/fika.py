@@ -6,13 +6,14 @@ import torch
 import asyncio
 
 
-class Message(BaseModel):
+class ApiMessage(BaseModel):
     text: str
 
 
 app = FastAPI()
 
-model_path = Path(__file__).resolve().parents[2] / 'huggingface-models/blenderbot_small-90M'
+model_name = 'huggingface-models/blenderbot_small-90M'
+model_path = Path(__file__).resolve().parents[2] / model_name
 model: BlenderbotSmallForConditionalGeneration
 tokenizer: BlenderbotSmallTokenizer
 device: str
@@ -30,17 +31,17 @@ async def startup_event():
 
 
 @app.post('/inference')
-async def inference(msg: Message):
+async def inference(msg: ApiMessage):
     loop = asyncio.get_event_loop()
 
     # Async model throughput
     reply = await loop.run_in_executor(None, model_inference, msg.text)
 
-    return Message(text=reply)
+    return ApiMessage(text=reply)
 
 
 def model_inference(text):
-    """ Function used """
+    """ Function used at inference to enable run_in_executor """
     context = text
     inputs = tokenizer([context], return_tensors='pt')
     inputs.to(device)
@@ -48,3 +49,9 @@ def model_inference(text):
         output_tokens = model.generate(**inputs)  # Using the default executor
     reply = tokenizer.decode(output_tokens[0], skip_special_tokens=True)
     return reply
+
+# This endpoint can be used to both wake up the program and get the name of the model
+@app.get('/model-name')
+def get_model():
+    return ApiMessage(text=model_name)
+

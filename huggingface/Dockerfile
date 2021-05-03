@@ -4,6 +4,7 @@ ENV PYTHONUNBUFFERED 1
 COPY requirements.txt ./requirements.txt
 COPY src/api ./src/api
 COPY huggingface-models ./huggingface-models
+RUN pip install --upgrade pip
 RUN pip install -r requirements.txt
 
 # ENV <key>=<value> #  for setting environment variables

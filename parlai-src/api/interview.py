@@ -29,12 +29,17 @@ opt['no_cuda'] = True # Don't assume cuda on the gcp instance
 
 #
 model: EmelyAgent
+model_name = str
 
 
 @app.on_event("startup")
 async def startup_event():
-    global model
+    global model, model_name
     model = EmelyAgent(opt)
+
+    model_name_file = model_path / 'model-name.txt'
+    with open(model_name_file, 'r') as f:
+        model_name = f.read()
     return
 
 
@@ -46,7 +51,7 @@ async def inference(msg: ApiMessage):
 
     return ApiMessage(text=reply)
 
-# TODO
+# This endpoint can be used to both wake up the program and get the name of the model
 @app.get('/model-name')
 def get_model():
-    raise NotImplementedError()
+    return ApiMessage(text=model_name)
