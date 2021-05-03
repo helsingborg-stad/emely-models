@@ -8,7 +8,6 @@ COPY requirements.txt ./requirements.txt
 
 RUN pip install --upgrade pip
 WORKDIR /ParlAI
-#RUN python setup.py install
 RUN pip install .
 
 WORKDIR ../
