@@ -3,6 +3,7 @@ data/
 data-processing/
 docs/
 .git
+*.unvacuumed
 
 ParlAI/data/models
 ParlAI/data/bAbI
