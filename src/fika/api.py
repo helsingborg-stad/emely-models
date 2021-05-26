@@ -18,16 +18,15 @@ app = FastAPI()
 logging.basicConfig(level=logging.NOTSET)
 
 # Opts for model loading
-model_path = Path(__file__).resolve().parents[2] / 'fika-model'
+model_path = Path(__file__).resolve().parents[2] / 'models/fika-model'
 opt_path = model_path / 'model.opt'
 opt = Opt.load(opt_path.as_posix())
 # opt['task'] = 'internal'
 opt['skip_generation'] = False
 opt['init_model'] = (model_path / 'model').as_posix()
-opt['no_cuda'] = True  # Don't assume cuda on the gcp instance
-# TODO: DO I need anything else here?
+opt['no_cuda'] = True  # Cloud run doesn't offer gpu support
 
-#
+
 model: EmelyAgent
 
 
