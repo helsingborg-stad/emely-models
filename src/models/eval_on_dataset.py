@@ -13,12 +13,12 @@ def save_eval(dialog, name, datatype):
         text = text + 'NEW EPISODE '+ episodes[i + 1] + '\n\n'
 
     # Let's save them in two places
-    file_path1 = project_dir / 'model-runs/{}/display_model_{}.txt'.format(name, datatype)
+    file_path1 = project_dir / 'models/runs/{}/display_model_{}.txt'.format(name, datatype)
     with open(file_path1, 'w') as f:
         f.write(text)
 
 
-    file_path2 = project_dir / 'model-runs/display-model/{}-{}'.format(name, datatype)
+    file_path2 = project_dir / 'models/runs/display-model/{}-{}'.format(name, datatype)
     file_path2.parent.mkdir(exist_ok=True)
     with open(file_path2, 'w') as f:
         f.write(text)
@@ -26,7 +26,7 @@ def save_eval(dialog, name, datatype):
 
 if __name__ == '__main__':
     project_dir = Path(__file__).resolve().parents[2]
-    model_dir = project_dir / 'model-runs'
+    model_dir = project_dir / 'models/runs'
 
     eval_cmd = 'parlai display_model -mf {} -t fromfile:parlaiformat --fromfile-datapath {}'
     datatypes = ['valid', 'train']

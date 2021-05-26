@@ -158,5 +158,4 @@ Thumbs.db
 
 
 ParlAI/data/models/
-**/huggingface-models/*/
-model-runs/
+models/

@@ -75,7 +75,7 @@ if __name__ == '__main__':
 
     # Project variables
     project_dir = Path(__file__).resolve().parents[2]
-    model_run_dir = project_dir / 'model-runs'
+    model_run_dir = project_dir / 'models/runs'
     pushshift_opts, blender_opts = init_opts()
 
     # Timestamp
