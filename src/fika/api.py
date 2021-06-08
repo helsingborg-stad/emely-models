@@ -6,6 +6,7 @@ from pathlib import Path
 from parlai.agents.emely.emely import EmelyAgent
 from parlai.core.opt import Opt
 import logging
+import torch
 
 
 class ApiMessage(BaseModel):
@@ -24,19 +25,23 @@ logging.basicConfig(level=logging.NOTSET)
 model_path = Path(__file__).resolve().parents[2] / 'models/blender_400Mdistill'
 opt_path = model_path / 'model.opt'
 opt = Opt.load(opt_path.as_posix())
-# opt['task'] = 'internal'
+
+# Change opts 
 opt['skip_generation'] = False
 opt['init_model'] = (model_path / 'model').as_posix()
 opt['no_cuda'] = True  # Cloud run doesn't offer gpu support
-
+opt['inference'] = 'topk'
+opt['beam_size'] = 20
+opt['topk'] = 40
 
 model: EmelyAgent
 
 
 @app.on_event("startup")
 async def startup_event():
-    global model
+    global model, opt
     model = EmelyAgent(opt)
+    model.model = torch.quantization.quantize_dynamic(model.model, {torch.nn.Linear}, dtype=torch.qint8)
     return
 
 
@@ -75,9 +80,9 @@ def change_opt(opts: NewOpt, response: Response):
             response.status_code = status.HTTP_400_BAD_REQUEST
             return ApiMessage(text=f'New value for {k} was {type(v)} but should be {type(old_value)}')
 
-    global model
     try:
-        model = EmelyAgent(opt)
+        # Reload model with new opts
+        startup_event()     
         message = create_success_message(param_changes)
         return ApiMessage(text=message)
 
