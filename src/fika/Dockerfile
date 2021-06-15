@@ -2,7 +2,7 @@ FROM python:3.7-stretch
 ENV PYTHONUNBUFFERED 1
 
 COPY ParlAI ./ParlAI
-COPY models/blender_400Mdistill ./models/blender_400Mdistill
+COPY models/blender_90M ./models/blender_90M
 COPY src ./src
 COPY requirements.txt ./requirements.txt
 

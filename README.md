@@ -4,12 +4,18 @@
 
 1. cd into ParlAI and run $python setup.py develop
 
+### Preparing a model for Deployment
+
+We have to strip the optimizer state from the model so the file size is much smaller. This is done with parlai vacuum and
+
+$ parlai vacuum -mf path_to_model_file 
+Optional[--no-backup]
 
 ### How to deploy
-Unfortunately this is a bit difficult. Why? We only want one model to go to GCP with a deployment and we have to specify it in several places:
-1. In the variable model_path src/< persona >/api.py file
+Unfortunately this is a bit complex. Why? We only want one model to go to GCP with a deployment and we have to specify it in several places:
+1. In src/< persona >/api.py file
     - model_path = Path(__file__).resolve().parents[2] / 'models/MODEL_DIR'
-2. In the Dockfile where we copy it over to the image: src/< persona >/Dockerfile 
+2. In src/< persona >/Dockerfile 
     - COPY models/MODEL_DIR ./models/MODEL_DIR
 3. Make sure it's *NOT* in the .gitignore file in root folder
     - Remove it from .gitignore
@@ -17,11 +23,12 @@ Unfortunately this is a bit difficult. Why? We only want one model to go to GCP 
 
 The last step is necessary because when deploying, google will automatically ignore what's in the .gitignore
 
-The deployment commands are (replace the SERVICE): 
-$ gcloud builds submit --tag eu.gcr.io/emelybrainapi/< SERVICE > --timeout 3000s && gcloud run deploy --image eu.gcr.io/emelybrainapi/< SERVICE > --platform managed --memory 2Gi --region europe-west1 --allow-unauthenticated --timeout 900s
+To actually deploy, you need to edit the command in deploy-fika.bat or deploy-interview.bat and run it:
 
-- Replace the SERVICE
-- SERVICE cannot be uppercase
+$ gcloud builds submit --tag eu.gcr.io/emelybrainapi/\<SERVICE\> --timeout 3000s && gcloud run deploy --image eu.gcr.io/emelybrainapi/\<SERVICE\> --platform managed --memory 2Gi --region europe-west1 --allow-unauthenticated --timeout 900s
+
+- Replace the \<SERVICE\>
+- OBS! SERVICE cannot be uppercase
 
 
 

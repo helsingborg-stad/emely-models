@@ -154,8 +154,15 @@ Thumbs.db
 # End of https://www.toptal.com/developers/gitignore/api/python
 
 **/.idea
+.vscode
 # Start of specific repo ignores
+build-fika.bat
+build-interview.bat
 
-
+# NOTE: WHEN DEPLOYING A MODEL - UNCOMMENT IT HERE
 ParlAI/data/models/
-models/
+models/runs
+models/fika-model
+models/interview-model
+models/blender_90M
+models/blender_400Mdistill
