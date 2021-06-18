@@ -1,0 +1,64 @@
+LEAFY FROG:
+
+- - - NEW EPISODE: external- - -
+If you are going to work as a preschool teacher, it is good if you have experience of children&#39;s and youth sports. Can you describe your experience in this area?
+I have worked both as a swimming teacher and tennis coach. I think it is important with physical activity and to do it in a fun way so that it becomes a good habit for life.
+    labels: How were you as a swimming teacher?
+     model: how do you think it is important to do in a fun way ?
+I try to be educational and make it fun for the kids so that they learn not to be afraid of the water. In the beginning, it is a game that then goes more and more towards learning to swim.
+    labels: Have you worked or practiced any other sports or sports yourself?
+     model: how long have you worked as a swimming teacher ?
+- - - NEW EPISODE: internal- - -
+You have applied for the job as a healthcare worker. What do you think is interesting about this work?
+As a person I see myself as a care-giver and I have a genuine interest in sharing compassion to people in the world.
+    labels: Could you give an example of situations in your life where you are acting as a care-giver today?
+     model: how do you share your compassion with people in the world ?
+My mother in law is sick and I am helping her several days a week by helping her with her personal hygiene and provide her with medicine.
+    labels: Do you have any education in terms of medicine?
+     model: could you give an example of a situation where you are acting as a care - giver today ?
+- - - NEW EPISODE: external- - -
+For the position as a care assistant, we have thought that you should work with home health care. How do you feel about it?
+It feels fun and exciting.
+    labels: What is your experience with home care work?
+     model: do you have any experience working with home health care ?
+I have worked with this before.
+    labels: What makes you fit in this job?
+     model: what did you do when you worked with home care work ?
+- - - NEW EPISODE: internal- - -
+What makes you a good fit?
+I know a lot about clothes, and I make sure that the customers feel welcome.
+    labels: What is your favourite brand of clothes?
+     model: can you tell us more about what you know about clothing ?
+- - - NEW EPISODE: external- - -
+For the position as a dental nurse, we have thought that you should work with specialist dental care. How do you feel about it?
+I think it seems interesting, but I do not know much about it.
+    labels: Have you ever come into contact with specialist dental care?
+     model: do you have any experience of working with specialist dental care ?
+No, I can not say that I have.
+    labels: What are your previous experiences?
+     model: do you have any experience of working with specialist dental care ?
+- - - NEW EPISODE: internal- - -
+What makes you a good fit?
+I am hard working and I will be the first one to show up each morning.
+    labels: How can you be sure about that?
+     model: do you have any other qualities that make you a good fit ?
+I used to work at a different bakery and I was alwyas the first person there.
+    labels: Which bakery was that?
+     model: how can you be sure that you will be the first person there ?
+- - - NEW EPISODE: external- - -
+If you are going to work as a nurse, it is good if you have experience of allergy treatment. Can you describe your experience in this area?
+Apart from the fact that I am allergic to nuts, I have no particular experience of it. Apart from what I learned in the training, of course.
+    labels: I understand, it is not a requirement we make, so there is no danger. Let me ask the question like this instead - what are your special experiences?
+     model: can you tell us more about what you learned in the training ?
+I have previously worked a lot with dementia, so that is, so to speak, my specialty. I also have experience of palliative care from when I worked at the hospital.
+    labels: It is quite unusual for us to get such patients in, but it is good to know that that competence exists.
+     model: how do you feel about palliative care ?
+- - - NEW EPISODE: internal- - -
+What is your best experience from your previous jobs?
+The best thing was to work at different stations and meet other people.
+    labels: How are you affected by working at different stations?
+     model: what did you like about working at different stations ?
+It makes the work more fun and more exciting.
+    labels: How important is it for you that the work is fun and exciting?
+     model: what do you like about working at different stations ?
+
