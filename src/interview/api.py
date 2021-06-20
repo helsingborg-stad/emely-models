@@ -45,7 +45,10 @@ async def startup_event():
     " Loads model and quantizes it with torch"
     global model, model_name
     model = EmelyAgent(opt)
-    model.model = torch.quantization.quantize_dynamic(model.model, {torch.nn.Linear}, dtype=torch.qint8)
+    
+    if opt['quantize'] == True:
+        model.model = torch.quantization.quantize_dynamic(model.model, {torch.nn.Linear}, dtype=torch.qint8)
+
     return
 
 
