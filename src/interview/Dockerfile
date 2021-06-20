@@ -2,7 +2,7 @@ FROM python:3.7-stretch
 ENV PYTHONUNBUFFERED 1
 
 COPY ParlAI ./ParlAI
-COPY models/interview-model ./models/interview-model
+COPY models/leafy-frog ./models/interview-model
 COPY src ./src
 COPY requirements.txt ./requirements.txt
 
