@@ -33,8 +33,9 @@ opt['no_cuda'] = True  # Cloud run doesn't offer gpu support
 
 # Inference options
 opt['inference'] = 'topk'
-opt['beam_size'] = 20
+opt['beam_size'] = 10
 opt['topk'] = 40
+
 
 model: EmelyAgent
 
