@@ -12,7 +12,7 @@ from torch import nn as nn
 
 from parlai.core.dict import DictionaryAgent
 from parlai.core.torch_agent import TorchAgent
-from parlai.utils.bpe import Gpt2BpeHelper
+from parlai.utils.bpe import SubwordBPEHelper
 
 
 class TorchScriptGreedySearch(nn.Module):
@@ -30,8 +30,8 @@ class TorchScriptGreedySearch(nn.Module):
         "dict_max_ngram_size": -1,
         "dict_minfreq": 0,
         "dict_maxtokens": -1,
-        "dict_tokenizer": "gpt2",
-        "dict_lower": False,
+        "dict_tokenizer": "bpe",
+        "dict_lower": True,
         "dict_textfields": "text,labels",
         "dict_loaded": True,
         'bpe_debug': False,
@@ -40,22 +40,14 @@ class TorchScriptGreedySearch(nn.Module):
     def __init__(self, agent: TorchAgent):
         super().__init__()
 
-        self.is_bart = agent.opt['model'] == 'bart'
-
         # Dictionary/tokenization setup
         for key, val in self.CAIRAOKE_DICT_PARAMS.items():
             assert (
                 agent.opt.get(key, val) == val
             ), f'The only currently supported value of "{key}" is {val}!'
         orig_dict: DictionaryAgent = agent.dict
-        orig_bpe: Gpt2BpeHelper = orig_dict.bpe
-        assert all(len(key) == 2 for key in orig_bpe.bpe_ranks.keys())
-        assert not any(
-            i for key in orig_bpe.bpe_ranks.keys() for i in key if '\n' in i
-        ), "We need to temporarily merge the bpe_ranks dict's keys with a newline character in order to use it as a TorchScript arg, but at least one of the dict's keys contains a newline character already!"
-        fused_key_bpe_ranks = {
-            '\n'.join(key): float(val) for key, val in orig_bpe.bpe_ranks.items()
-        }
+        orig_bpe: SubwordBPEHelper = orig_dict.bpe
+
         # Cast the values as floats to be able to compare to float('inf') when doing BPE
         # splitting
         self.dict = ScriptableDictionaryAgent(
@@ -67,9 +59,9 @@ class TorchScriptGreedySearch(nn.Module):
             tok2ind=orig_dict.tok2ind,
             ind2tok=orig_dict.ind2tok,
             bpe_add_prefix_space=agent.opt['bpe_add_prefix_space'],
-            bpe_encoder=orig_bpe.encoder,
-            bpe_byte_encoder=orig_bpe.byte_encoder,
-            fused_key_bpe_ranks=fused_key_bpe_ranks,
+            bpe_codes=orig_bpe.bpe_codes,
+            separator=orig_bpe.separator,
+            temp_separator=agent.opt["temp_separator"],
         )
 
         # History tracking and start/end tokens
@@ -85,10 +77,7 @@ class TorchScriptGreedySearch(nn.Module):
         self.start_idx = agent.model.START_IDX
         self.end_idx = agent.model.END_IDX
         self.null_idx = agent.model.NULL_IDX
-        if self.is_bart:
-            self.initial_decoder_input = [self.end_idx, self.start_idx]
-        else:
-            self.initial_decoder_input = [self.start_idx]
+        self.initial_decoder_input = [self.end_idx, self.start_idx]
 
         agent.model.eval()
 
@@ -133,6 +122,9 @@ class TorchScriptGreedySearch(nn.Module):
             },
             strict=False,
         )
+        print(generations.size())
+        print(len(encoder_states))
+        print(incr_state)
         self.decoder_later_pass = torch.jit.trace(
             wrapped_decoder, (generations, encoder_states, incr_state), strict=False
         )
@@ -194,22 +186,19 @@ class TorchScriptGreedySearch(nn.Module):
 
         # Format history vec given various logic
         if self.text_truncate is not None:
-            if self.is_bart:
-                truncate_length = self.text_truncate - 2  # Start and end tokens
-            else:
-                truncate_length = self.text_truncate
+            truncate_length = self.text_truncate - 2
             if len(flattened_text_vec) > truncate_length:
                 flattened_text_vec = flattened_text_vec[-truncate_length:]
         flattened_text_vec = torch.tensor(flattened_text_vec, dtype=torch.long)
-        if self.is_bart:
-            flattened_text_vec = torch.cat(
-                [
-                    torch.tensor([self.start_idx], dtype=torch.long),
-                    flattened_text_vec,
-                    torch.tensor([self.end_idx], dtype=torch.long),
-                ],
-                dim=0,
-            )
+        # originally "if is_bart:"
+        flattened_text_vec = torch.cat(
+            [
+                torch.tensor([self.start_idx], dtype=torch.long),
+                flattened_text_vec,
+                torch.tensor([self.end_idx], dtype=torch.long),
+            ],
+            dim=0,
+        )
 
         # Pass through the encoder and decoder to generate tokens
         batch_text_vec = torch.unsqueeze(flattened_text_vec, dim=0)  # Add batch dim
@@ -241,16 +230,19 @@ class TorchScriptGreedySearch(nn.Module):
                 break
 
         # Get the label from the generated tokens and update the history
-        if self.is_bart:
-            assert generations[0, 0].item() == self.end_idx
-            generations = generations[:, 1:]
-            # Hack: remove initial end token. I haven't found in the code where this is
-            # done, but it seems to happen early on during generation
         generation_tokens: List[int] = generations[0].tolist()
         label = self._v2t(generation_tokens)
 
         return label
-    
+
+
+# class TorchScriptBeamSearch(nn.Module):
+#     """
+#     A helper class for exporting simple beam-search models via TorchScript.
+
+#     Models with extra inputs will need to override to include more variables.
+#     """
+
 
 class BaseIncrStateFlattener(nn.Module):
     """
@@ -354,56 +346,31 @@ class ModelIncrStateFlattener(BaseIncrStateFlattener):
     def output(self, tensor: torch.Tensor) -> torch.Tensor:
         return self.module.output(tensor)
 
-
 @torch.jit.script
-class ScriptableGpt2BpeHelper(object):
+class ScriptableSubwordBpeHelper(object):
     """
-    Version of parlai.utils.bpe.Gpt2BpeHelper that can be TorchScripted.
+    Version of parlai.utils.bpe.SubwordBpeHelper that can be TorchScripted.
     """
 
     @classmethod
     def findall(cls, text: str) -> List[str]:
         """
-        Split tokens in a manner that replicates parlai.utils.bpe.Gpt2BpeHelper.
+        Split tokens in a manner that replicates parlai.utils.bpe.SubwordBpeHelper.
         """
-        contraction_endings = ['s', 't', 're', 've', 'm', 'll', 'd']
 
         tokens: List[str] = []
         idx = 0
         num_passes = 0
         while idx < len(text):
             num_passes += 1
-            if num_passes > 10000:
-                return ['*** Infinite loop in ScriptableGpt2BpeHelper.findall()! ***']
-            if text[idx] == "'":
-                # Capture contradiction suffixes
-                captured_suffix = False
-                for ending in contraction_endings:
-                    if text[idx + 1 : idx + 1 + len(ending)] == ending:
-                        tokens.append("'" + ending)
-                        idx += 1 + len(ending)
-                        captured_suffix = True
-                        break
-                if captured_suffix:
-                    continue
-            if not text[idx].isspace() or (
-                text[idx] == ' ' and idx + 1 < len(text) and not text[idx + 1].isspace()
-            ):
-                # Capture runs of one type of character
-                if text[idx] == ' ':
-                    last_matching_idx = idx + 1
-                else:
-                    last_matching_idx = idx
-                if text[last_matching_idx].isalpha():
+            if not text[idx].isspace():
+                last_matching_idx = idx
+                if text[idx].isalpha() or text[idx]=='_' or text[idx].isnumeric():
                     while (
                         last_matching_idx + 1 < len(text)
-                        and text[last_matching_idx + 1].isalpha()
-                    ):
-                        last_matching_idx += 1
-                elif text[last_matching_idx].isnumeric():
-                    while (
-                        last_matching_idx + 1 < len(text)
-                        and text[last_matching_idx + 1].isnumeric()
+                        and (text[last_matching_idx + 1].isalpha()
+                        or text[last_matching_idx + 1]=='_' 
+                        or text[last_matching_idx + 1].isnumeric())
                     ):
                         last_matching_idx += 1
                 else:
@@ -414,58 +381,24 @@ class ScriptableGpt2BpeHelper(object):
                         and not text[last_matching_idx + 1].isnumeric()
                     ):
                         last_matching_idx += 1
-                tokens.append(text[idx : last_matching_idx + 1])
+                tokens.append(text[idx:last_matching_idx + 1])
                 idx = last_matching_idx + 1
-                continue
-            if idx + 1 < len(text) and text[idx + 1].isspace():
-                # Capture runs of space characters up until just before the final one
-                last_space_idx = idx + 1
-                while (
-                    last_space_idx + 1 < len(text)
-                    and text[last_space_idx + 1].isspace()
-                ):
-                    last_space_idx += 1
-                if last_space_idx + 1 == len(text):
-                    # Include the last char, which is a space char
-                    tokens.append(text[idx : last_space_idx + 1])
-                    idx = last_space_idx + 1
-                else:
-                    tokens.append(text[idx:last_space_idx])
-                    idx = last_space_idx
-                continue
-            if True:
-                # Capture runs of space characters
-                last_space_idx = idx
-                while (
-                    last_space_idx + 1 < len(text)
-                    and text[last_space_idx + 1].isspace()
-                ):
-                    last_space_idx += 1
-                tokens.append(text[idx : last_space_idx + 1])
-                idx = last_space_idx + 1
+            else:
+                idx = idx + 1
         return tokens
 
     def __init__(
         self,
         add_prefix_space: bool,
-        encoder: Dict[str, str],
-        byte_encoder: Dict[int, str],
-        fused_key_bpe_ranks: Dict[str, float],
+        bpe_codes: Dict[str, int],
+        separator: str,
+        temp_separator: str,
     ):
 
-        self.add_prefix_space = add_prefix_space
-
-        self.encoder = encoder
-        self.decoder: Dict[str, str] = {}
-        for k, v in self.encoder.items():
-            self.decoder[v] = k
-
-        self.byte_encoder = byte_encoder
-        self.byte_decoder: Dict[str, int] = {}
-        for k, v in self.byte_encoder.items():
-            self.byte_decoder[v] = k
-
-        self.bpe_ranks = fused_key_bpe_ranks
+        self.add_prefix_space: bool = add_prefix_space
+        self.bpe_codes: Dict[str, int] = bpe_codes
+        self.separator: str = separator
+        self.temp_separator: str = temp_separator
 
     def encode(self, text: str) -> List[str]:
         """
@@ -483,77 +416,6 @@ class ScriptableGpt2BpeHelper(object):
             text = f' {text}'
         return self.helper_encode(text)
 
-    def get_pairs(self, word: List[str]) -> List[Tuple[str, str]]:
-        """
-        Return set of symbol pairs in a word.
-
-        Word is represented as list of symbols (symbols being variable-length strings).
-
-        :param word:
-            word to symbolize
-
-        :return pairs:
-            set of tuples of symbols
-        """
-        pairs: List[Tuple[str, str]] = []
-        prev_char = word[0]
-        for char in word[1:]:
-            pairs.append((prev_char, char))
-            prev_char = char
-        return pairs
-
-    def bpe(self, word: List[str]) -> List[str]:
-        """
-        Convert token to BPE.
-
-        :param word:
-            list of tokens token to convert
-
-        :return bpe_encoding:
-            string bpe encoding
-        """
-        pairs = self.get_pairs(word)
-
-        if len(pairs) == 0:
-            return word
-
-        while True:
-            min_rank = self.bpe_ranks.get('\n'.join(pairs[0]), float('inf'))
-            bigram = pairs[0]
-            for pair in pairs[1:]:
-                current_rank = self.bpe_ranks.get('\n'.join(pair), float('inf'))
-                if current_rank < min_rank:
-                    min_rank = current_rank
-                    bigram = pair
-            if '\n'.join(bigram) not in self.bpe_ranks:
-                break
-            first, second = bigram
-            new_word: List[str] = []
-            i = 0
-            while i < len(word):
-                found = False
-                for j in range(i, len(word)):
-                    if word[j] == first:
-                        new_word.extend(word[i:j])
-                        i = j
-                        found = True
-                        break
-                if not found:
-                    new_word.extend(word[i:])
-                    break
-
-                if word[i] == first and i < len(word) - 1 and word[i + 1] == second:
-                    new_word.append(first + second)
-                    i += 2
-                else:
-                    new_word.append(word[i])
-                    i += 1
-            word = new_word.copy()
-            if len(word) == 1:
-                break
-            else:
-                pairs = self.get_pairs(word)
-        return word
 
     def helper_encode(self, text: str) -> List[str]:
         """
@@ -565,16 +427,79 @@ class ScriptableGpt2BpeHelper(object):
         :return tokens:
             A list of tokens
         """
-        bpe_tokens: List[str] = []
-        for token in self.findall(text):
-            byte_encoded: List[str] = []
-            for b in token:
-                byte_encoded.append(self.byte_encoder[ord(b)])
-            encoded: List[str] = []
-            for bpe_token in self.bpe(byte_encoded):
-                encoded.append(self.encoder[bpe_token])
-            bpe_tokens.extend(encoded)
-        return bpe_tokens
+        text = text.replace('\n', ' __newln__ ')
+        #return self.findall(text)
+        return self.segment_tokens(self.findall(text))
+    
+    def segment_tokens(self, tokens: List[str]) -> List[str]:
+        """segment a sequence of tokens with BPE encoding"""
+        output: List[str] = []
+        for word in tokens:
+            # eliminate double spaces
+            if not word:
+                continue
+            new_word: List[str] = self.encode_token(word)
+
+            for item in new_word[:-1]:
+                output.append(item + self.separator)
+            output.append(new_word[-1])
+
+        return output
+    
+    def encode_token(self, orig: str) -> List[str]:
+        """Encode word based on list of BPE merge operations, which are applied consecutively"""
+        """Only implemented for version (0,2) in codec file"""
+
+        if len(orig) == 1:
+            return [orig]
+
+        word: List[str] = list(orig[:-1]) + [orig[-1] + '</w>']
+        q = 1
+        while len(word) > 1:
+
+            # get list of symbol pairs; optionally apply dropout
+            ranks: List[int] = []
+            codes: List[str] = []
+            idxs: List[int] = []
+            
+            for (i,pair) in enumerate(zip(word, word[1:])):
+                if self.temp_separator.join(pair) in self.bpe_codes:
+                    ranks.append(self.bpe_codes[self.temp_separator.join(pair)])
+                    codes.append(self.temp_separator.join(pair))
+                    idxs.append(i)
+            if len(ranks)==0:
+                break
+
+            #get first merge operation in list of BPE codes
+            min_rank_idx: int = ranks.index(min(ranks))
+            bigram: str = codes[min_rank_idx]
+            
+            # find start position of all pairs that we want to merge
+            positions: List[int] = []
+            for i in range(0,len(ranks)):
+                if codes[i]==bigram:
+                    positions.append(idxs[i])
+
+            i = 0
+            new_word: List[str] = []
+            bigram = bigram.replace('__space__','')
+            for j in positions:
+                # merges are invalid if they start before current position. This can happen if there are overlapping pairs: (x x x -> xx x)
+                if j < i:
+                    continue
+                new_word.extend(word[i:j]) # all symbols before merged pair
+                new_word.append(bigram) # merged pair
+                i = j+2 # continue after merged pair
+            new_word.extend(word[i:]) # add all symbols until end of word
+            word = new_word
+
+        # don't print end-of-word symbols
+        if word[-1] == '</w>':
+            word = word[:-1]
+        elif word[-1].endswith('</w>'):
+            word[-1] = word[-1][:-4]
+
+        return word
 
     def decode(self, tokens: List[str]) -> str:
         """
@@ -602,68 +527,12 @@ class ScriptableGpt2BpeHelper(object):
         :return:
             decoded text
         """
-        chars: List[str] = []
-        for token in tokens:
-            decoded_token = self.decoder[token]
-            token_chars = self.utf8_chars(decoded_token)
-            for char in token_chars:
-                if not torch.jit.is_scripting():
-                    # We iterate over "char", which is supposed to be a single
-                    # character, because the TorchScripted version of the code
-                    # correctly splits a string into single characters in
-                    # self.utf8_chars() but the non-TorchScripted version doesn't
-                    chars.extend(list(char))
-                else:
-                    chars.append(char)
-        decoded_chars: List[str] = []
-        for char in chars:
-            decoded_chars.append(chr(self.byte_decoder[char]))
-        return ''.join(decoded_chars)
-
-    def utf8_chars(self, s: str) -> List[str]:
-        """
-        An implementation of UTF8 character iteration in TorchScript. There are no
-        bitwise operations in torchscript, so we compare directly to integer values.
-        There isn't a lot of validation, for instance if you pass in an improperly
-        encoded string with an out-of-place continuation byte, or with a non-left-to-
-        right byte order, you'll get unexpected results and likely throw. Torch itself
-        takes in unicode strings and encodes them as UTF8, so that should be actively
-        hard to do.
-
-        The logic is simple: looking at the current start-of-character byte.
-        If its high bit is 0, it's a 1-byte character. Otherwise, the number of
-        bytes is the number of leading 1s in its binary representation, so
-        find that number by comparing it directly to ints with the appropriate
-        representation, then append that many bytes as a character and move past
-        them to the next start byte.
-
-        From pytext.torchscript.utils.
-        """
-        chars: List[str] = []
-        i = 0
-        while i < len(s):
-            byte = ord(s[i])
-            if byte < 0b10000000:
-                chars.append(s[i])
-                i += 1
-            else:
-                if byte < 0b11100000:
-                    num_bytes = 2
-                elif byte < 0b11110000:
-                    num_bytes = 3
-                elif byte < 0b11111000:
-                    num_bytes = 4
-                elif byte < 0b11111100:
-                    num_bytes = 5
-                elif byte < 0b11111110:
-                    num_bytes = 6
-                elif byte < 0b11111111:
-                    num_bytes = 7
-                else:
-                    num_bytes = 8
-                chars.append(s[i : i + num_bytes])
-                i += num_bytes
-        return chars
+        text = ' '.join(tokens)
+        text = text.replace('@@ ', '')
+        # It's also possible that we get a BPE encoding on the end of the word
+        if text.endswith('@@'):
+            text = text[:-2]
+        return text
 
 
 @torch.jit.script
@@ -684,9 +553,9 @@ class ScriptableDictionaryAgent:
         tok2ind: Dict[str, int],
         ind2tok: Dict[int, str],
         bpe_add_prefix_space: bool,
-        bpe_encoder: Dict[str, str],
-        bpe_byte_encoder: Dict[int, str],
-        fused_key_bpe_ranks: Dict[str, float],
+        bpe_codes: Dict[str, int],
+        separator: str,
+        temp_separator: str,
     ):
 
         self.null_token = null_token
@@ -702,11 +571,11 @@ class ScriptableDictionaryAgent:
         self._unk_token_idx = self.tok2ind[self.unk_token]
 
         # Initialize tokenizer
-        self.bpe = ScriptableGpt2BpeHelper(
+        self.bpe = ScriptableSubwordBpeHelper(
             add_prefix_space=bpe_add_prefix_space,
-            encoder=bpe_encoder,
-            byte_encoder=bpe_byte_encoder,
-            fused_key_bpe_ranks=fused_key_bpe_ranks,
+            bpe_codes=bpe_codes,
+            separator=separator,
+            temp_separator=temp_separator
         )
 
     def _word_lookup(self, key: str) -> int:
@@ -727,21 +596,15 @@ class ScriptableDictionaryAgent:
         else:
             return self.unk_token
 
-    def gpt2_tokenize(self, text: str):
-        """
-        Tokenize using Gpt2 BPE tokenizer.
-        """
-        return self.bpe_tokenize(text)
-
     def tokenize(self, text: str) -> List[str]:
         """
         Return a sequence of tokens from the iterable.
 
         Also handles special tokens for some tokenizers
         """
-
+        
         # calls the selected tokenizer function e.g. 're' => re_tokenize(text)
-        word_tokens = self.gpt2_tokenize(text)
+        word_tokens = self.bpe_tokenize(text)
 
         return word_tokens
 
