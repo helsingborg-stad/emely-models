@@ -77,7 +77,7 @@ class TorchScriptGreedySearch(nn.Module):
         self.start_idx = agent.model.START_IDX
         self.end_idx = agent.model.END_IDX
         self.null_idx = agent.model.NULL_IDX
-        self.initial_decoder_input = [self.end_idx, self.start_idx]
+        self.initial_decoder_input = [self.start_idx]#[self.end_idx, self.start_idx]
 
         agent.model.eval()
 
@@ -124,7 +124,7 @@ class TorchScriptGreedySearch(nn.Module):
         )
         print(generations.size())
         print(len(encoder_states))
-        print(incr_state)
+        # print(incr_state)
         self.decoder_later_pass = torch.jit.trace(
             wrapped_decoder, (generations, encoder_states, incr_state), strict=False
         )
@@ -161,6 +161,9 @@ class TorchScriptGreedySearch(nn.Module):
 
     def forward(self, context: str, max_len: int = 128) -> str:
 
+        # Emely specific
+        context = "Hi\n".join(context)
+
         # Vectorize all lines of context
         history_vecs: List[List[int]] = []
         context_lines = context.split('\n')
@@ -190,15 +193,15 @@ class TorchScriptGreedySearch(nn.Module):
             if len(flattened_text_vec) > truncate_length:
                 flattened_text_vec = flattened_text_vec[-truncate_length:]
         flattened_text_vec = torch.tensor(flattened_text_vec, dtype=torch.long)
-        # originally "if is_bart:"
-        flattened_text_vec = torch.cat(
-            [
-                torch.tensor([self.start_idx], dtype=torch.long),
-                flattened_text_vec,
-                torch.tensor([self.end_idx], dtype=torch.long),
-            ],
-            dim=0,
-        )
+        # originally "if is_bart: Is this correct for Emely?"
+        # flattened_text_vec = torch.cat(
+        #     [
+        #         torch.tensor([self.start_idx], dtype=torch.long),
+        #         flattened_text_vec,
+        #         torch.tensor([self.end_idx], dtype=torch.long),
+        #     ],
+        #     dim=0,
+        # )
 
         # Pass through the encoder and decoder to generate tokens
         batch_text_vec = torch.unsqueeze(flattened_text_vec, dim=0)  # Add batch dim

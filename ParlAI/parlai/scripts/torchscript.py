@@ -118,8 +118,8 @@ def export_emely(opt: Opt):
 
     # Script the module and save
     scripted_module = torch.jit.script(TorchScriptGreedySearch(agent))
-    with PathManager.open(opt['scripted_model_file'], 'wb') as f:
-        torch.jit.save(scripted_module, f)
+    #with PathManager.open(opt['scripted_model_file'], 'wb') as f:
+    #    torch.jit.save(scripted_module, f)
 
     # Compare the original module to the scripted module against the test inputs
     if len(opt['input']) > 0:
@@ -128,6 +128,8 @@ def export_emely(opt: Opt):
         _run_conversation(module=original_module, inputs=inputs)
         print('\nGenerating given the scripted module:')
         _run_conversation(module=scripted_module, inputs=inputs)
+    
+    return original_module, scripted_module
 
 
 def _run_conversation(module: nn.Module, inputs: List[str]):
