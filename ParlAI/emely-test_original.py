@@ -16,10 +16,10 @@ opt['init_model'] = (model_path / 'model').as_posix()
 opt['no_cuda'] = True  # Cloud run doesn't offer gpu support
 
 # Inference options
-opt['inference'] = 'greedy' # 'beam'
-opt['beam_size'] = 1
+opt['inference'] = 'beam' # 'beam'
+opt['beam_size'] = 10
 
 emely_agent = EmelyAgent(opt)
 
-text = "Hi Emely, how are you?\nI'm good thanks! What do you do for work?\nI write code and I drink coffe"
+text = "Hi Emely, how are you?\nI'm good thanks! What do you do for work?\nI write code and I drink coffe."
 emely_agent.observe_and_act(text)

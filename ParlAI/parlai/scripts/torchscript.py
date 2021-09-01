@@ -91,9 +91,7 @@ def export_emely(opt: Opt):
             'TorchScript export is only supported for Torch 1.7 and higher!'
         )
     else:
-        # Only load TorchScriptGreedySearch now, because this will trigger scripting of
-        # associated modules
-        from parlai.torchscript.modules_emely import TorchScriptGreedySearch
+        from parlai.torchscript.modules_emely import TorchScriptedEmelyAgent
 
     overrides = {
         'no_cuda': True,  # TorchScripting is CPU only
@@ -114,12 +112,12 @@ def export_emely(opt: Opt):
     sbpe.bpe_codes = joint_bpe_codes
     sbpe.separator = "@@"
     agent.dict.bpe = sbpe
-    original_module = TorchScriptGreedySearch(agent)
+    original_module = TorchScriptedEmelyAgent(agent)
 
     # Script the module and save
-    scripted_module = torch.jit.script(TorchScriptGreedySearch(agent))
-    with PathManager.open(opt['scripted_model_file'], 'wb') as f:
-        torch.jit.save(scripted_module, f)
+    scripted_module = torch.jit.script(TorchScriptedEmelyAgent(agent))
+    #with PathManager.open(opt['scripted_model_file'], 'wb') as f:
+    #    torch.jit.save(scripted_module, f)
 
     # Compare the original module to the scripted module against the test inputs
     if len(opt['input']) > 0:

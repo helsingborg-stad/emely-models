@@ -7,6 +7,7 @@ from parlai.scripts.torchscript import export_emely
 from parlai.core.agents import create_agent
 
 # Initialize model settings
+
 model_path = Path.cwd() / 'data/models/blender/blender_90M/'
 assert model_path.is_dir()
 
@@ -19,10 +20,10 @@ opt['init_model'] = (model_path / 'model').as_posix()
 opt['no_cuda'] = True  # Cloud run doesn't offer gpu support
 
 # Inference options
-opt['inference'] = 'greedy' # 'beam'
-opt['beam_size'] = 1
+opt['inference'] = 'beam' # 'beam'
+opt['beam_size'] = 10
 
-opt["scripted_model_file"] = "emely_scripted_test.pt"
+opt["scripted_model_file"] = "../../saved_models/emely_scripted_test.pt"
 opt["script-module"] = "parlai.torchscript.modules:TorchScriptGreedySearch"
 opt["model_file"] = opt["init_model"]
 
@@ -32,4 +33,7 @@ opt["bpe_add_prefix_space"] = False
 
 opt["input"] = "Hi! What do you like to do?"
 
-export_emely(opt)
+original_module, scripted_module = export_emely(opt)
+
+text = "Hi Emely, how are you?\nI'm good thanks! What do you do for work?\nI write code and I drink coffe."
+reply = original_module(text)
