@@ -14,6 +14,7 @@ import torch.nn.functional as F
 from parlai.core.dict import DictionaryAgent
 from parlai.core.torch_agent import TorchAgent
 from parlai.utils.bpe import SubwordBPEHelper
+from operator import attrgetter
 
 
 class TorchScriptedEmelyAgent(nn.Module):
@@ -149,10 +150,10 @@ class TorchScriptedEmelyAgent(nn.Module):
         Tuples of Tensors can be traced" error.
         """
         return (
-            torch.tensor(self.initial_decoder_input, dtype=torch.long)
-            .expand(beam_size,1)
             # torch.tensor(self.initial_decoder_input, dtype=torch.long)
-            # .expand(1, len(self.initial_decoder_input))
+            # .expand(beam_size,1)
+            torch.tensor(self.initial_decoder_input, dtype=torch.long)
+            .expand(1, len(self.initial_decoder_input))
         )
 
     def parse(self, text: str) -> List[int]:
@@ -170,6 +171,126 @@ class TorchScriptedEmelyAgent(nn.Module):
                 new_vec.append(i)
         return self.dict.vec2txt(new_vec)
 
+    # def forward(self, context: str, max_len: int = 128) -> str:
+
+    #     # Vectorize all lines of context
+    #     history_vecs: List[List[int]] = []
+    #     context_lines = context.split('\n')
+    #     if self.history_size > 0:
+    #         context_lines = context_lines[-self.history_size :]
+    #     for line in context_lines:
+    #         history_vecs.append(self.parse(line))
+
+    #     # Get full history vec
+    #     text_vecs: List[List[int]] = []
+    #     for vec in history_vecs[:-1]:
+    #         text_vecs += [vec]
+    #         text_vecs += [self.delimiter_tok]
+    #     text_vecs += [history_vecs[-1]]
+    #     if self.global_end_token is not None:
+    #         text_vecs += [[self.global_end_token]]
+
+    #     # Flatten text_vecs
+    #     flattened_text_vec: List[int] = []
+    #     for vec in text_vecs:
+    #         for token in vec:
+    #             flattened_text_vec.append(token)
+
+    #     # Format history vec given various logic
+    #     if self.text_truncate is not None:
+    #         truncate_length = self.text_truncate - 2
+    #         if len(flattened_text_vec) > truncate_length:
+    #             flattened_text_vec = flattened_text_vec[-truncate_length:]
+    #     flattened_text_vec = torch.tensor(flattened_text_vec, dtype=torch.long)
+    #     # originally "if is_bart: Seems to be excluded in Emely"
+    #     # flattened_text_vec = torch.cat(
+    #     #     [
+    #     #         torch.tensor([self.start_idx], dtype=torch.long),
+    #     #         flattened_text_vec,
+    #     #         torch.tensor([self.end_idx], dtype=torch.long),
+    #     #     ],
+    #     #     dim=0,
+    #     # )
+
+    #     # Pass through the encoder and decoder to generate tokens
+    #     batch_text_vec = torch.unsqueeze(flattened_text_vec, dim=0).repeat(self.beam_size,1)  # Add batch dim
+    #     encoder_states = self.encoder(batch_text_vec)
+    #     decoder_input = self._get_initial_decoder_input(self.beam_size)
+    #     # keep track of early stopping if all generations finish
+
+    #     beam = ScriptableTreeSearch(self.beam_size,
+    #                                 self.inference,
+    #                                 block_ngram = self.block_ngram,
+    #                                 context_block_ngram = self.context_block_ngram,
+    #                                 padding_token = self.padding_token,
+    #                                 bos_token = self.bos_token,
+    #                                 eos_token = self.eos_token,
+    #                                 min_length = self.min_length,
+    #                                 length_penalty = self.length_penalty,
+    #                                 )
+    #     beam.set_context(flattened_text_vec)
+        
+    #     incr_state: Dict[str, torch.Tensor] = {}
+    #     for token_idx in range(max_len):
+    #         if beam.is_done():
+    #             break
+
+    #         if token_idx == 0:
+    #             score, incr_state = self.decoder_first_pass(
+    #                 decoder_input, encoder_states
+    #             )
+    #         else:
+    #             score, incr_state = self.decoder_later_pass(
+    #                 decoder_input, encoder_states, incr_state
+    #             )
+    #         score = score[:, -1:, :]
+    #         score = self.partially_traced_model.output(score)
+    #         score = score.view(1, self.beam_size, -1)
+    #         if self.temperature != 1.0:
+    #             score.div_(self.temperature)
+    #         #_, preds = score.max(dim=2)    # Previous
+    #         score = F.log_softmax(score, dim=-1, dtype=torch.float32)
+    #         if not beam.is_done():
+    #             beam.advance(score[0])
+    #         incr_state_inds = beam.get_backtrack_from_current_step()
+    #         incr_state = self.partially_traced_model.reorder_decoder_incremental_state(
+    #             incr_state,incr_state_inds
+    #         )
+    #         selection = beam.get_output_from_current_step().unsqueeze(-1)
+    #         decoder_input = self._get_next_decoder_input(
+    #             decoder_input, selection, incr_state_inds
+    #         )
+
+    #     best = beam.get_rescored_finished()
+    #     bestlist: List[int] = [int(best[i].item()) for i in range(best.size()[0])]
+    #     label = self._v2t(bestlist)
+
+    #     return label
+
+    # def _get_next_decoder_input(
+    #     self,
+    #     prev_input: torch.LongTensor,
+    #     selection: torch.LongTensor,
+    #     incr_state_inds: torch.LongTensor,
+    # ) -> torch.LongTensor:
+    #     """
+    #     Return next decoder input.
+
+    #     :param prev_input:
+    #         previous input to decoder
+    #     :param selection:
+    #         token selections for current timestep
+    #     :param inds:
+    #         incremental state indices
+
+    #     :return decoder input:
+    #         return decoder input for next timestep
+    #     """
+    #     prev_input = torch.index_select(prev_input, 0, incr_state_inds)
+    #     decoder_input = torch.cat([prev_input, selection], dim=-1)
+    #     return decoder_input
+
+    """Original forward function"""
     def forward(self, context: str, max_len: int = 128) -> str:
 
         # Vectorize all lines of context
@@ -212,160 +333,39 @@ class TorchScriptedEmelyAgent(nn.Module):
         # )
 
         # Pass through the encoder and decoder to generate tokens
-        batch_text_vec = torch.unsqueeze(flattened_text_vec, dim=0).repeat(self.beam_size,1)  # Add batch dim
+        batch_text_vec = torch.unsqueeze(flattened_text_vec, dim=0)  # Add batch dim
         encoder_states = self.encoder(batch_text_vec)
-        decoder_input = self._get_initial_decoder_input(self.beam_size)
+        generations = self._get_initial_decoder_input(batch_text_vec)
         # keep track of early stopping if all generations finish
-
-        beam = ScriptableTreeSearch(self.beam_size,
-                                    self.inference,
-                                    block_ngram = self.block_ngram,
-                                    context_block_ngram = self.context_block_ngram,
-                                    padding_token = self.padding_token,
-                                    bos_token = self.bos_token,
-                                    eos_token = self.eos_token,
-                                    min_length = self.min_length,
-                                    length_penalty = self.length_penalty,
-                                    )
-        beam.set_context(flattened_text_vec)
-        
+        seen_end = torch.zeros(
+            batch_text_vec.size(0), device=batch_text_vec.device, dtype=torch.bool
+        )
         incr_state: Dict[str, torch.Tensor] = {}
         for token_idx in range(max_len):
-            if beam.is_done():
-                break
-
             if token_idx == 0:
-                score, incr_state = self.decoder_first_pass(
-                    decoder_input, encoder_states
+                latent, incr_state = self.decoder_first_pass(
+                    generations, encoder_states
                 )
             else:
-                score, incr_state = self.decoder_later_pass(
-                    decoder_input, encoder_states, incr_state
+                latent, incr_state = self.decoder_later_pass(
+                    generations, encoder_states, incr_state
                 )
-            score = score[:, -1:, :]
-            score = self.partially_traced_model.output(score)
-            score = score.view(1, self.beam_size, -1)
-            if self.temperature != 1.0:
-                score.div_(self.temperature)
-            #_, preds = score.max(dim=2)    # Previous
-            score = F.log_softmax(score, dim=-1, dtype=torch.float32)
-            if not beam.is_done():
-                beam.advance(score[0])
-            incr_state_inds = beam.get_backtrack_from_current_step()
+            logits = self.partially_traced_model.output(latent[:, -1:, :])
+            _, preds = logits.max(dim=2)
             incr_state = self.partially_traced_model.reorder_decoder_incremental_state(
                 incr_state,
                 torch.tensor([0], dtype=torch.long, device=batch_text_vec.device),
             )
-            selection = beam.get_output_from_current_step().unsqueeze(-1)
-            decoder_input = self._get_next_decoder_input(
-                decoder_input, selection, incr_state_inds
-            )
+            seen_end = seen_end + (preds == self.end_idx).squeeze(1)
+            generations = torch.cat([generations, preds], dim=1)
+            if torch.all(seen_end):
+                break
 
         # Get the label from the generated tokens and update the history
-        generation_tokens: List[int] = decoder_input[0].tolist()
+        generation_tokens: List[int] = generations[0].tolist()
         label = self._v2t(generation_tokens)
 
         return label
-
-    def _get_next_decoder_input(
-        self,
-        prev_input: torch.LongTensor,
-        selection: torch.LongTensor,
-        incr_state_inds: torch.LongTensor,
-    ) -> torch.LongTensor:
-        """
-        Return next decoder input.
-
-        :param prev_input:
-            previous input to decoder
-        :param selection:
-            token selections for current timestep
-        :param inds:
-            incremental state indices
-
-        :return decoder input:
-            return decoder input for next timestep
-        """
-        prev_input = torch.index_select(prev_input, 0, incr_state_inds)
-        decoder_input = torch.cat([prev_input, selection], dim=-1)
-        return decoder_input
-
-        # """Original forward function"""
-        # def forward(self, context: str, max_len: int = 128) -> str:
-
-        #     # Vectorize all lines of context
-        #     history_vecs: List[List[int]] = []
-        #     context_lines = context.split('\n')
-        #     if self.history_size > 0:
-        #         context_lines = context_lines[-self.history_size :]
-        #     for line in context_lines:
-        #         history_vecs.append(self.parse(line))
-
-        #     # Get full history vec
-        #     text_vecs: List[List[int]] = []
-        #     for vec in history_vecs[:-1]:
-        #         text_vecs += [vec]
-        #         text_vecs += [self.delimiter_tok]
-        #     text_vecs += [history_vecs[-1]]
-        #     if self.global_end_token is not None:
-        #         text_vecs += [[self.global_end_token]]
-
-        #     # Flatten text_vecs
-        #     flattened_text_vec: List[int] = []
-        #     for vec in text_vecs:
-        #         for token in vec:
-        #             flattened_text_vec.append(token)
-
-        #     # Format history vec given various logic
-        #     if self.text_truncate is not None:
-        #         truncate_length = self.text_truncate - 2
-        #         if len(flattened_text_vec) > truncate_length:
-        #             flattened_text_vec = flattened_text_vec[-truncate_length:]
-        #     flattened_text_vec = torch.tensor(flattened_text_vec, dtype=torch.long)
-        #     # originally "if is_bart: Seems to be excluded in Emely"
-        #     # flattened_text_vec = torch.cat(
-        #     #     [
-        #     #         torch.tensor([self.start_idx], dtype=torch.long),
-        #     #         flattened_text_vec,
-        #     #         torch.tensor([self.end_idx], dtype=torch.long),
-        #     #     ],
-        #     #     dim=0,
-        #     # )
-
-        #     # Pass through the encoder and decoder to generate tokens
-        #     batch_text_vec = torch.unsqueeze(flattened_text_vec, dim=0)  # Add batch dim
-        #     encoder_states = self.encoder(batch_text_vec)
-        #     generations = self._get_initial_decoder_input(batch_text_vec)
-        #     # keep track of early stopping if all generations finish
-        #     seen_end = torch.zeros(
-        #         batch_text_vec.size(0), device=batch_text_vec.device, dtype=torch.bool
-        #     )
-        #     incr_state: Dict[str, torch.Tensor] = {}
-        #     for token_idx in range(max_len):
-        #         if token_idx == 0:
-        #             latent, incr_state = self.decoder_first_pass(
-        #                 generations, encoder_states
-        #             )
-        #         else:
-        #             latent, incr_state = self.decoder_later_pass(
-        #                 generations, encoder_states, incr_state
-        #             )
-        #         logits = self.partially_traced_model.output(latent[:, -1:, :])
-        #         _, preds = logits.max(dim=2)
-        #         incr_state = self.partially_traced_model.reorder_decoder_incremental_state(
-        #             incr_state,
-        #             torch.tensor([0], dtype=torch.long, device=batch_text_vec.device),
-        #         )
-        #         seen_end = seen_end + (preds == self.end_idx).squeeze(1)
-        #         generations = torch.cat([generations, preds], dim=1)
-        #         if torch.all(seen_end):
-        #             break
-
-        #     # Get the label from the generated tokens and update the history
-        #     generation_tokens: List[int] = generations[0].tolist()
-        #     label = self._v2t(generation_tokens)
-
-        #     return label
 
 
 class BaseIncrStateFlattener(nn.Module):
@@ -952,7 +952,7 @@ class ScriptableTreeSearch(object):
             if len(hyp) < ngram_size - 1:
                 continue
             source_ = hyp if source is None else source
-            ngrams = [source_[i:i+ngram_size-1] for i in range(len(source_)-ngram_size+1)]
+            ngrams = [source_[i:i+ngram_size] for i in range(len(source_)-ngram_size+1)]
             prefix = hyp[-(ngram_size - 1) :]
             for ngram in ngrams:
                 if ngram_size == 1 or prefix == ngram[:-1]:
@@ -1013,8 +1013,15 @@ class ScriptableTreeSearch(object):
 
         self.outputs.append(tok_ids)
         self.bookkeep.append(hyp_ids)
+        temphyps: List[List[int]] = []
         for i in range(self.beam_size):
-            self.partial_hyps[hyp_ids[i]].append(tok_ids[i].item())
+            temp: List[int] = []
+            tempvals = self.partial_hyps[hyp_ids[i]]
+            for val in tempvals:
+                temp.append(val)
+            temp.append(tok_ids[i].item())
+            temphyps.append(temp)
+        self.partial_hyps = temphyps
 
         #  check new hypos for eos label, if we have some, add to finished
         for hypid in range(self.beam_size):
@@ -1049,100 +1056,75 @@ class ScriptableTreeSearch(object):
     #     return list(zip(*[input_list[i:] for i in range(n)]))
 
     def _get_hyp_from_finished(self, hypothesis_tail: _ScriptableHypothesisTail) -> List[_ScriptableHypothesisTail]:
-        """
-        Extract hypothesis ending with EOS at timestep with hyp_id.
-
-        :param timestep:
-            timestep with range up to len(self.outputs) - 1
-
-        :param hyp_id:
-            id with range up to beam_size - 1
-
-        :return:
-            hypothesis sequence
-        """
         hyp_idx: List[_ScriptableHypothesisTail] = []
-        endback = hypothesis_tail.hypid
+        endback: int = hypothesis_tail.hypid
         for i in range(hypothesis_tail.timestep, -1, -1):
             hyp_idx.append(
                 _ScriptableHypothesisTail(
                     timestep=i,
                     hypid=endback,
-                    score=self.all_scores[i][endback],
-                    tokenid=self.outputs[i][endback],
+                    score=self.all_scores[i][endback].item(),
+                    tokenid=self.outputs[i][endback].item(),
                 )
             )
             endback = self.bookkeep[i - 1][endback]
 
         return hyp_idx
 
-    # def _get_pretty_hypothesis(self, list_of_hypotails):
-    #     """
-    #     Return hypothesis as a tensor of token ids.
-    #     """
-    #     return torch.stack([ht.tokenid for ht in reversed(list_of_hypotails)])
+    def _get_pretty_hypothesis(self, list_of_hypotails: List[_ScriptableHypothesisTail]) -> torch.Tensor:
+        """
+        Return hypothesis as a tensor of token ids.
+        """
+        reslist: torch.Tensor = torch.zeros(len(list_of_hypotails))
+        for i in range(len(list_of_hypotails)):
+            reslist[i] = list_of_hypotails[len(list_of_hypotails)-i-1].tokenid
+        return reslist
 
-    # def get_rescored_finished(self, n_best=None):
-    #     """
-    #     Return finished hypotheses according to adjusted scores.
+    def get_rescored_finished(self) -> torch.Tensor:
+        """
+        Return finished hypotheses according to adjusted scores.
 
-    #     Score adjustment is done according to the Google NMT paper, which
-    #     penalizes long utterances.
+        Score adjustment is done according to the Google NMT paper, which
+        penalizes long utterances.
 
-    #     :param n_best:
-    #         number of finalized hypotheses to return
+        :param n_best:
+            number of finalized hypotheses to return
 
-    #     :return:
-    #         list of (tokens, score) pairs, in sorted order, where:
-    #           - tokens is a tensor of token ids
-    #           - score is the adjusted log probability of the entire utterance
-    #     """
-    #     # if we never actually finished, force one
-    #     if not self.finished:
-    #         self.outputs[-1][0] = self.eos
-    #         self.finished.append(
-    #             _HypothesisTail(
-    #                 timestep=len(self.outputs) - 1,
-    #                 hypid=0,
-    #                 score=self.all_scores[-1][0],
-    #                 tokenid=self.outputs[-1][0],
-    #             )
-    #         )
+        :return:
+            list of (tokens, score) pairs, in sorted order, where:
+              - tokens is a tensor of token ids
+              - score is the adjusted log probability of the entire utterance
+        """
+        # if we never actually finished, force one
+        if not self.finished:
+            self.outputs[-1][0] = self.eos
+            self.finished.append(
+                _ScriptableHypothesisTail(
+                    timestep=len(self.outputs) - 1,
+                    hypid=0,
+                    score=self.all_scores[-1][0].item(),
+                    tokenid=self.outputs[-1][0].item(),
+                )
+            )
 
-    #     rescored_finished = []
-    #     for finished_item in self.finished:
-    #         current_length = finished_item.timestep + 1
-    #         # these weights are from Google NMT paper
-    #         length_penalty = math.pow((1 + current_length) / 6, self.length_penalty)
-    #         rescored_finished.append(
-    #             _HypothesisTail(
-    #                 timestep=finished_item.timestep,
-    #                 hypid=finished_item.hypid,
-    #                 score=finished_item.score / length_penalty,
-    #                 tokenid=finished_item.tokenid,
-    #             )
-    #         )
+        scores: torch.Tensor = torch.zeros(len(self.finished))
+        rescored_finished: List[_ScriptableHypothesisTail] = []
+        for i,finished_item in enumerate(self.finished):
+            current_length = finished_item.timestep + 1
+            # these weights are from Google NMT paper
+            length_penalty = ((1 + current_length) / 6)**self.length_penalty
+            rescored_finished.append(
+                _ScriptableHypothesisTail(
+                    timestep=finished_item.timestep,
+                    hypid=finished_item.hypid,
+                    score=finished_item.score / length_penalty,
+                    tokenid=finished_item.tokenid,
+                )
+            )
+            scores[i] = finished_item.score / length_penalty
+        
+        maxscore_ind = torch.argmax(scores).item()
 
-    #     # Note: beam size is almost always pretty small, so sorting is cheap enough
-    #     srted = sorted(rescored_finished, key=attrgetter('score'), reverse=True)
-
-    #     if n_best is not None:
-    #         srted = srted[:n_best]
-
-    #     n_best_list = [
-    #         (self._get_pretty_hypothesis(self._get_hyp_from_finished(hyp)), hyp.score)
-    #         for hyp in srted
-    #     ]
-
-    #     # check that there is at least one finished candidate
-    #     # and assert that each of them contains only one EOS
-    #     assert (
-    #         len(n_best_list) >= 1
-    #     ), f'TreeSearch returned {len(n_best_list)} candidates, must be >= 1'
-    #     for (pred, score) in n_best_list:
-    #         assert (pred == self.eos).sum() == 1, (
-    #             f'TreeSearch returned a finalized hypo with multiple end tokens '
-    #             f'with score {score.item():.2f}'
-    #         )
-
-    #     return n_best_list
+        best: torch.Tensor = self._get_pretty_hypothesis(self._get_hyp_from_finished(rescored_finished[maxscore_ind]))
+        
+        return best

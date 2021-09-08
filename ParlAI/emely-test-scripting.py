@@ -31,7 +31,7 @@ opt["temp_separator"] = "__space__"
 
 opt["bpe_add_prefix_space"] = False
 
-opt["input"] = "Hi! What do you like to do?"
+opt["input"] = "Hi Emely, how are you?\nI'm good thanks! What do you do for work?\nI write code and I drink coffe."
 
 original_module, scripted_module = export_emely(opt)
 
