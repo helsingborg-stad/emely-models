@@ -16,7 +16,7 @@ from parlai.core.torch_agent import TorchAgent
 from parlai.utils.bpe import SubwordBPEHelper
 
 
-class TorchScriptedEmelyAgent(nn.Module):
+class ONNXEmelyAgent(nn.Module):
     """
     A helper class for exporting Emely via TorchScript.
     """
@@ -119,26 +119,12 @@ class TorchScriptedEmelyAgent(nn.Module):
         decoder_input = torch.cat([initial_decoder_input, preds], dim=1)
 
         # Do tracing
-        self.encoder = torch.jit.trace(agent.model.encoder, sample_tokens)
-        self.decoder_first_pass = torch.jit.trace(
-            wrapped_decoder, (initial_decoder_input, encoder_states), strict=False
-        )
+        self.encoder = agent.model.encoder
+        self.decoder_first_pass = wrapped_decoder
         # We do strict=False to avoid an error when passing a Dict out of
         # decoder.forward()
-        self.partially_traced_model = torch.jit.trace_module(
-            wrapped_model,
-            {
-                'output': (score[:, -1:, :]),
-                'reorder_decoder_incremental_state': (
-                    initial_incr_state,
-                    torch.tensor([0], dtype=torch.long).expand(self.beam_size),
-                ),
-            },
-            strict=False,
-        )
-        self.decoder_later_pass = torch.jit.trace(
-            wrapped_decoder, (decoder_input, encoder_states, incr_state), strict=False
-        )
+        self.partially_traced_model = wrapped_model
+        self.decoder_later_pass = wrapped_decoder
 
     def _get_initial_decoder_input(self, beam_size: int) -> torch.Tensor:
         """
@@ -201,15 +187,6 @@ class TorchScriptedEmelyAgent(nn.Module):
             if len(flattened_text_vec) > truncate_length:
                 flattened_text_vec = flattened_text_vec[-truncate_length:]
         flattened_text_vec = torch.tensor(flattened_text_vec, dtype=torch.long)
-        # originally "if is_bart: Seems to be excluded in Emely"
-        # flattened_text_vec = torch.cat(
-        #     [
-        #         torch.tensor([self.start_idx], dtype=torch.long),
-        #         flattened_text_vec,
-        #         torch.tensor([self.end_idx], dtype=torch.long),
-        #     ],
-        #     dim=0,
-        # )
 
         # Pass through the encoder and decoder to generate tokens
         batch_text_vec = torch.unsqueeze(flattened_text_vec, dim=0).repeat(self.beam_size,1)  # Add batch dim
@@ -469,7 +446,7 @@ class ModelIncrStateFlattener(BaseIncrStateFlattener):
     def output(self, tensor: torch.Tensor) -> torch.Tensor:
         return self.module.output(tensor)
 
-@torch.jit.script
+#@torch.jit.script
 class ScriptableSubwordBpeHelper(object):
     """
     Version of parlai.utils.bpe.SubwordBpeHelper that can be TorchScripted.
@@ -658,7 +635,7 @@ class ScriptableSubwordBpeHelper(object):
         return text
 
 
-@torch.jit.script
+#@torch.jit.script
 class ScriptableDictionaryAgent:
     """
     Builds and/or loads a dictionary.
@@ -763,7 +740,7 @@ class ScriptableDictionaryAgent:
         text = self.bpe.decode(tokens)
         return text
 
-@torch.jit.script
+#@torch.jit.script
 class _ScriptableHypothesisTail(object):
     """
     Hold some bookkeeping about a hypothesis.
@@ -778,7 +755,7 @@ class _ScriptableHypothesisTail(object):
         self.score = score
         self.tokenid = tokenid
 
-@torch.jit.script
+#@torch.jit.script
 def scriptedNeginf(dtype: torch.dtype) -> float:
     """
     Return a representable finite number near -inf for a dtype.
@@ -788,7 +765,7 @@ def scriptedNeginf(dtype: torch.dtype) -> float:
     else:
         return -10.0**20
 
-@torch.jit.script
+#@torch.jit.script
 class ScriptableTreeSearch(object):
     """
     Abstract Tree Search class.

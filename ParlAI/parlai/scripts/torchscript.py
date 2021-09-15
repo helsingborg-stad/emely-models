@@ -81,7 +81,7 @@ def setup_args() -> ParlaiParser:
     return parser
 
 
-def export_emely(opt: Opt):
+def export_emely(opt: Opt, quantize: bool):
     """
     Export Emely to TorchScript so that inference can be run outside of ParlAI.
     """
@@ -105,6 +105,8 @@ def export_emely(opt: Opt):
 
     # Create the unscripted greedy-search module
     agent = EmelyAgent(opt)
+    if quantize:
+        agent.model = torch.quantization.quantize_dynamic(agent.model, {torch.nn.Linear}, dtype=torch.qint8) 
     sbpe = SubwordBPEHelper(agent.opt)
     joint_bpe_codes = {}
     for k in sbpe.bpe.bpe_codes.keys():
@@ -119,13 +121,13 @@ def export_emely(opt: Opt):
     with PathManager.open(opt['scripted_model_file'], 'wb') as f:
         torch.jit.save(scripted_module, f)
 
-    # Compare the original module to the scripted module against the test inputs
-    if len(opt['input']) > 0:
-        inputs = opt['input'].split('|')
-        print('\nGenerating given the original unscripted module:')
-        _run_conversation(module=original_module, inputs=inputs)
-        print('\nGenerating given the scripted module:')
-        _run_conversation(module=scripted_module, inputs=inputs)
+    # # Compare the original module to the scripted module against the test inputs
+    # if len(opt['input']) > 0:
+    #     inputs = opt['input'].split('|')
+    #     print('\nGenerating given the original unscripted module:')
+    #     _run_conversation(module=original_module, inputs=inputs)
+    #     print('\nGenerating given the scripted module:')
+    #     _run_conversation(module=scripted_module, inputs=inputs)
     
     return original_module, scripted_module
 
