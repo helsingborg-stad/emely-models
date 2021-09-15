@@ -3,7 +3,7 @@ from parlai.core.opt import Opt
 from pathlib import Path
 import time
 
-model_path = Path.cwd() / 'ParlAI/data/models/blender/blender_90M/'
+model_path = Path.cwd() / 'models/blender_90M/'
 assert model_path.is_dir()
 
 opt_path = model_path / 'model.opt'
