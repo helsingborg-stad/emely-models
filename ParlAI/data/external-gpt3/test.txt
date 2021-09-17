@@ -1,0 +1,37 @@
+text:Interviewer: If you were to describe in your own words what a park manager does, what would you say then?\nManages parks. He takes km of greenery and makes sure it is nice and clean.	labels:Interviewer: Absolutely. You will also have to deal with tools and the work can be heavy, are you ok with that?
+text:Yes it's me. I like to be active in my work.	labels:Interviewer: How good then this job could suit you.
+text:I think this job suits me.	labels:Interviewer: What are your strengths?
+text:I am punctual, I clean the area well and I know how to deal with tools.	labels:Interviewer: What are your weaknesses?
+text:I have a problem with my hands. I have a hard time dealing with hard work.	labels:Interviewer: We will find a solution for that. How much do you expect to earn?
+text:I want to earn around $1000.	labels:Interviewer: Excellent. Well, you are hired. We will provide you with all the necessary training.
+text:Thank you.	labels:Interviewer: You are welcome.	episode_done:True
+text:Interviewer: In your role as a financial assistant, you need to know something about accounting systems. Can you tell us about your knowledge of accounting systems?\nI have in my previous job worked in visma spcs.	labels:Interviewer: What did you do in visma spcs?
+text:I took care of the current accounting and did payroll runs every month.	labels:Interviewer: Okay, that sounds promising.
+text:I also worked in receivables and payables.	labels:Interviewer: What do you mean by receivables and payables?
+text:I was responsible for the payments and receipts of all invoices.	labels:Interviewer: You mentioned that you do payroll runs. What does it mean?
+text:I had to run the payroll report and then adjust the tax and social security.	labels:Interviewer: Okay, that sounds good.
+text:Then I also worked in purchasing, I had to order the material for production.	labels:Interviewer: Okay, amazing.
+text:I also worked in production, I had to check the products and then I send them to the warehouse.	labels:Interviewer: You really have a lot of experience.
+text:Yes, I think it is very fun to work with this.	labels:Interviewer: I can really see that.
+text:In my previous job I also worked in purchasing, I also had to order the material for production.	labels:Interviewer: Okay, sounds very good.
+text:Yes and now I really want this job.	labels:Interviewer: I can tell, thank you.	episode_done:True
+text:Interviewer: In your role as a teacher, you need to know something about social studies. Can you tell us about your knowledge of social studies?\nI have always been interested in society. And I am also interested in policies that affect our society.	labels:Interviewer: Interesting. When you say society, what do you think then. You also say politics, what is it about politics that interests you?
+text:I am interested in how society is governed, what affects us who live and live in it.	labels:Interviewer: Thank you, you are therefore interested in how society is governed and how we are affected by decisions. What do you think a teacher should be more aware of?
+text:I think a teacher should be more aware of how decisions that affect society are made. And what the consequences of these decisions are.	labels:Interviewer: In this way, you want teachers to be better informed about decisions and the consequences of these decisions. Do you also want to be informed as a teacher?
+text:Yes, I want to be well informed as a teacher. I want to make sure that my students are aware of what is going on in society.	labels:Interviewer: Thank you very much for this interview, it was very interesting.	episode_done:True
+text:Interviewer: If you were to describe in your own words what a waiter does, what would you say then?\nA waiter's main task is to give the customer a pleasant experience. To make sure they have the good ones and get what they want. The task includes taking orders and serving food and drink.	labels:Interviewer: Do you have a lot of experience with this?
+text:I have 15 years of experience in the waiter profession. I have worked in both large and small restaurants over the years.	labels:Interviewer: What service do you want when you are out eating at a restaurant?
+text:I want the waiter to be friendly and attentive. I also want them to know what they are doing.	labels:Interviewer: What do you think is the most important feature of a good waiter?
+text:The most important thing is that they have good communication skills. This is so they can understand the customer's needs and work with them to make sure they get what they want.	labels:Interviewer: What do you think is the most important thing a waiter should do?
+text:They should take orders, serve food and drinks, and clear the table when the customers are done.	labels:Interviewer: What do you think is the most important thing a waiter should not do?
+text:They should not let the customers wait too long for their food or drinks. They should also not ignore people when they are trying to get their attention.	labels:Interviewer: What is the best thing about being a waiter?
+text:It's good to make people happy. It's also nice to get paid for doing it.	labels:Interviewer: What is the biggest challenge in this profession?
+text:The biggest challenge is dealing with rude customers. They can be difficult to deal with.	labels:Interviewer: What do you like about your profession	episode_done:True
+text:Interviewer: If you were to describe in your own words what a store employee does, what would you say then?\nA store employee makes sure that the store's shelves are well stocked, that all deliveries are taken care of and perhaps you also order new goods. The tasks also include helping customers fix things in a pleasant way.	labels:Interviewer: What do you think is a good customer service?
+text:Good customer service for me is that you take time for the customer and are polite and nice. You try to help the customer as best you can and you offer a smile. It is important that the customer feels seen and taken care of.	labels:Interviewer: So good, it sounds like you have a good track record of customer service.
+text:Yes, I am really proud of what I do.	labels:Interviewer: How do you know if the customer is satisfied with your service?
+text:Well, I think that it is important to ask them if they are satisfied. It is also important to follow up the next time they come into the store.	labels:Interviewer: You mean you try to get in contact with them?
+text:Yes, I do. If they are satisfied, they will probably want to come back to the shop.	labels:Interviewer: What is your favorite part of your job?
+text:My favorite part of the job is to make sure that all deliveries are taken care of and that the store is clean and bright.	labels:Interviewer: What is your least favorite part of your job?
+text:My least favorite part is when there are many customers in the store at the same time. It can be difficult with all the people in the store.	labels:Interviewer: What do you think are the most important attributes of a good store manager?
+text:A good store manager must have a good knowledge of the products in the shop, have good customer skills and be able to motivate employees.	labels:Interviewer: Do you think it is important	episode_done:True
