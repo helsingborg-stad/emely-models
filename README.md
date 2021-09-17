@@ -1,5 +1,8 @@
 ## The models used by EmelyBackend
 
+# WAndb api key
+fc7bf1f22555377e0a2d337667eadd6547da5c97
+
 ### Setup instructions for training
 
 1. cd into ParlAI and run $python setup.py develop
