@@ -32,10 +32,10 @@ opt['init_model'] = (model_path / 'model').as_posix()
 opt['no_cuda'] = True  # Cloud run doesn't offer gpu support
 
 # Inference options
+opt['beam_context_block_ngram'] = 3
 opt['inference'] = 'beam'
 opt['beam_size'] = 10
-opt['beam_min_length'] = 10
-
+#opt['topk'] = 40
 
 model: EmelyAgent
 
@@ -45,8 +45,6 @@ async def startup_event():
     " Loads model and quantizes it with torch"
     global model, opt
     model = EmelyAgent(opt)
-    if 'quantize' in opt.keys():
-        model.model = torch.quantization.quantize_dynamic(model.model, {torch.nn.Linear}, dtype=torch.qint8)
     return
 
 
