@@ -84,6 +84,13 @@ def setup_args() -> ParlaiParser:
 def export_emely(opt: Opt, quantize: bool):
     """
     Export Emely to TorchScript so that inference can be run outside of ParlAI.
+     - quantize determines if model should be quantized before scripting
+     - Before running this function add to the original emely options:
+        opt["scripted_model_file"] = "../../saved_models/emely_scripted_test.pt"
+        opt["script-module"] = "parlai.torchscript.modules:TorchScriptGreedySearch"
+        opt["model_file"] = opt["init_model"]
+        opt["temp_separator"] = "__space__"
+        opt["bpe_add_prefix_space"] = False
     """
 
     if version.parse(torch.__version__) < version.parse('1.7.0'):
@@ -120,14 +127,8 @@ def export_emely(opt: Opt, quantize: bool):
     scripted_module = torch.jit.script(TorchScriptedEmelyAgent(agent))
     with PathManager.open(opt['scripted_model_file'], 'wb') as f:
         torch.jit.save(scripted_module, f)
-
-    # # Compare the original module to the scripted module against the test inputs
-    # if len(opt['input']) > 0:
-    #     inputs = opt['input'].split('|')
-    #     print('\nGenerating given the original unscripted module:')
-    #     _run_conversation(module=original_module, inputs=inputs)
-    #     print('\nGenerating given the scripted module:')
-    #     _run_conversation(module=scripted_module, inputs=inputs)
+    
+    print("Scripting successful")
     
     return original_module, scripted_module
 
