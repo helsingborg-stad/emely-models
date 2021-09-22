@@ -166,3 +166,5 @@ models/fika-model
 models/interview-model
 models/blender_90M
 models/blender_400Mdistill
+models/wandering-disco
+models/model-runs
