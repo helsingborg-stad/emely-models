@@ -2,6 +2,7 @@ from parlai.agents.emely.emely import EmelyAgent
 from parlai.core.opt import Opt
 from pathlib import Path
 import time
+import torch
 
 model_path = Path.cwd() / 'models/blender_90M/'
 assert model_path.is_dir()
@@ -19,16 +20,19 @@ opt['inference'] = 'beam' # 'beam'
 opt['beam_size'] = 10
 
 emely_agent = EmelyAgent(opt)
+emely_agent.model = torch.quantization.quantize_dynamic(emely_agent.model, {torch.nn.Linear}, dtype=torch.qint8) 
 
 def test_time(n,emely_agent):
-    s = 'HI emely, this is a test to see if you are any faster now than you used to be haha'
+    s = 'Hi'
     start = time.time()
 
     for _ in range(n):
-        emely_agent.observe_and_act(s)
+        reply = emely_agent.observe_and_act(s)
 
     average = (time.time() - start) / n 
 
     print(f'Average time was {average}')
+    return reply
 
-test_time(50,emely_agent)
+reply = test_time(1,emely_agent)
+print(reply)
