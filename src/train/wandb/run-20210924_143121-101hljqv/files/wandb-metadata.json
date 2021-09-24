@@ -1,0 +1,32 @@
+{
+    "os": "Linux-5.10.16.3-microsoft-standard-WSL2-x86_64-with-glibc2.17",
+    "python": "3.8.11",
+    "heartbeatAt": "2021-09-24T12:31:22.236491",
+    "startedAt": "2021-09-24T12:31:21.389315",
+    "docker": null,
+    "cpu_count": 12,
+    "cuda": null,
+    "args": [
+        "--ip=127.0.0.1",
+        "--stdin=9008",
+        "--control=9006",
+        "--hb=9005",
+        "--Session.signature_scheme=\"hmac-sha256\"",
+        "--Session.key=b\"5ed771fa-5a60-4144-bace-dd1fb76e6f47\"",
+        "--shell=9007",
+        "--transport=\"tcp\"",
+        "--iopub=9009",
+        "--f=/tmp/tmp-17669sfVl15Tr6EPi.json"
+    ],
+    "state": "running",
+    "program": "<python with no main file>",
+    "git": {
+        "remote": "https://github.com/NordAxon/emely-models",
+        "commit": "395b4d70113b5ff740940edb91e3825ce8bd2299"
+    },
+    "email": "c.kjellson@gmail.com",
+    "root": "/home/ckjellson/code/emely-models",
+    "host": "DESKTOP-65EM2A4",
+    "username": "ckjellson",
+    "executable": "/home/ckjellson/anaconda3/envs/emelymodels/bin/python"
+}
