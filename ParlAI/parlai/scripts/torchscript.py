@@ -15,7 +15,8 @@ from parlai.core.opt import Opt
 from parlai.core.params import ParlaiParser
 from parlai.core.script import ParlaiScript, register_script
 from parlai.utils.io import PathManager
-
+from parlai.agents.emely.emely import EmelyAgent
+from parlai.utils.bpe import SubwordBPEHelper
 
 def export_model(opt: Opt):
     """
@@ -78,6 +79,58 @@ def setup_args() -> ParlaiParser:
         help="Input string to pass into the encoder of the scripted model, to test it against the unscripted version. Separate lines with a pipe",
     )
     return parser
+
+
+def export_emely(opt: Opt, quantize: bool):
+    """
+    Export Emely to TorchScript so that inference can be run outside of ParlAI.
+     - quantize determines if model should be quantized before scripting
+     - Before running this function add to the original emely options:
+        opt["scripted_model_file"] = "../../saved_models/emely_scripted_test.pt"
+        opt["script-module"] = "parlai.torchscript.modules:TorchScriptGreedySearch"
+        opt["model_file"] = opt["init_model"]
+        opt["temp_separator"] = "__space__"
+        opt["bpe_add_prefix_space"] = False
+    """
+
+    if version.parse(torch.__version__) < version.parse('1.7.0'):
+        raise NotImplementedError(
+            'TorchScript export is only supported for Torch 1.7 and higher!'
+        )
+    else:
+        from parlai.torchscript.modules_emely import TorchScriptedEmelyAgent
+
+    overrides = {
+        'no_cuda': True,  # TorchScripting is CPU only
+        'model_parallel': False,  # model_parallel is not currently supported when TorchScripting
+    }
+    if 'override' not in opt:
+        opt['override'] = {}
+    for k, v in overrides.items():
+        opt[k] = v
+        opt['override'][k] = v
+
+    # Create the unscripted greedy-search module
+    agent = EmelyAgent(opt)
+    if quantize:
+        agent.model = torch.quantization.quantize_dynamic(agent.model, {torch.nn.Linear}, dtype=torch.qint8) 
+    sbpe = SubwordBPEHelper(agent.opt)
+    joint_bpe_codes = {}
+    for k in sbpe.bpe.bpe_codes.keys():
+        joint_bpe_codes[agent.opt["temp_separator"].join(k)] = sbpe.bpe.bpe_codes[k]
+    sbpe.bpe_codes = joint_bpe_codes
+    sbpe.separator = "@@"
+    agent.dict.bpe = sbpe
+    original_module = TorchScriptedEmelyAgent(agent)
+
+    # Script the module and save
+    scripted_module = torch.jit.script(TorchScriptedEmelyAgent(agent))
+    with PathManager.open(opt['scripted_model_file'], 'wb') as f:
+        torch.jit.save(scripted_module, f)
+    
+    print("Scripting successful")
+    
+    return original_module, scripted_module
 
 
 def _run_conversation(module: nn.Module, inputs: List[str]):
