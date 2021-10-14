@@ -34,6 +34,6 @@ spec:
     spec:
       containers:
         - name: emely-server
-          image: eu.gcr.io/emelybrainapi/interview-model:latest
+          image: eu.gcr.io/emelybrainapi/major-wood2:latest
           ports:
             - containerPort: 8080

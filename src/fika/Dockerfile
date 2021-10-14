@@ -1,4 +1,4 @@
-FROM parlai:latest
+FROM parlai-emely-base-image:latest
 
 COPY models/blender_90M ./models/blender_90M
 WORKDIR /src/fika/

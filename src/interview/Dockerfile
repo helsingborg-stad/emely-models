@@ -1,4 +1,4 @@
-FROM parlai:latest
+FROM parlai-emely-base-image:latest
 
 COPY models/leafy-frog ./models/interview-model
 WORKDIR /src/interview/
