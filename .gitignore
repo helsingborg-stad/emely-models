@@ -172,6 +172,3 @@ models/yoghurt
 models/major-wood
 models/wandering-disco
 models/emely-runs
-
-# wandb
-src/train/wandb
