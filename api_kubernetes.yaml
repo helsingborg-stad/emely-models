@@ -1,0 +1,39 @@
+# kubernetes-fastapi LoadBalancer Service
+# Enables the pods in a deployment to be accessible from outside the cluster
+apiVersion: v1
+kind: Service
+metadata:
+  name: emely-cluster
+spec:
+  selector:
+    app: emely-server
+  ports:
+    - protocol: "TCP"
+      port: 8080
+      targetPort: 8080
+  type: LoadBalancer
+
+---
+# emely-server Deployment
+# Defines the deployment of the app running in a pod on any worker node
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: emely-server
+  labels:
+    app: emely-server
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: emely-server
+  template:
+    metadata:
+      labels:
+        app: emely-server
+    spec:
+      containers:
+        - name: emely-server
+          image: eu.gcr.io/emelybrainapi/major-wood2:latest
+          ports:
+            - containerPort: 8080
