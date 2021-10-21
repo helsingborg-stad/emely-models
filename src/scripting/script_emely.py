@@ -2,6 +2,12 @@ from parlai.core.opt import Opt
 from parlai.scripts.torchscript import export_emely
 from pathlib import Path
 
+"""
+This is a script that scripts the emely-model with custom settings for
+    - Inference type
+    - Beamsize
+    - Quantization
+"""
 def main(loadpath, savepath, inference, beamsize, quantize):
     
     opt_path = Path(loadpath) / 'model.opt'
@@ -21,12 +27,6 @@ def main(loadpath, savepath, inference, beamsize, quantize):
     opt["model_file"] = opt["init_model"]
     opt["temp_separator"] = "__space__"
     opt["bpe_add_prefix_space"] = False
-
-    print(quantize)
-    print(beamsize)
-    print(inference)
-    print(savepath)
-    print(loadpath)
     
     _,_ = export_emely(opt,quantize)
 
