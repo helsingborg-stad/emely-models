@@ -87,7 +87,6 @@ def export_emely(opt: Opt, quantize: bool):
      - quantize determines if model should be quantized before scripting
      - Before running this function add to the original emely options:
         opt["scripted_model_file"] = "../../saved_models/emely_scripted_test.pt"
-        opt["script-module"] = "parlai.torchscript.modules:TorchScriptGreedySearch"
         opt["model_file"] = opt["init_model"]
         opt["temp_separator"] = "__space__"
         opt["bpe_add_prefix_space"] = False

@@ -23,7 +23,6 @@ def main(loadpath, savepath, inference, beamsize, quantize):
     opt['beam_size'] = beamsize
 
     opt["scripted_model_file"] = savepath
-    opt["script-module"] = "parlai.torchscript.modules:TorchScriptGreedySearch"
     opt["model_file"] = opt["init_model"]
     opt["temp_separator"] = "__space__"
     opt["bpe_add_prefix_space"] = False
