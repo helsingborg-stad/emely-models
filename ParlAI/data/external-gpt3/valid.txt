@@ -1,37 +1,107 @@
-text:Interviewer: If you were to describe in your own words what a park manager does, what would you say then?\nManages parks. He takes km of greenery and makes sure it is nice and clean.	labels:Interviewer: Absolutely. You will also have to deal with tools and the work can be heavy, are you ok with that?
-text:Yes it's me. I like to be active in my work.	labels:Interviewer: How good then this job could suit you.
-text:I think this job suits me.	labels:Interviewer: What are your strengths?
-text:I am punctual, I clean the area well and I know how to deal with tools.	labels:Interviewer: What are your weaknesses?
-text:I have a problem with my hands. I have a hard time dealing with hard work.	labels:Interviewer: We will find a solution for that. How much do you expect to earn?
-text:I want to earn around $1000.	labels:Interviewer: Excellent. Well, you are hired. We will provide you with all the necessary training.
-text:Thank you.	labels:Interviewer: You are welcome.	episode_done:True
-text:Interviewer: In your role as a financial assistant, you need to know something about accounting systems. Can you tell us about your knowledge of accounting systems?\nI have in my previous job worked in visma spcs.	labels:Interviewer: What did you do in visma spcs?
-text:I took care of the current accounting and did payroll runs every month.	labels:Interviewer: Okay, that sounds promising.
-text:I also worked in receivables and payables.	labels:Interviewer: What do you mean by receivables and payables?
-text:I was responsible for the payments and receipts of all invoices.	labels:Interviewer: You mentioned that you do payroll runs. What does it mean?
-text:I had to run the payroll report and then adjust the tax and social security.	labels:Interviewer: Okay, that sounds good.
-text:Then I also worked in purchasing, I had to order the material for production.	labels:Interviewer: Okay, amazing.
-text:I also worked in production, I had to check the products and then I send them to the warehouse.	labels:Interviewer: You really have a lot of experience.
-text:Yes, I think it is very fun to work with this.	labels:Interviewer: I can really see that.
-text:In my previous job I also worked in purchasing, I also had to order the material for production.	labels:Interviewer: Okay, sounds very good.
-text:Yes and now I really want this job.	labels:Interviewer: I can tell, thank you.	episode_done:True
-text:Interviewer: In your role as a teacher, you need to know something about social studies. Can you tell us about your knowledge of social studies?\nI have always been interested in society. And I am also interested in policies that affect our society.	labels:Interviewer: Interesting. When you say society, what do you think then. You also say politics, what is it about politics that interests you?
-text:I am interested in how society is governed, what affects us who live and live in it.	labels:Interviewer: Thank you, you are therefore interested in how society is governed and how we are affected by decisions. What do you think a teacher should be more aware of?
-text:I think a teacher should be more aware of how decisions that affect society are made. And what the consequences of these decisions are.	labels:Interviewer: In this way, you want teachers to be better informed about decisions and the consequences of these decisions. Do you also want to be informed as a teacher?
-text:Yes, I want to be well informed as a teacher. I want to make sure that my students are aware of what is going on in society.	labels:Interviewer: Thank you very much for this interview, it was very interesting.	episode_done:True
-text:Interviewer: If you were to describe in your own words what a waiter does, what would you say then?\nA waiter's main task is to give the customer a pleasant experience. To make sure they have the good ones and get what they want. The task includes taking orders and serving food and drink.	labels:Interviewer: Do you have a lot of experience with this?
-text:I have 15 years of experience in the waiter profession. I have worked in both large and small restaurants over the years.	labels:Interviewer: What service do you want when you are out eating at a restaurant?
-text:I want the waiter to be friendly and attentive. I also want them to know what they are doing.	labels:Interviewer: What do you think is the most important feature of a good waiter?
-text:The most important thing is that they have good communication skills. This is so they can understand the customer's needs and work with them to make sure they get what they want.	labels:Interviewer: What do you think is the most important thing a waiter should do?
-text:They should take orders, serve food and drinks, and clear the table when the customers are done.	labels:Interviewer: What do you think is the most important thing a waiter should not do?
-text:They should not let the customers wait too long for their food or drinks. They should also not ignore people when they are trying to get their attention.	labels:Interviewer: What is the best thing about being a waiter?
-text:It's good to make people happy. It's also nice to get paid for doing it.	labels:Interviewer: What is the biggest challenge in this profession?
-text:The biggest challenge is dealing with rude customers. They can be difficult to deal with.	labels:Interviewer: What do you like about your profession	episode_done:True
-text:Interviewer: If you were to describe in your own words what a store employee does, what would you say then?\nA store employee makes sure that the store's shelves are well stocked, that all deliveries are taken care of and perhaps you also order new goods. The tasks also include helping customers fix things in a pleasant way.	labels:Interviewer: What do you think is a good customer service?
-text:Good customer service for me is that you take time for the customer and are polite and nice. You try to help the customer as best you can and you offer a smile. It is important that the customer feels seen and taken care of.	labels:Interviewer: So good, it sounds like you have a good track record of customer service.
-text:Yes, I am really proud of what I do.	labels:Interviewer: How do you know if the customer is satisfied with your service?
-text:Well, I think that it is important to ask them if they are satisfied. It is also important to follow up the next time they come into the store.	labels:Interviewer: You mean you try to get in contact with them?
-text:Yes, I do. If they are satisfied, they will probably want to come back to the shop.	labels:Interviewer: What is your favorite part of your job?
-text:My favorite part of the job is to make sure that all deliveries are taken care of and that the store is clean and bright.	labels:Interviewer: What is your least favorite part of your job?
-text:My least favorite part is when there are many customers in the store at the same time. It can be difficult with all the people in the store.	labels:Interviewer: What do you think are the most important attributes of a good store manager?
-text:A good store manager must have a good knowledge of the products in the shop, have good customer skills and be able to motivate employees.	labels:Interviewer: Do you think it is important	episode_done:True
+text:If you were to describe in your own words what a park manager does, what would you say then?\nManages parks. He takes km of greenery and makes sure it is nice and clean.	labels:Absolutely. You will also have to deal with tools and the work can be heavy, are you ok with that?
+text:Yes it's me. I like to be active in my work.	labels:How good then this job could suit you.
+text:I think this job suits me.	labels:What are your strengths?
+text:I am punctual, I clean the area well and I know how to deal with tools.	labels:What are your weaknesses?
+text:I have a problem with my hands. I have a hard time dealing with hard work.	labels:We will find a solution for that. How much do you expect to earn?	episode_done:True
+text:If you are going to work as a preschool teacher, it is good if you have experience of children's and youth sports. Can you describe your experience in this area?\nI have worked both as a swimming teacher and tennis coach. I think it is important with physical activity and to do it in a fun way so that it becomes a good habit for life.	labels:How were you as a swimming teacher?
+text:I try to be educational and make it fun for the kids so that they learn not to be afraid of the water. In the beginning it is a game that then goes more and more towards learning to swim.	labels:Have you worked or practiced any other sports or sports yourself?
+text:Yes, I have practiced tennis and I have played football. I have also been a member of a rowing team.	labels:Have you ever practiced anything else than sports?
+text:Yes, I have practiced handball and gymnastics.	labels:Have you ever been a member of a sports club?
+text:Yes, I have been a member of a chess club and a rowing club.	labels:Do you feel that this experience is applicable to your job as a preschool teacher?
+text:Yes, I think that the experience of working with children and helping them to learn new things is common in both jobs.	labels:How do you like the job as a preschool teacher?
+text:I like it very much. I like to work with children and the job is very varied. You meet new people every day and you get to know new families.	labels:What is your best memory from working as a preschool teacher?
+text:I think the best memory is when the kids and I do something together and we all enjoy it. It feels great when the kids are happy.	labels:What is your worst memory from working as a preschool teacher?	episode_done:True
+text:If you were to describe in your own words what a nurse does, what would you say then?\nA nurse helps people who are ill in different ways. He can examine them and give them medicines and various treatments. He takes care of patients.	labels:Okay! Do you like taking care of people?
+text:Yes, I would like to help people who need it.	labels:It is a good trait for a nurse. Do you enjoy collaborating with others?
+text:Yes, I like to work with other people. I like to help them.	labels:What do you think about the work of a nurse?
+text:I think that it is a very noble profession.	labels:Do you think that you will enjoy this profession?	episode_done:True
+text:In your role as a store employee, you need to know something about customer service. Can you tell us about your knowledge of customer service?\nI am used to meeting people and responding in a professional way. People are different but I believe in the principle that everyone should be able to expect clear, factual and service-minded meetings with me as a staff.	labels:How are you when you are service-minded?
+text:Provided that the customer should receive good service through good answers to their questions, it should be simple and if it can be facilitated for the customer in some way, this should be done.	labels:How can you as a store employee make it easier for customers?
+text:By knowing how to explain things to them, I can make it easier for them.	labels:What do you mean by explaining things?
+text:It is important that I know what the product is that the customer is asking about. I can then explain it to them, I can explain what it can be used for and why.	labels:In your opinion, how important is it that you know all this?
+text:It is very important because it is a good starting point. The customer will then know what the product is about, and they will have a clearer idea of what they are looking for when they have found the product.	labels:And how does this affect the customer's shopping experience?
+text:They will have a better understanding of what they are looking for and they will have a clearer idea of how it works, so when they have found the product, they will have a basic knowledge of how to use it. In that way, they can find the product that better suits their needs.	labels:In your opinion, what would be the biggest obstacle for the customer?	episode_done:True
+text:If you are going to work as a receptionist, it is good if you have experience of invoicing habits. Can you describe your experience in this area?\nI have worked as a receptionist at 4 different companies for the past 10 yea	labels:Tell me more about your latest job?
+text:Then I was responsible for mail and visits and physical security	labels:What does physical security mean?
+text:I was responsible for the fire, smoke and gas alarms, the fire extinguisher and the lockers. I had to make sure that the fire exit was always free.	labels:What were the other tasks you did at the reception?
+text:I had to make sure that all visitors were admitted to the office and that the office was secure against theft	labels:What did you like about your job?
+text:I like it when I could help people. It was also nice to deal with the mail and to organize appointment	labels:What did you not like about your job?
+text:I didn't like it when visitors were rude. It was also too stressful when there was a fire alarm.	labels:What kind of people did you deal with in your job?
+text:I dealt with customers, colleagues and other receptionist	labels:What did your colleagues think of your work?
+text:They said that I work well and that I was reliabl	labels:What did your customers think of your work?
+text:They said that I was friendly	labels:How did you deal with difficult customers?	episode_done:True
+text:For the position as a preschool teacher, we have thought that you should work with leisure pedagogy. How do you feel about it?\nI have mostly worked in preschool with smaller children but am interested in working more with older children in the future.	labels:I understand. Do you have any experience of working with older children? Do you have e.g. Been a leader in any leisure activity?
+text:Yes, I am a football coach for a bunch of 8-year-olds and have a daughter who is 8 and a son who is 10.	labels:Okay, what did you learn during your time as a football coach?
+text:I learned that soccer is a team sport and that it is important to work in a team and not just for yourself.	labels:Okay, and what is important when working with young children?
+text:It is important to be creative and to let the children do things on their own.	labels:Okay, and what kind of things did you do when you were a leader in your leisure activity?
+text:We mostly did things outside, like playing football and other sports, and we had a lot of fun.	labels:What did you do inside?
+text:We played board games and we had computer time.	labels:Do you know any children's songs?	episode_done:True
+text:What are your best qualities?\nI am a good problem solver, which fits in with the profession.	labels:Do you have a concrete example?
+text:If I have to fix a door and it is broken in a way I have never seen before, I can usually be improvised and solve the problem.	labels:It sounds like a good trait.
+text:It is, I like to be able to solve problems.	labels:What are your greatest achievements or accomplishments?
+text:I have received many awards for my work, I was the first in my class at school and I finished my studies in record time.	labels:It sounds like you are very dedicated. What are you flaws?	episode_done:True
+text:If you are going to work as a preschool teacher, it is good if you have experience of child and youth pedagogy. Can you describe your experience in this area?\nI am a trained and licensed preschool teacher.	labels:So good! How many years of experience do you have?
+text:22 yea	labels:Then you have solid experience I understand, so good!
+text:Yes, I think so.	labels:What is your salary?
+text:I don't want to tell you my salary because I think it's not appropriate for this question.	labels:It's okay. And why don't you want to tell me?
+text:I don't want to tell you because it's private information.	labels:Do you have any questions for me?
+text:Yes, I have some questions. I would like to know more about the job and the company.	labels:What do you want to know about the company?
+text:I would like to know about the company's production and marketing.	labels:And about the job?	episode_done:True
+text:If you are going to work as a waiter, it is good if you have experience of table service. Can you describe your experience in it?\nI'm good at having an overview of the restaurant and keeping track of which tables need help. I can even carry many plates at once. I have worked for many years in the catering industry and think I am good at it.	labels:How would you react if a customer became aggressive?
+text:I would try to calm the situation down. Ask if I can do something else for him. It is not possible to talk to an angry person, he must calm down first.	labels:Do you have any experience of such situations?
+text:I have experienced situations where customers became angry about the food or service. I was able to calm them down.	labels:Can you tell me about a situation where you had to deal with a difficult customer?
+text:I once had a customer who was angry about the service. He screamed at me and threw the plates on the table. I calmed him down by asking if I could do anything else for him.	labels:What do you think is the most important thing for a waiter?
+text:To be able to keep track of orders. It is also important to be able to communicate with customers.	labels:How do you keep track of orders?
+text:We have a notebook where we write down the orders. The waiter who takes the order also writes it down. We also have an electronic device that keeps track of the orders, but it is good to write them down manually too.	labels:What do you think about this device?
+text:It is very good because it keeps track of the orders. But sometimes there are problems with the device, so it is good to write them down manually as well.	labels:What do you think is the most difficult part of working as a waiter?	episode_done:True
+text:If you are going to work as a caretaker, it is good if you have experience in property management. Can you describe your experience in it?\nI have worked as a plumber for about 20 years and have then been involved in solving many problems that may arise in a property.	labels:What good, do you have any experience with computer use?
+text:Yes I have. I got all my assignments when I ran service through the company's computer system and have also received the work orders through the customers' systems, for example Helsingborg's home.	labels:Okay, do you have any experience of children and young people when the job we are looking for is at a school?
+text:No, I have never been responsible for children or young people. But I have a lot of experience in cleaning and maintaining a school.	labels:Okay, let's go on to the next question. What do you know about the school maintenance that we are looking for?
+text:I have been reading about what kind of maintenance is needed at schools and have been studying the maintenance's use of the computer systems.	labels:Okay, good. Now I will ask you a few questions about your previous work as a plumber. How much time do you spend on a job?
+text:I spend a lot of time on a job. It depends on the problem, but I try to use as much time as possible to make a good job.	labels:Okay, good. Can you describe a problem that you have solved, that was difficult?
+text:Yes, it was a problem with a boiler that was installed in the 70s. The problem was that there were no replacement parts for it and it was impossible to get a new boiler.	labels:Okay, good. Can you describe a problem that you have solved, that was difficult?	episode_done:True
+text:If you are going to work as a truck driver, it is good if you have experience of handling animal transports. Can you describe your experience in it?\nI have worked for 3 years driving a horse transport to a riding stable.	labels:Can you imagine driving overseas transports?
+text:Yes of course I can. How often is it about?	labels:Three to four times a month we need to transport animals between the netherlands and sweden.
+text:I am aware that most of the animals are transported by plane. Do they have to be transported by road?	labels:No, most of the transports are by plane. But sometimes they have to be transported by road.
+text:I am sorry, but I have to cancel my application for this job.	labels:Why?	episode_done:True
+text:For the job as a truck driver, we have thought that you should work with handling animal transports. How do you feel about it?\nI'm not that keen on driving animals.	labels:It is a problem because it will be part of your job
+text:Then I have to say no to the service.	labels:It was sad to hear.
+text:I'm sorry.	labels:I'm sorry as well.	episode_done:True
+text:For the position as caretaker, we have thought that you should work with property management. How do you feel about it?\nProperty pins are something I think is fun to work with.	labels:What is the most fun with that task?
+text:The variety of tasks. One day is not the same as the next.	labels:It sounds like it suits you.
+text:It is a lot of fun.	labels:Well, if you get the job, we hope you will continue to enjoy it.	episode_done:True
+text:If you are going to work as a park manager, it is good if you have experience of managing parks. Can you describe your experience in this area?\nI have for many years been employed as a park worker in Lund municipality.	labels:Have you attended any education at eg alnarp or any other university?
+text:No, I started as an apprentice in lund and have worked there for 10 years.	labels:Your formal requirements regarding education are missing, but we will do a job test on all interesting candidates-
+text:I understand.	labels:So, as a park worker, you have been responsible for the maintenance of the park and its facilities. Do you have any examples of things you have done?
+text:I have for instance made sure that the lawns were cut and that the playground was in good condition.	labels:Did you also do other things than just managing the park?
+text:Yes, all the time we were doing maintenance and cleaning work.	labels:How do you evaluate your skills in relation to the requirements of the job?
+text:I think I am good at my job. I am a hard worker and I like working with people.	labels:Would you like to work as a park manager?	episode_done:True
+text:For the position as a teacher, we have thought that you should work with teaching philosophy. How do you feel about it?\nIt's an interesting topic. It's been many years since i studied philosophy but it can be fun.	labels:Do you have a degree in philosophy?
+text:Not a university degree but I have a degree in theology and Swedish literary studies, where there are several points of contact.	labels:Could you give an example of what you mean?
+text:The philosopher Sören Kierkegaard, for example, talked about the relation between God and human being. To me, he is one of the first thinkers to have made an analysis on the value of the individual. And the first time that I read his work was when I was writing my thesis on Swedish poet Carl Snoilsky.	labels:And what is the connection between Snoilsky and Kierkegaard?
+text:Well, Snoilsky was also a poet who thought about many of the same things as Kierkegaard. He was a religious person like Kierkegaard but he had a different view of the world.	labels:So what can you tell us about yourself?
+text:Well, I'm a pretty good teacher. I'm good at making my students understand things. I'm not afraid to take risks. I'm not afraid to fail. I like to be creative.	labels:We mean to say that we are looking for someone who is creative. Can you tell us more?	episode_done:True
+text:If you were to describe in your own words what a bartender does, what would you say then?\nServes drinks and makes sure not to serve anyone who is intoxicated.	labels:How do you find out if someone is too drunk
+text:One can look quite a lot at the behavior of the person. If you are unsure, you can ask a colleague.	labels:It sounds good. Do you usually work with other people?
+text:Yes, I usually work with other bartenders, but sometimes also with other employees.	labels:Do you like to work with others?
+text:I like it, because I can exchange ideas with other colleagues and get new ideas.	labels:Do you have to work with people you don't like?
+text:I like to work with everyone, but there are people who are very loud and sometimes drunk.	labels:Has something like that ever happened to you?
+text:Yes, it has happened that a customer has become very loud and even aggressive. It's not very fun to deal with.	labels:What do you do in that case?	episode_done:True
+text:If you were to describe in your own words what a truck driver does, what would you say then?\nThey drive cargo from different places to other places.	labels:Okay what could it be for something.
+text:It could be anything from trees to chemicals, depending on what kind of cargo I am authorized to drive.	labels:It sounds like you know this.
+text:I do, I have been doing it for a couple of years now.	labels:What would you say is the most challenging part of your job?
+text:I think the most challenging part is being responsible for the cargo and being responsible for the vehicle.	labels:How do you mean?
+text:I mean if something happens to the cargo or the vehicle, I am responsible for it.	labels:How do you know you are responsible for it?
+text:Because I am the one who is driving it.	labels:How do you feel about that?
+text:It is a bit stressful but I also know that I can handle it.	labels:What do you mean when you say you can handle it?
+text:I know that I can take care of everything and make sure everything gets delivered.	labels:What would you say is the best part of your job?
+text:I really enjoy the people I work with. They are very nice people and we all get along well.	labels:What would you say is the worst part of your job?	episode_done:True
+text:If you are going to work as a preschool teacher, it is good if you have experience of children's and youth sports. Can you describe your experience in this area?\nI have practiced in kindergarten before and think it is great fun with children.	labels:What do you like most about children.
+text:I like to play with them, because you still have the child in yourself a little.	labels:Think this sounds grea
+text:I think it is fun to play with children.	labels:It is great that you like to play with children. Can you tell me what you like about children?
+text:I like the fact that children are always happy. They just want to play.	labels:This sounds great. I would like to ask you if you have any questions.
+text:I have a question: what is the best way to teach children?	labels:I think the best way to teach children is to be open and honest with them.
+text:I think this is a good way to teach children.	labels:What else do you think is important for preschool teachers?
+text:It is important that preschool teachers are always there for the children.	labels:I think this is important, too.
+text:I think it is important for preschool teachers to be patient with children.	labels:I think this is true too.
+text:I think it is very important that preschool teachers are friendly and open with children.	labels:I think this is important too.	episode_done:True

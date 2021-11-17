@@ -1,37 +1,123 @@
-text:Interviewer: If you were to describe in your own words what a park manager does, what would you say then?\nManages parks. He takes km of greenery and makes sure it is nice and clean.	labels:Interviewer: Absolutely. You will also have to deal with tools and the work can be heavy, are you ok with that?
-text:Yes it's me. I like to be active in my work.	labels:Interviewer: How good then this job could suit you.
-text:I think this job suits me.	labels:Interviewer: What are your strengths?
-text:I am punctual, I clean the area well and I know how to deal with tools.	labels:Interviewer: What are your weaknesses?
-text:I have a problem with my hands. I have a hard time dealing with hard work.	labels:Interviewer: We will find a solution for that. How much do you expect to earn?
-text:I want to earn around $1000.	labels:Interviewer: Excellent. Well, you are hired. We will provide you with all the necessary training.
-text:Thank you.	labels:Interviewer: You are welcome.	episode_done:True
-text:Interviewer: In your role as a financial assistant, you need to know something about accounting systems. Can you tell us about your knowledge of accounting systems?\nI have in my previous job worked in visma spcs.	labels:Interviewer: What did you do in visma spcs?
-text:I took care of the current accounting and did payroll runs every month.	labels:Interviewer: Okay, that sounds promising.
-text:I also worked in receivables and payables.	labels:Interviewer: What do you mean by receivables and payables?
-text:I was responsible for the payments and receipts of all invoices.	labels:Interviewer: You mentioned that you do payroll runs. What does it mean?
-text:I had to run the payroll report and then adjust the tax and social security.	labels:Interviewer: Okay, that sounds good.
-text:Then I also worked in purchasing, I had to order the material for production.	labels:Interviewer: Okay, amazing.
-text:I also worked in production, I had to check the products and then I send them to the warehouse.	labels:Interviewer: You really have a lot of experience.
-text:Yes, I think it is very fun to work with this.	labels:Interviewer: I can really see that.
-text:In my previous job I also worked in purchasing, I also had to order the material for production.	labels:Interviewer: Okay, sounds very good.
-text:Yes and now I really want this job.	labels:Interviewer: I can tell, thank you.	episode_done:True
-text:Interviewer: In your role as a teacher, you need to know something about social studies. Can you tell us about your knowledge of social studies?\nI have always been interested in society. And I am also interested in policies that affect our society.	labels:Interviewer: Interesting. When you say society, what do you think then. You also say politics, what is it about politics that interests you?
-text:I am interested in how society is governed, what affects us who live and live in it.	labels:Interviewer: Thank you, you are therefore interested in how society is governed and how we are affected by decisions. What do you think a teacher should be more aware of?
-text:I think a teacher should be more aware of how decisions that affect society are made. And what the consequences of these decisions are.	labels:Interviewer: In this way, you want teachers to be better informed about decisions and the consequences of these decisions. Do you also want to be informed as a teacher?
-text:Yes, I want to be well informed as a teacher. I want to make sure that my students are aware of what is going on in society.	labels:Interviewer: Thank you very much for this interview, it was very interesting.	episode_done:True
-text:Interviewer: If you were to describe in your own words what a waiter does, what would you say then?\nA waiter's main task is to give the customer a pleasant experience. To make sure they have the good ones and get what they want. The task includes taking orders and serving food and drink.	labels:Interviewer: Do you have a lot of experience with this?
-text:I have 15 years of experience in the waiter profession. I have worked in both large and small restaurants over the years.	labels:Interviewer: What service do you want when you are out eating at a restaurant?
-text:I want the waiter to be friendly and attentive. I also want them to know what they are doing.	labels:Interviewer: What do you think is the most important feature of a good waiter?
-text:The most important thing is that they have good communication skills. This is so they can understand the customer's needs and work with them to make sure they get what they want.	labels:Interviewer: What do you think is the most important thing a waiter should do?
-text:They should take orders, serve food and drinks, and clear the table when the customers are done.	labels:Interviewer: What do you think is the most important thing a waiter should not do?
-text:They should not let the customers wait too long for their food or drinks. They should also not ignore people when they are trying to get their attention.	labels:Interviewer: What is the best thing about being a waiter?
-text:It's good to make people happy. It's also nice to get paid for doing it.	labels:Interviewer: What is the biggest challenge in this profession?
-text:The biggest challenge is dealing with rude customers. They can be difficult to deal with.	labels:Interviewer: What do you like about your profession	episode_done:True
-text:Interviewer: If you were to describe in your own words what a store employee does, what would you say then?\nA store employee makes sure that the store's shelves are well stocked, that all deliveries are taken care of and perhaps you also order new goods. The tasks also include helping customers fix things in a pleasant way.	labels:Interviewer: What do you think is a good customer service?
-text:Good customer service for me is that you take time for the customer and are polite and nice. You try to help the customer as best you can and you offer a smile. It is important that the customer feels seen and taken care of.	labels:Interviewer: So good, it sounds like you have a good track record of customer service.
-text:Yes, I am really proud of what I do.	labels:Interviewer: How do you know if the customer is satisfied with your service?
-text:Well, I think that it is important to ask them if they are satisfied. It is also important to follow up the next time they come into the store.	labels:Interviewer: You mean you try to get in contact with them?
-text:Yes, I do. If they are satisfied, they will probably want to come back to the shop.	labels:Interviewer: What is your favorite part of your job?
-text:My favorite part of the job is to make sure that all deliveries are taken care of and that the store is clean and bright.	labels:Interviewer: What is your least favorite part of your job?
-text:My least favorite part is when there are many customers in the store at the same time. It can be difficult with all the people in the store.	labels:Interviewer: What do you think are the most important attributes of a good store manager?
-text:A good store manager must have a good knowledge of the products in the shop, have good customer skills and be able to motivate employees.	labels:Interviewer: Do you think it is important	episode_done:True
+text:If you were to describe in your own words what a teacher does, what would you say then?\nLeads teaching and helps students.	labels:How do you think you help students best?
+text:By seeing each student as a unique individual.	labels:It sounds like a good setting.
+text:Yeah, it's great.	labels:And you are also a student.
+text:Yes, I am.	labels:What kind of student are you?
+text:A good one.	labels:What makes you a good student?
+text:I go to school and listen to my teachers.	labels:And, if you were to describe in your own words what a good student does, what would you say then?
+text:Goes to school and listens to their teachers.	labels:What kind of teacher do you think is the best?
+text:A good one.	labels:So, it sounds like you respect your teachers a lot.
+text:Yes, I do.	labels:And what kind of teacher do you think is the worst?
+text:A bad one.	labels:What makes a teacher bad?	episode_done:True
+text:For the position as bartender, we have thought that you should work with managing the cashier. How do you feel about it?\nNo problem, when you say manage the cash register do you mean to charge or do you mean to make a reconciliation at the end of the day?	labels:Both and, charge the customer but after closing close the reconciliation for the day and see that the checkout is correct.
+text:I did it at my old workplace so there are no problems.	labels:Tell us a little about your old workplace and what tasks you had there.
+text:I worked in a hotel. I used to charge the customer and then I would close the cash register and then see that the amount is correct.	labels:Ok, so you have experience with that, but tell us a little about the hotel.
+text:It was a little hotel, I worked there for 4 years, I used to work there from 10am to 6pm.	labels:Ok. What did you do after 6pm?
+text:I had to clean the bar and the tables, I also had to wash the glasses and mugs.	labels:Did you have a supervisor?
+text:Yes I did, she was a very nice person, she was a woman of about 40 years old. She was very nice to me, she used to give me recommendations for some places to go.	labels:What else did you do there?
+text:In the weekends I used to work from 10am to 11pm, on Sundays from 10am to 4pm.	labels:Ok, so on the weekends you worked from 10am to 11pm.	episode_done:True
+text:In your role as a preschool teacher, you need to know something about relaxation exercises. Can you tell us about your knowledge of relaxation exercises?\nI have used something called winter rest. These are relaxation exercises designed for children.	labels:It sounds interesting. Can you tell me more.
+text:Winter rest is a relaxation exercise. Relaxation is important for the children to get to know their body and have a quiet and safe time at preschool	labels:That's positive.
+text:It helps them to deal with stress. It helps them to deal with feelings that they have. Sometimes they are angry or sad or scared. Winter rest helps them to deal with this.	labels:What is winter rest?
+text:Winter rest is a relaxation exercise for preschool children.	labels:Can you tell us more about it?
+text:It is a relaxation exercise for preschool children that is designed to give them a quiet and safe time at preschool.	labels:Is it an exercise that the children just do or does someone lead them through it?
+text:It is an exercise that the teachers guide the children through.	labels:Do the teachers just do it with the children or do they also give them feedback?
+text:The teachers also give feedback to the children.	labels:Is there anything else you can tell us about winter rest?	episode_done:True
+text:What are your best qualities?\nI am observant, quick and easy to talk to.	labels:Being observant is a good trait as a bartender. What do you think is important about that quality in the role of bartender?
+text:By keeping an eye on the customers and seeing who does not need to drink more, you can avoid trouble. It is also important that customers who want to order are allowed to do so. Good for sales but also customer satisfaction.	labels:Yes, it is important that the customer is satisfied and comes back. Very good answer.
+text:Thank you.	labels:What are your weaknesses?
+text:I am too friendly. I often get too involved with the customers, especially the regulars.	labels:That's a good weakness to have. Being too friendly is not always bad. The regulars will appreciate it. It is important to know your customers. Why is communication important?
+text:Good communication is important for building a relationship with the customer. Customers who want to talk are usually happy. Happy customers are good for business.	labels:Yes, it is important to make the customer feel at ease. Very good answer.
+text:Thank you.	labels:What do you think you will find hardest about this job?
+text:I will find it hard to keep up with the schedule and remembering where everything is, but I am willing to learn and I am a quick learner.	labels:You will learn quickly with the help of your co-workers and manager, don't worry about that.	episode_done:True
+text:In your role as a care assistant, you need to know something about home care. Can you tell us about your knowledge of home care?\nResidents who live at home but need support in their everyday lives can receive home care. You can, for example, get help with medicine, activities, cleaning, and mo	labels:What is important to keep in mind when working in the home care service?
+text:To have a good view of people, like to work with people, think it's ok to stay in other people's homes and to work with different task	labels:How do you see the need to stay in other people's homes, sometimes alone with the caregiver?
+text:It is important to be very open for this, because you are in someone else's home, where you are not used to. You have to respect the other person's home and be very open for it. You have to respect the other person's wishes and be able to work with them	labels:How important is it to think it's ok to stay in other people's homes?	episode_done:True
+text:If you were to describe in your own words what a financial assistant does, what would you say then?\nManage invoices, reminders and debt collection claims. Manage receipt and payment via plusgiro.scan / post invoices.	labels:Which financial system do you work with?
+text:Aggressive unit4 erp	labels:How many years of experience do you have?
+text:2 yea	labels:How would you describe your current job?
+text:Challenging. I have to learn quickly.	labels:What do you like about your job?
+text:I like that I get to learn new things and that I get to be in contact with people in various industries.	labels:What do you dislike about your job?
+text:The stress that comes with the job, but it is expected.	labels:Do you want to continue working in the same field in the future? If so, why? If not, why not?	episode_done:True
+text:How do you think a good boss should be?\nGive me freedom under responsibility.	labels:What does freedom under responsibility mean?
+text:That the boss trusts that I take responsibility and do my job without constant monitoring.	labels:Why is freedom of responsibility important to you?
+text:I can do my job better if I am given freedom. I do not have to go through a lot of approvals or checking.	labels:Sometimes your manager will have to check your work. Will you be able to deal with that?	episode_done:True
+text:For the job as a waiter, we have thought that you should work with menu planning. How do you feel about it?\nYes I can imagine that	labels:How nice! Have you done it before?
+text:No I have not	labels:What do you think is important when it comes to menu planning?
+text:It is important to have an overview over the whole menu.	labels:That's right. Can you please take a look at this menu?(shows the menu)
+text:Yes, I can see that	labels:OK. Now I have a few questions about it. What is the main dish?
+text:It is the steak with green pea	labels:How many vegetables are there?
+text:Three. There are green peas, sweet corn and broccoli	labels:What are the drinks?
+text:There are two kinds of drinks. There are water and fruit juic	labels:What is the dessert?
+text:It is the apple pie with vanilla ice cream	labels:How many main dishes are there?
+text:There are 3 main dishes. There is steak with green peas, chicken with vegetables and fish with vegetabl	labels:How many vegetables are there?	episode_done:True
+text:If you were to describe in your own words what a receptionist does, what would you say then?\nI would probably say that a receptionist is the face of a company. A receptionist must be well-informed to be able to help customers further, for example by phone so that he connects the customer to the right person or can answer simple questions that the customer wants help with, and patient but determined with customers who may be stressed or annoyed. A receptionist needs to be good at administrative work as well.	labels:You mentioned that a receptionist needs to be patient but determined with customers who may be stressed or annoyed, what do you mean then? Can you develop your answer a bit?
+text:Well, I mean, of course, you should always be nice to the customers in the first place, but if the customer, for example, becomes unpleasant because he does not like your answer then you must be confident in your role and that you have responded to the best of your ability and be able to be determined towards the customer that you unfortunately can not give him any other answer than the one you have given.	labels:Ok, I understand, would you say you have that security?
+text:I believe so yes.	labels:What kind of personality do you need to have to be a good receptionist?
+text:I think you need to be a people person, meaning that you are good at communicating with people, you are not shy or nervous when you are in front of many people, and that you are not afraid of confrontation.	labels:How would you describe the work environment in your workplace?
+text:The work environment is very nice. We have a lot of freedom in what we do, there are no strict rules for us to follow. We can choose if we want to work with customers or not, if we want to work full-time or part-time, and we have a lot of social events and competitions within the company and between the companies in our group. We get help from each other and we help each other out if we need it.	labels:What is your favorite part of your job?
+text:My favorite part of the job is that I get to meet new people all the time and get new experiences from it such as visiting new places and such.	labels:Have you ever had a situation where you had to deal with a difficult customer?	episode_done:True
+text:In your role as a janitor, you need to know something about building cleaning. Can you tell us about your knowledge of building cleaning?\nI have worked with both cleaning, sanitation and renovation.	labels:How could that experience help you in your new job?
+text:Knowledge of the environment of a construction site facilitates the planning of my work. The habit of wearing gloves with both cleaning and construction tools is also very helpful.	labels:In which work environments have you previously worked and with which tools?
+text:I have worked in the following area	labels:What do you like about your work as a janitor?
+text:I like to work as a janitor. I like that my job is heavily dependent on my own efforts. I also like that my job is very flexible.	labels:How do you like your colleagues?
+text:I like my colleagues and we get along well.	labels:What do you dislike about your work as a janitor?
+text:I dislike the fact that my work is very hard and physical, and that I am always on my feet.	labels:What would you say is your greatest strength?
+text:My greatest strength is that I am very flexible and adaptable.	labels:What would you say is your greatest weakness?
+text:My greatest weakness is that I am, at times, very impatient.	labels:What do you think of the people who use the buildings you clean?
+text:I think that the people who use the buildings I clean are very important and special to me.	labels:Can you tell us about a time when you had to deal with a difficult customer? How did you handle it?	episode_done:True
+text:What are your best qualities?\nI am trustworthy, caring and positive.	labels:Who in your current workplace would say that.
+text:Especially my co-workers but also my boss I think.	labels:What a positive.
+text:Yes.	labels:What is one of your proudest achievements?
+text:I can't really give you one achievement. I am proud of all my achievements.	labels:You are proud of all of them?
+text:Yes, of course.	labels:Okay. What about your current job?
+text:I am a programmer and work for a big software company.	labels:I didn't know that. What do you do there?
+text:I develop applications for mobile devices.	labels:That is nice. Do you have a lot of work to do?	episode_done:True
+text:If you are going to work as a park manager, it is good if you have experience of garden advice. Can you describe your experience in this area?\nI have a large yard with a garden that needs to be planned and managed. Pleasant green spaces are important to me.	labels:What differences do you see with your own large garden and all the city's parks?
+text:The size of course, but also the target group and number of visitors.	labels:Can you describe the target group for the city's parks and your image of what is important to them?
+text:The visitors to the city parks are much larger groups. I think especially of young people.	labels:How do you see your role as a park manager?
+text:I see my role as an opportunity to put my skills to use. I am very interested in the task.	labels:Do you have any experience of coordinating activities?
+text:Yes, I have experience of coordinating the work of several specialists. I have also worked with volunteers.	labels:What are their roles in your opinion?
+text:Volunteers are very important for the smooth running of the garden centre. They help to maintain the green spaces and regularly help with the planting.	labels:What do you think are the tasks of a park manager?
+text:The tasks are to manage the maintenance of green areas, to create areas with pleasant greenery, to coordinate volunteers, to plan events and to maintain contact with the public.	labels:Can you describe the qualities that are needed to be a good park manager?	episode_done:True
+text:What are your best qualities?\nI am very quick to learn, easy to get to know people and can keep a lot of balls in the air.	labels:Can you give an example of when you have had to keep a lot of balls in the air and how you managed it?
+text:I used to work as an assistant nurse and then there was always a lot to do. There was often too little staff and sometimes it could be that I needed to help three patients at the same time. To solve it, I always focused on breathing, taking one thing at a time and completing one task before starting the next. It worked well for me!	labels:So then you have been involved in working at a high pace. How do you think you would have solved it to stand in a bar when ten people are trying to get your attention at the same time?
+text:I think I would have practiced a lot beforehand to find a solution to it. I have been a bartender for a few months now and have had a lot of time to practice. I have learned that it is important to listen to what they say, to be able to understand them and to help them as good as possible.	labels:Can you give an example of when you have been able to help someone as good as possible?
+text:I remember one time when a customer asked for a drink I hadn't heard of before. I looked it up on Google and found out how to make it. I was able to make a very good cocktail for him and he was very satisfied.	labels:So then you have been able to make a lot of new cocktails lately?
+text:Yes, I have learned a lot of new cocktails lately. In fact, I think I can now make almost all the cocktails from my bar menu.	labels:That is very good. Can you now tell me about your weakest qualities?
+text:I can be a bit impulsive, which can sometimes lead to bad decisions.	labels:What do you think about that? How do you think you could solve it?	episode_done:True
+text:If you were to describe in your own words what a teacher does, what would you say then?\nTeaches, supports, a	labels:Which is the hardest thing do you think?
+text:The assessment takes a lot of time and becomes subjective no matter what you do...	labels:How do you mean?
+text:Well, I remember in my previous school where they used to do it in a fixed percentage, not matter what. For example, if the student had to get 80% in order to pass the test, he would get it no matter how he did it. Even if he had to cheat.	labels:Can you give me an example of that?
+text:Well, for example, in one of the tests I had to grade, there was a student that had to score 70% in order to pass the test. He failed it in the first try, but in the second try he managed to get a 75%.	labels:75% is a fail right?
+text:Well, it depends, since he was supposed to get a 70%, he still failed it. But the teacher gave him a 75%, because he "did his best".	labels:So what happened?
+text:In the third try the student got a 100% and the teacher gave him an 80% saying that he still failed it. You see? That's why I hate subjective grading.	labels:Ok, let's talk about something else now. What do you think about cheating?	episode_done:True
+text:What motivates you at work?\nThat every day is unpredictable.	labels:Unpredictable it sounds exciting. Can you develop it a little more?
+text:I never know in advance what will happen. Who needs my help. How many need my help or with what. I need to be able to think fast to find solutions, sometimes other times I have to work harder to find an answer.	labels:One could say that the work is varied perhaps?
+text:Yes, I like the variety. I like to learn new things and meet new people.	labels:You like to meet new people?
+text:Yes, every day I meet different people and I like to help them.	labels:You like to help others?
+text:Yes, I like to help others. To me it is important that others can work well and enjoy their work.	labels:Interesting, you like to help others. What was your last project?
+text:I helped a group of people to use a new system for their work. The system had been bought and the users were not happy with it.	labels:You helped a group of people to use a new system for their work. Did you help them with the system or did you help them with something else?
+text:I helped them to use the system and set up the system so that they could work with it.	labels:You helped them to use the system. Who was this group of people?
+text:They were from another department. They were from the logistics department.	labels:From the logistics department, that was a big group of people?	episode_done:True
+text:What motivates you at work?\nI like when there is a high tempo and when I get a chance to move around at work. I do not like to sit still.	labels:Ok. The postman job can definitely be fast-paced. But how do you view the aspects of the work that involve talking to the customers, those who will receive the mail?
+text:I like to have contact with people and then I get a chance to practice more in Swedish.	labels:The top. This sounds good. I also need to practice more in my Swedish!
+text:Haha.	labels:Ok. Tell me about your previous job. What did you do there?
+text:I was a cashier in a grocery store.	labels:Ok. Was it difficult to find this job? What kind of jobs did you apply for?	episode_done:True
+text:For the position as a nurse, we have thought that you should work with pain treatment. How do you feel about it?\nPain management is one of the most common tasks as a nurse, and one of the most important. Having a good education and experience in pain relief is therefore a must as a nurse.	labels:Why do you think pain relief is important.
+text:Pain is a subjective experience that can be both difficult to describe as a patient and difficult to treat as a healthcare professional. Therefore, it is both important to know how to help the patient describe their pain and to know how the pain can then be treated.	labels:Good answer.
+text:Thank you.	labels:We have also thought that you should work with patients that are older than 60 years. How do you feel about it?
+text:I am not sure how to feel about this. I think that older people can be just as healthy as younger people, but they can be more prone to certain diseases, such as cancer and diabetes. Working with them might be difficult, but I am sure that it can be done.	labels:Why do you think they might be more prone to certain diseases?
+text:I think this is because, as we age, our immune system weakens. This is why we are more prone to infections and diseases.	labels:Good answer. We have thought that you should work with people that are mentally ill too. How do you feel about it?
+text:I think that working with mentally ill people is one of the most important tasks for a nurse. It can be both hard and rewarding at the same time.	labels:Why do you think it is both hard and rewarding at the same time?	episode_done:True
+text:If you are going to work as a warehouse worker, it is good if you have experience of heavy lifting. Can you describe your experience in this area?\nI have always been strong and train a lot in the gym. I have a trainer who has shown me how to lift heavy without hurting my back. For a while I worked in a market garden so I am used to heavy lifting.	labels:Is this something you enjoy?
+text:Yes I enjoy body work, I like to be active and move and challenge myself.	labels:So good, it sounds like you are well suited to work in warehouses.
+text:Yes, I like to be outside and I like the physical work, I think it will be a good job for me.	labels:So you like to be active and like the physical work, do you like to be outdoors?
+text:Yes I like to be outdoors and I like to be active and I like the physical work.	labels:So we have established that you enjoy physical work and being active. What about working outdoors?
+text:I like being outdoors and I like being active, I like the physical work.	labels:Yes, you have already mentioned that. Can you tell me something about your experience in this area?
+text:I have always been active and I have always been strong and I have always liked working outdoors.	labels:What about working outdoors?
+text:I like working outdoors and I like being active and I like the physical work.	labels:Can you describe your experience in this area?
+text:I have always been strong and active and I enjoy working outdoors.	labels:Tell me about your experience in this area?	episode_done:True
+text:If you were to describe in your own words what a teacher does, what would you say then?\nA teacher supports his students so that they reach set goals.	labels:How do you mean? Can you develop it more concretely?
+text:By being clear with the student's results in relation to the goals, to show that I believe in the student (high but realistic expectations). Build good professional relationships with students, but not to be friends. To communicate clearly based on the student's level. To be consistent and reliable.	labels:Interesting. I would like to deepen that.
+text:A teacher is to support his students in reaching their goals. To do this the teacher has to be clear with the student about the results in relation to the goals, to be convinced of the student's potential. The teacher has to build good professional relationships with the student, but not to be friends. To communicate clearly based on the student's level. To be consistent and reliable.	labels:I see. Could you give me an example?
+text:Well, one of my students is very talented, but he is not very confident in himself. So I set both high but realistic expectations for him. I also show him that I believe in him, so he gradually increases his confidence. I do not treat him as a child, but as an equal. We have good professional relationships, so he feels comfortable approaching me when he has problems. I communicate clearly with him based on his level, giving him challenging tasks but also taking into account his level of skills. I am consistent and reliable, so he knows that if I say I will do something, I will do it.	labels:What are the advantages of the constructivist approach?	episode_done:True
