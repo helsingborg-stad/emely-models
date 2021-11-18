@@ -1,0 +1,10 @@
+**/*.checkpoint
+**/*.unvacuumed
+**/wandb
+.git/
+
+ParlAI/data/
+ParlAI/data/models/
+models/blender_90M/
+models/blender_400Mdistill/
+models/emely-runs/

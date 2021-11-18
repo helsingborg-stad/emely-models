@@ -160,17 +160,3 @@ build-fika.bat
 build-interview.bat
 
 # NOTE: WHEN DEPLOYING A MODEL - UNCOMMENT IT HERE
-ParlAI/data/models/
-models/runs
-models/model-runs
-models/fika-model
-models/interview-model
-models/blender_90M
-models/blender_400Mdistill
-models/leafy-frog
-models/yoghurt
-models/major-wood
-models/wandering-disco
-models/emely-runs
-models/wandering-disco
-models/model-runs

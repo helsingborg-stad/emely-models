@@ -1,2 +1,2 @@
-models/model-runs/
-models/model-runs2/
+**/*.checkpoint
+**/*.unvacuumed
