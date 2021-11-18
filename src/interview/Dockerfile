@@ -1,6 +1,6 @@
 FROM parlai-emely-base-image:latest
 
-COPY models/leafy-frog ./models/interview-model
+COPY models/jani_peralez ./models/interview-model
 WORKDIR /src/interview/
 
 ENTRYPOINT ["uvicorn"]
