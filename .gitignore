@@ -159,4 +159,4 @@ Thumbs.db
 build-fika.bat
 build-interview.bat
 
-# NOTE: WHEN DEPLOYING A MODEL - UNCOMMENT IT HERE
+/models/
