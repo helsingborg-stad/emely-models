@@ -23,7 +23,7 @@ app = FastAPI()
 logging.basicConfig(level=logging.NOTSET)
 
 # Opts for model loading
-model_path = Path(__file__).resolve().parents[2] / 'models/interview-model'
+model_path = Path(__file__).resolve().parent / 'models/interview-model'
 opt_path = model_path / 'model.opt'
 opt = Opt.load(opt_path.as_posix())
 opt['skip_generation'] = False

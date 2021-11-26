@@ -1,7 +1,6 @@
-FROM parlai-emely-base-image:latest
+FROM eu.gcr.io/emely-gcp/parlai-emely-base-image:latest
 
-COPY models/blender_90M ./models/blender_90M
-WORKDIR /src/fika/
+COPY models/blender_90M ./app/models/blender_90M
 
-ENTRYPOINT ["uvicorn"]
-CMD ["api:app", "--host", "0.0.0.0", "--port", "8080"]
+COPY src/fika/api.py ./app/main.py
+WORKDIR /app

@@ -22,7 +22,7 @@ app = FastAPI()
 logging.basicConfig(level=logging.NOTSET)
 
 # Opts for model loading
-model_path = Path(__file__).resolve().parents[2] / 'models/blender_90M'
+model_path = Path(__file__).resolve().parent / 'models/blender_90M'
 opt_path = model_path / 'model.opt'
 opt = Opt.load(opt_path.as_posix())
 

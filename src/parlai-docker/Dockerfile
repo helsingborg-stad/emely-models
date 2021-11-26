@@ -1,16 +1,12 @@
-FROM python:3.7-stretch
-ENV PYTHONUNBUFFERED 1
+FROM tiangolo/uvicorn-gunicorn-fastapi:latest
 
-COPY ParlAI ./ParlAI
-COPY src ./src
-COPY requirements.txt ./requirements.txt
+COPY ParlAI ./app/ParlAI
 
 RUN pip install --upgrade pip
-WORKDIR /ParlAI
-RUN pip install .
+RUN pip install app/ParlAI/.
 
-WORKDIR /../
-RUN pip install -r requirements.txt
 
 ENV LC_ALL=C.UTF-8
 ENV LANG=C.UTF-8
+
+ENV PORT=8080

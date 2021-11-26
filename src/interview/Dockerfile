@@ -1,7 +1,6 @@
-FROM parlai-emely-base-image:latest
+FROM eu.gcr.io/emely-gcp/parlai-emely-base-image:latest
 
-COPY models/jani_peralez ./models/interview-model
-WORKDIR /src/interview/
+COPY models/jani_peralez ./app/models/interview-model
 
-ENTRYPOINT ["uvicorn"]
-CMD ["api:app", "--host", "0.0.0.0", "--port", "8080"]
+COPY src/interview/api.py ./app/main.py
+WORKDIR /app
