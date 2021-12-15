@@ -160,3 +160,4 @@ build-fika.bat
 build-interview.bat
 
 /models/
+.gcloudignore
