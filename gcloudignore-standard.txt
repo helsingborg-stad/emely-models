@@ -1,0 +1,7 @@
+**/*.checkpoint
+**/*.unvacuumed
+**/wandb
+.git/
+
+ParlAI/data/
+ParlAI/data/models/

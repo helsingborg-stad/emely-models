@@ -1,0 +1,29 @@
+steps:
+  - name: "gcr.io/cloud-builders/docker"
+    entrypoint: "bash"
+    args:
+      [
+        "-c",
+        'docker build --build-arg="model=$_MODEL" -t eu.gcr.io/emely-gcp/models/$_SERVICE_NAME:latest .',
+      ]
+    timeout: "1200s"
+  - name: "gcr.io/cloud-builders/docker"
+    args: ["push", "eu.gcr.io/emely-gcp/models/$_SERVICE_NAME:latest"]
+    timeout: "180s"
+  - name: "gcr.io/cloud-builders/gcloud"
+    args:
+      [
+        "run",
+        "deploy",
+        "$_SERVICE_NAME",
+        "--image=eu.gcr.io/emely-gcp/models/$_SERVICE_NAME:latest",
+        "--platform=managed",
+        "--region=europe-west3",
+        "--allow-unauthenticated",
+        "--memory=4Gi",
+        "--max-instances=3",
+        "--cpu=4",
+      ]
+    timeout: "1200s"
+substitutions:
+  _MODEL: required

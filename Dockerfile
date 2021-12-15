@@ -1,9 +1,10 @@
-FROM parlai-emely-base-image:latest
+FROM eu.gcr.io/emely-gcp/parlai-emely-base-image:latest
 
-ARG MODEL_DIR=models/blender_90M
+ARG model
+RUN test -n "$model"
 
-COPY $MODEL_DIR ./app/$MODEL_DIR
-ENV MODEL_PATH=/app/app/$MODEL_DIR
+COPY "models/$model" ./app/$model
+ENV MODEL_NAME=/app/app/$model
 
 COPY setup.py ./app/setup.py
 
