@@ -15,7 +15,7 @@ from parlai.core.opt import Opt
 from parlai.core.params import ParlaiParser
 from parlai.core.script import ParlaiScript, register_script
 from parlai.utils.io import PathManager
-from parlai.agents.emely.emely import EmelyAgent
+from src.emely.agent import EmelyAgent
 from parlai.utils.bpe import SubwordBPEHelper
 
 def export_model(opt: Opt):
