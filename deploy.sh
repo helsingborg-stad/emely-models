@@ -22,7 +22,7 @@ python src/utils/generate_gcloudignore.py --model $model;echo "Generated a .gclo
 if [ $service = "fika" ];
 then
     echo "deploying to fika...";
-    gcloud builds submit --config=cloudbuild.yaml --substitutions=_MODEL=$model,_SERVICE_NAME="blender-90M";
+    gcloud builds submit --config=cloudbuild.yaml --substitutions=_MODEL=$model,_SERVICE_NAME="blender-90m";
 elif [ $service = "interview" ];
 then
     echo "deploying to interview...";
