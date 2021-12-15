@@ -4,7 +4,9 @@ from parlai.agents.transformer.transformer import TransformerGeneratorAgent
 from parlai.core.opt import Opt
 from parlai.core.message import Message
 from parlai.core.worlds import validate
+from parlai.core.torch_generator_agent import SearchBlocklist
 import logging
+from typing import List
 
 
 class EmelyAgent(TransformerGeneratorAgent):
@@ -133,4 +135,25 @@ class EmelyAgent(TransformerGeneratorAgent):
             return
 
         raise RuntimeError("Unexpected case in self_observe.")
+
+    
+    def set_block_list(self, block_list: List[str]):
+        """Sets the beam_block_list for Emely
+
+        Args:
+            block_list (List[str]): ngrams to block during generation
+        """
+
+        beam_block_list = SearchBlocklist(self.dict)
+
+        try:
+            for line in block_list:
+                beam_block_list.add(line.strip())
+        except IOError:
+            logging.error(
+                f"Could not load beam block_list. Using empty block_list."
+            )
+        self.beam_block_list = beam_block_list
+        return
+
         

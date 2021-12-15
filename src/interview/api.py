@@ -3,7 +3,7 @@ from fastapi import FastAPI, Response, status, BackgroundTasks
 from pydantic import BaseModel
 from pathlib import Path
 
-from parlai.agents.emely.emely import EmelyAgent
+from src.emely.agent import EmelyAgent
 from parlai.core.opt import Opt
 import logging
 import torch
