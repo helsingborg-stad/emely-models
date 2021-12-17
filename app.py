@@ -22,7 +22,7 @@ app = FastAPI()
 logging.basicConfig(level=logging.NOTSET)
 
 # Opts for model loading
-model_path = Path(__file__).resolve().parent / "models" / os.environ["MODEL_NAME"]
+model_path = Path(__file__).resolve().parent / "models" / os.environ.get("MODEL_NAME", 'blender_90M')
 opt_path = model_path / "model.opt"
 opt = Opt.load(opt_path.as_posix())
 opt["skip_generation"] = False
@@ -47,6 +47,8 @@ async def startup_event():
 
 @app.post("/inference")
 async def inference(msg: ApiMessage):
+    if msg.block_list is None:
+        msg.block_list = []
 
     # Sets beam_block_list
     if len(msg.block_list) > 0:
