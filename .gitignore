@@ -159,5 +159,6 @@ Thumbs.db
 build-fika.bat
 build-interview.bat
 
-/models/
+/models/model-runs/*
+!/models/model-runs/jani_peralez/
 .gcloudignore

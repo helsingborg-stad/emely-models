@@ -5,5 +5,5 @@ setup(
     packages=find_packages(),
     version="0.5.0",
     description="Emely Models",
-    author="Alexander Hagelborn",
+    author="NordAxon",
 )

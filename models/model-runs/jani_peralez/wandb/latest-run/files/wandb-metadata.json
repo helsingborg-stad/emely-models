@@ -1,0 +1,26 @@
+{
+    "os": "Linux-5.11.0-40-generic-x86_64-with-glibc2.31",
+    "python": "3.9.6",
+    "heartbeatAt": "2021-11-17T15:48:52.282692",
+    "startedAt": "2021-11-17T15:48:51.360265",
+    "docker": null,
+    "gpu": "NVIDIA GeForce RTX 3090",
+    "gpu_count": 1,
+    "cpu_count": 20,
+    "cuda": null,
+    "args": [
+        "-f",
+        "/home/marvin/.local/share/jupyter/runtime/kernel-8db635fc-d7e2-4cae-9360-7d4c61b577e0.json"
+    ],
+    "state": "running",
+    "program": "<python with no main file>",
+    "git": {
+        "remote": "git@github.com:NordAxon/emely-models.git",
+        "commit": "0e7f806ade461a1fae22a3c33e0f05c2bf7d97e2"
+    },
+    "email": "info@nordaxon.com",
+    "root": "/home/marvin/emely/emely-models",
+    "host": "marvin-computer",
+    "username": "marvin",
+    "executable": "/home/marvin/miniconda3/envs/parlai/bin/python"
+}
