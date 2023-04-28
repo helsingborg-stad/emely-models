@@ -146,7 +146,7 @@ wandb==0.12.2
 wcwidth==0.2.5
 websocket-client==1.2.1
 websocket-server==0.5.1
-werkzeug==2.0.1
+werkzeug==2.2.3
 wheel==0.37.0
 yacs==0.1.8
 yaspin==2.1.0
