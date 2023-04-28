@@ -60,7 +60,7 @@ names==0.3.0
 nest-asyncio==1.5.1
 nltk==3.6.2
 numpy==1.20.3
-oauthlib==3.1.1
+oauthlib==3.2.2
 olefile==0.46
 omegaconf==2.0.6
 packaging==21.0
