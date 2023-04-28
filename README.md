@@ -1,14 +1,18 @@
-## The models used by EmelyBackend
+The models used by EmelyBackend
 
-# WAndb api key
-fc7bf1f22555377e0a2d337667eadd6547da5c97
+# Overview
+This project was developed by NordAxon for Helsingborg Stad 2021-2022, and open sourced in April 2023.
 
-### Installing the repo locally
+Emely is a Conversational AI System for practicing job interviews in Swedish. The dialogue model is a finetuned Blenderbot 1.
 
-Make sure your on Linux or WSL
+The project is separated in 3 repositories: [emely-frontend](https://github.com/helsingborg-stad/emely-frontend), [emely-backend](https://github.com/helsingborg-stad/emely-backend) & [emely-models](https://github.com/helsingborg-stad/emely-models).
+
+## Installing the repo locally
+
+Make sure you're on Linux or WSL
  ´´´sh install.sh´´´´
 
-### Deploying a model!
+## Deploying a model!
 
 sh deploy.sh -m MODEL_NAME -s SERVICE
 
@@ -16,7 +20,7 @@ where MODEL_NAME is the name of a directory under models/
 SERVICE is either fika or interview
 
 
-### Project structure
+## Project structure
 ├── LICENSE
 ├── README.md          <- The top-level README for developers using this project.
 │
