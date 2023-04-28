@@ -21,6 +21,7 @@ SERVICE is either fika or interview
 
 
 ## Project structure
+```
 ├── LICENSE
 ├── README.md          <- The top-level README for developers using this project.
 │
@@ -30,7 +31,7 @@ SERVICE is either fika or interview
     ├── setup.py       <- setup file used to install parlai and it's dependencies properly
 |
 ├── src                <- Repo code
-
+```
 Files: 
 - app.py - FastAPI app to run an Emely model. Requires a environment variable MODEL_NAME to point to the model directory
 - deploy.sh - Use to deploy a new fika/interview model
