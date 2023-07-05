@@ -28,7 +28,7 @@ gitdb==4.0.7
 gitpython==3.1.23
 google-auth-oauthlib==0.4.6
 google-auth==1.35.0
-grpcio==1.40.0
+grpcio==1.53.0
 humanfriendly==9.2
 hydra-core==1.0.7
 idna==3.2
