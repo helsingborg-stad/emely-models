@@ -41,7 +41,7 @@ ipython==7.26.0
 jedi==0.18.0
 jinja2==3.0.1
 jmespath==0.10.0
-joblib==1.0.1
+joblib==1.2.0
 jsonlines==2.0.0
 jupyter-client==7.0.1
 jupyter-core==4.7.1
